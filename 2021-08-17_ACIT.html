@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<title>The performance of TSN in power system protection applications</title>
+
+		<!--<link rel="stylesheet" href="dist/reset.css">-->
+		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/black.css">
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/zenburn.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		<link rel="stylesheet" href="reveal.js/plugin/highlight/zenburn.css">
+		
+		<style>
+            .reveal .slides section .fragment.step-fade-in-then-out {
+                opacity: 0;
+                display: none; }
+            .reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+                opacity: 1;
+                display: inline; }
+        </style>
+		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			
+                <section>
+                    <h1> The Performance of Time-sensitive Networking in Power Grid Protection applications </h1>
+                </section>
+                
+<section data-markdown
+            data-separator="^\n\s*---\n$" 
+            data-separator-vertical="^\n\s*--\n$">
+<textarea data-template>
+                        
+# Background
+
+* Distinct performance requirements of applications
+    * Sometimes: strong-deterministic communication
+
+--
+
+## Evaluate TSN in a real-world application
+
+* Differential protection 
+                
+</textarea>
+</section>
+                
+<section>
+    <h1> Use case: Differential protection </h1>
+
+    <span class="fragment"></span>
+    <span class="fragment"></span>
+    <span class="fragment"></span>
+    <span class="fragment"></span>
+    <span class="fragment"></span>
+    <span class="fragment"></span>
+    <span class="fragment step-fade-in-then-out"></span>
+    <span class="fragment"></span>
+
+    <div data-animate data-src="figures/system_overview.svg">
+    <!--
+    {"setup": [
+    { "modifier": "size", "parameters": [ 800 ] },
+    { "element": "text",                "modifier": "attr", "parameters": [ {"size": "3"} ] },
+    { "element": "#eps",                "modifier": "opacity", "parameters": [ 1 ] },
+    { "element": "#lbl_prot_grid_seg",  "modifier": "opacity", "parameters": [ 1 ] },
+    { "element": "#g_power_comp",       "modifier": "opacity", "parameters": [ 0 ] },
+    { "element": "#ict",                "modifier": "opacity", "parameters": [ 0 ] },
+    { "element": "#g_network",          "modifier": "opacity", "parameters": [ 0 ] },
+    { "element": "#g_prot_control",     "modifier": "opacity", "parameters": [ 0 ] },
+    { "element": "#g_other_services",   "modifier": "opacity", "parameters": [ 0 ] },
+    { "element": "#ict_supply",         "modifier": "opacity", "parameters": [ 0 ] },
+    { "element": "#lbl_ict_sup",        "modifier": "opacity", "parameters": [ 0 ] },
+    { "modifier": "circle", "parameters": [ { "id": "marker1", "opacity": "0", "cx": 64.5, "cy": 95, "r": 15, "stroke": "green", "fill": "transparent"} ] },
+    { "modifier": "circle", "parameters": [ { "id": "marker2", "opacity": "0", "cx": 139.5, "cy": 95, "r": 15, "stroke": "green", "fill": "transparent"} ] },
+    { "modifier": "text",   "parameters": [ "Synchronous\nmeasurements", { "id": "txt_sync", "opacity": "0", "x": "155", "y": "45", "font-size": "7", "fill": "white" } ]},
+    { "modifier": "path",   "parameters": [ { "id": "path_a", "d": "M 64.5,95 L 103,64 L 103,41 L 130,15",  "stroke": "firebrick", "stroke-width": 2, "fill": "none", "opacity": "0" } ]},
+    { "modifier": "path",   "parameters": [ { "id": "path_b", "d": "M 139,95 L 103,64 L 103,41 L 130,15",  "stroke": "green", "stroke-width": 2, "fill": "none", "opacity": "0", "stroke-dasharray": "6,6" } ]},
+    { "modifier": "text",   "parameters": [ "Max. delay 5 ms\nMax. jitter 250 us\nZero losses", { "id": "txt_delay", "opacity": "0", "x": "155", "y": "40", "font-size": "7", "fill": "white" } ]}
+    ],
+    "animation": [
+    [],
+    [{ "element": "#g_power_comp",       "modifier": "opacity", "parameters": [ 1 ] }],
+    [{ "element": "#ict",                "modifier": "opacity", "parameters": [ 1 ] },
+     { "element": "#ict_supply",         "modifier": "opacity", "parameters": [ 1 ] },
+     { "element": "#lbl_ict_sup",        "modifier": "opacity", "parameters": [ 1 ] }],
+    [{ "element": "#g_network",          "modifier": "opacity", "parameters": [ 1 ] }],
+    [{ "element": "#g_prot_control",     "modifier": "opacity", "parameters": [ 1 ] }],
+    [{ "element": "#g_other_services",   "modifier": "opacity", "parameters": [ 1 ] }],
+    [{ "element": "#layer3",             "modifier": "opacity", "parameters": [ 0 ] }],
+    [{ "element": "#marker1",            "modifier": "opacity", "parameters": [ 1 ] },
+     { "element": "#marker2",            "modifier": "opacity", "parameters": [ 1 ] },
+     { "element": "#txt_sync",           "modifier": "opacity", "parameters": [ 1 ] }],
+    [{ "element": "#marker1",            "modifier": "opacity", "parameters": [ 0 ] },
+     { "element": "#marker2",            "modifier": "opacity", "parameters": [ 0 ] },
+     { "element": "#txt_sync",           "modifier": "opacity", "parameters": [ 0 ] },
+     { "element": "#path_a",             "modifier": "opacity", "parameters": [ 1 ] },
+     { "element": "#path_b",             "modifier": "opacity", "parameters": [ 1 ] },
+     { "element": "#txt_delay",          "modifier": "opacity", "parameters": [ 1 ] }]
+    ]
+    }
+    -->
+    </div>
+</section>
+
+<section data-markdown
+         data-separator="^\n\s*---\n$" 
+         data-separator-vertical="^\n\s*--\n$">
+<textarea data-template>
+                        
+# Goal
+
+Is TSN suitable to transmit measurement values of a DP application via a non-dedicated, long distance link?
+
+---
+
+## Approach
+
+1) Model of a DP application
+2) Analytical evaluation
+3) Verification using simulation
+                
+</textarea>
+</section>
+
+<section>
+                    <h1>DP Simulation model</h1>
+                    
+                    <span class="fragment"></span>
+                    <span class="fragment"></span>
+                    <span class="fragment step-fade-in-then-out"></span>
+                    <span class="fragment"></span>
+                    
+                    <div data-animate data-src="figures/sim-model.svg">
+                    <!--
+                    {"setup": [
+                    { "modifier": "size", "parameters": [ 800 ] },
+                    { "element": "#g_ethernet",                "modifier": "attr", "parameters": [ {"class": "fragment", "data-fragment-index": "0"} ] },
+                    { "element": "#g_tsn",  "modifier": "attr", "parameters": [ {"class": "fragment", "data-fragment-index": "1"} ] },
+                    { "element": "#g_pcp7",       "modifier": "attr", "parameters": [ {"class": "fragment", "data-fragment-index": "2"} ] },
+                    { "element": "#g_pcp6",                "modifier": "attr", "parameters": [ {"class": "fragment", "data-fragment-index": "3"} ] }
+                    ]}
+                    -->
+                    </div>             
+                </section>
+                
+                <section data-markdown
+                         data-separator="^\n\s*---\n$" 
+                         data-separator-vertical="^\n\s*--\n$">
+                    
+                    <textarea data-template>
+                        # TSN Configuration
+                        - Cycle time: 20 ms (corr. IED sending interval) <!-- .element: class="fragment" data-fragment-index="1" -->
+                            - PCP7: 7 us <!-- .element: class="fragment" data-fragment-index="1" -->
+                            - PCP6: rest <!-- .element: class="fragment" data-fragment-index="1" -->
+                        - TSN switches: <!-- .element: class="fragment" data-fragment-index="2" -->
+                            - Queue: 100 frames <!-- .element: class="fragment" data-fragment-index="2" -->
+                            - Processing delay: 5 us <!-- .element: class="fragment" data-fragment-index="2" -->
+                        - IEDs have perfect time sync <!-- .element: class="fragment" data-fragment-index="3" -->
+                            - measurement times(!) <!-- .element: class="fragment" data-fragment-index="3" -->
+                        
+                        ---
+                        
+                        # Performance indicators 
+                        
+                        - Max. one-way delay: 5 ms <!-- .element: class="fragment" data-fragment-index="1" -->
+                            - not considered <!-- .element: class="fragment" data-fragment-index="1" -->
+                        - Jitter <!-- .element: class="fragment" data-fragment-index="2" -->
+                            - Consequtive taken measurements <!-- .element: class="fragment" data-fragment-index="2" -->
+                        - Offset <!-- .element: class="fragment" data-fragment-index="3" -->
+                            - between arrival times of both messages in parallel <!-- .element: class="fragment" data-fragment-index="3" -->
+
+
+                    </textarea>
+                </section>
+                
+                <section>
+                    <h2> Max. queue size </h2>
+                    <img data-src="figures/q_size.png" alt="qsize" title="q size" width="800"/>
+                </section>
+                
+                <section>
+                    <h2> Arrival offset </h2>
+                    <img data-src="figures/offset.png" alt="qsize" title="q size" width="800"/>
+                </section>
+                
+                <section data-background-color = "white">
+                    <section>
+                    <h2> System robustness </h2>
+                    <p>What influence has TSN on the overall system robustness?</p>
+                    </section>
+                    
+                    <section>
+                        <h3> Subsystem Interdependencies </h3>
+                        <img data-src="figures/interdependent_systems.svg" alt="qsize" title="q size" width="800"/>
+                    </section>
+                    
+                    <section>
+                        <h3> Interdependencies in the DP application </h3>
+                        <ol>
+                            <li class="fragment" data-fragment-index="1"> ICT failures may affect EPS operation</li>
+                            <li class="fragment" data-fragment-index="2"> EPS failures may harm ICT equipment </li>
+                        </ol>
+                    </section>
+                    
+                </section>
+                
+                <section data-background-color = "white">
+                
+                <span class="fragment"></span>
+                <span class="fragment"></span>
+                <span class="fragment"></span>
+                <span class="fragment"></span>
+                
+                
+                <div data-animate data-src="figures/system_overview_robustness.svg">
+                    <!--
+                    {"setup": [
+                    { "modifier": "size", "parameters": [ 800 ] },
+                    { "element": "#layer6", "modifier": "opacity", "parameters": [ 0 ] },
+                    { "element": "#layer7", "modifier": "opacity", "parameters": [ 0 ] },
+                    
+                    { "modifier": "path", "parameters": [ {"id": "p1", "opacity": 0, "d": "M21.5,18 L50,35 M22,36 L50,35 M21,53 L50,35 M22,76 L50,85 M22,96 L50,85 M22,116 L50,125 M22,136 L50,125
+                    
+                    M50,35 L80,76 M50,85 L80,76 M50,125 L80,76 
+                    
+                    M171,17 L140,35 M171,32 L140,35 M171,47 L140,35 M171,62 L140,35 M171,77 L140,35 M171,77 L140,85 M171,47 L140,85 M171,32 L140,85 M171,62 L140,85 M171,92 L140,85 M171,107 L140,125 M171,122 L140,125 M171,137 L140,125
+                    
+                    M140,35 L110,76 M140,85 L110,76 M140,135 L110,76
+                    ", "stroke": "black" } ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_pn", "opacity": 0} ] },
+                    { "element": "#g_pn", "modifier": "polygon", "parameters": [ { "id": "rhomb_pn", "points": "40,35 50,45 60,35 50,25", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_pn", "modifier": "text", "parameters": ["PN", {"id": "txt_pn", "x": 46.5, "y": 29, "font-size": 6} ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_co", "opacity": 0} ] },
+                    { "element": "#g_co", "modifier": "polygon", "parameters": [ { "id": "rhomb_co", "points": "40,85 50,95 60,85 50,75", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_co", "modifier": "text", "parameters": ["CO", {"id": "txt_co", "x": 46.5, "y": 79, "font-size": 6} ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_pt", "opacity": 0} ] },
+                    { "element": "#g_pt", "modifier": "polygon", "parameters": [ { "id": "rhomb_pt", "points": "40,125 50,135 60,125 50,115", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_pt", "modifier": "text", "parameters": ["PT", {"id": "txt_pt", "x": 46.5, "y": 119, "font-size": 6} ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_dp1", "opacity": 0} ] },
+                    { "element": "#g_dp1", "modifier": "polygon", "parameters": [ { "id": "rhomb_dp1", "points": "130,35 140,45 150,35 140,25", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_dp1", "modifier": "text", "parameters": ["DPa1", {"id": "txt_dpa1", "x": 133.5, "y": 29, "font-size": 6} ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_dp2", "opacity": 0} ] },
+                    { "element": "#g_dp2", "modifier": "polygon", "parameters": [ { "id": "rhomb_dp2", "points": "130,85 140,95 150,85 140,75", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_dp2", "modifier": "text", "parameters": ["DPa2", {"id": "txt_dpa2", "x": 133.5, "y": 79, "font-size": 6} ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_mon", "opacity": 0} ] },
+                    { "element": "#g_mon", "modifier": "polygon", "parameters": [ { "id": "rhomb_mon", "points": "130,125 140,135 150,125 140,115", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_mon", "modifier": "text", "parameters": ["MON", {"id": "txt_mon", "x": 134, "y": 119, "font-size": 6} ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_ps", "opacity": 0} ] },
+                    { "element": "#g_ps", "modifier": "polygon", "parameters": [ { "id": "rhomb_ps", "points": "70,76 80,86 90,76 80,66", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_ps", "modifier": "text", "parameters": ["PS", {"id": "txt_ps", "x": 77, "y": 70, "font-size": 6} ] },
+                    
+                    { "modifier": "group", "parameters": [ {"id": "g_dp", "opacity": 0} ] },
+                    { "element": "#g_dp", "modifier": "polygon", "parameters": [ { "id": "rhomb_dp", "points": "100,76 110,86 120,76 110,66", "fill": "white", "stroke": "black", "opacity": 1 } ] },
+                    { "element": "#g_dp", "modifier": "text", "parameters": ["DP", {"id": "txt_dp", "x": 107, "y": 70, "font-size": 6} ] },
+                    
+                    { "modifier": "text", "parameters": [ "Components", {"id": "txt_comps1", "x": 4, "y": 1, "font-size": 6} ] },
+                    { "modifier": "text", "parameters": [ "Components", {"id": "txt_comps2", "x": 150, "y": 1, "font-size": 6} ] },
+                    { "modifier": "text", "parameters": [ "Functions",  {"id": "txt_functions", "x": 80, "y": 1, "font-size": 6} ] }
+                    ],
+                    "animation": [
+                    [],
+                    [{ "element": "#layer7",       "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#layer3",       "modifier": "opacity", "parameters": [ 0 ] },
+                     { "element": "#layer5",       "modifier": "opacity", "parameters": [ 0 ] },
+                     { "element": "#g1502",        "modifier": "move",  "duration": 200,   "parameters": [ 10,10 ] },
+                     { "element": "#g1491",        "modifier": "move",  "duration": 200,   "parameters": [ 10,30 ] },
+                     { "element": "#g1200",        "modifier": "move",  "duration": 200,   "parameters": [ 10,50 ] },
+                     { "element": "#g1397",        "modifier": "move",  "duration": 200,   "parameters": [ 10,70 ] },
+                     { "element": "#g1364",        "modifier": "move",  "duration": 200,   "parameters": [ 10,90 ] },
+                     { "element": "#g1415",        "modifier": "move",  "duration": 200,   "parameters": [ 10,110 ] },
+                     { "element": "#g1382",        "modifier": "move",  "duration": 200,   "parameters": [ 10,130 ] },
+                     { "element": "#g1454",        "modifier": "move",  "duration": 200,   "parameters": [ 170,10 ] },
+                     { "element": "#g1466",        "modifier": "move",  "duration": 200,   "parameters": [ 170,25 ] },
+                     { "element": "#g1310",        "modifier": "move",  "duration": 200,   "parameters": [ 170,40 ] },
+                     { "element": "#g1480",        "modifier": "move",  "duration": 200,   "parameters": [ 170,55 ] },
+                     { "element": "#g1247",        "modifier": "move",  "duration": 200,   "parameters": [ 170,70 ] },
+                     { "element": "#g1328",        "modifier": "move",  "duration": 200,   "parameters": [ 170,85 ] },
+                     { "element": "#g1436",        "modifier": "move",  "duration": 200,   "parameters": [ 170,100 ] },
+                     { "element": "#g1349",        "modifier": "move",  "duration": 200,   "parameters": [ 170,115 ] },
+                     { "element": "#g1231",        "modifier": "move",  "duration": 200,   "parameters": [ 170,130 ] }],
+                    [{ "element": "#g_pn",         "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#g_co",         "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#g_pt",         "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#g_dp1",        "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#g_dp2",        "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#g_mon",        "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#g_ps",         "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#g_dp",         "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#p1",           "modifier": "opacity", "parameters": [ 1 ] }]
+                    ]}
+                    -->
+                    </div> 
+                </section>
+                
+                <section data-background-color = "white">
+                
+                <h2> Influence of TSN onto the failure risk of the DP application </h2>
+                
+                <span class="fragment"></span>
+                <span class="fragment"></span>
+                <span class="fragment"></span>
+                
+                
+                <div data-animate data-src="figures/risk_influence.svg">
+                    <!--
+                    {"setup": [
+                    { "modifier": "size", "parameters": [ 800 ] },
+                    { "modifier": "text", "parameters": [ "Risk reduction of ICT failures", {"id": "txt_step2", "x": 75, "y": 47, "font-size": 7, "opacity": 0} ] },
+                    { "modifier": "text", "parameters": [ "Risk reduction of ICT failures", {"id": "txt_step3-1", "x": 75, "y": 47, "font-size": 7, "opacity": 0} ] },
+                    { "modifier": "text", "parameters": [ "TSN tunnel affected", {"id": "txt_step3-2", "x": 75, "y": 47, "font-size": 7, "opacity": 0} ] },
+                    { "element": "#g_step1", "modifier": "opacity", "parameters": [ 1 ] },
+                    { "element": "#g_step2", "modifier": "opacity", "parameters": [ 0 ] },
+                    { "element": "#g_step3-1", "modifier": "opacity", "parameters": [ 0 ] },
+                    { "element": "#g_step3-2", "modifier": "opacity", "parameters": [ 0 ] }
+                    ],
+                    "animation": [
+                    [],
+                    [{ "element": "#g_step2",      "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#txt_step2",    "modifier": "opacity", "parameters": [ 1 ] }],
+                    [{ "element": "#txt_step2",    "modifier": "opacity", "parameters": [ 0 ] }, 
+                     { "element": "#g_step3-1",    "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#txt_step3-1",  "modifier": "opacity", "parameters": [ 1 ] }],
+                    [{ "element": "#txt_step3-1",  "modifier": "opacity", "parameters": [ 0 ] },
+                     { "element": "#g_step3-2",    "modifier": "opacity", "parameters": [ 1 ] },
+                     { "element": "#txt_step3-2",  "modifier": "opacity", "parameters": [ 1 ] }]
+                    ]}
+                    -->
+                    </div> 
+                </section>
+                
+                
+				                
+			</div>
+		</div>
+
+		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="plugin/animate/plugin.js"></script>
+		<script src="plugin/animate/svg.min.js"></script>
+        <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script>
+        <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script>
+        <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script>
+        <script src="reveal.js/plugin/math/math.js"></script>
+        <script src="reveal.js/plugins/menu/menu.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+//				autoSlide: 5000,
+				animate: {
+					autoplay: true
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealAnimate ]
+//              plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
