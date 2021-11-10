@@ -26,17 +26,53 @@
                 <section>
                     <h2> Slide2 </h2>
                     <p> Content </p>
-		</section>
+                </section>
         
 			</div>
 		</div>
-
+		
 		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/plugin/notes/notes.js"></script>
+		<script src="reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="plugin/animate/plugin.js"></script>
+		<script src="plugin/animate/svg.min.js"></script>
+        <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script>
+        <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script>
+        <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script>
+        <script src="reveal.js/plugin/math/math.js"></script>
+        <script src="reveal.js/plugins/menu/menu.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+//				autoSlide: 5000,
+				animate: {
+					autoplay: true
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealAnimate ]
+//              plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+
+		<!--<script src="reveal.js/dist/reveal.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize();
-		</script>
+		</script>-->
 	</body>
 </html>
