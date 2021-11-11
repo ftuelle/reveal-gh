@@ -15,64 +15,93 @@
 		
 	</head>
 	<body>
-		<div class="reveal">
-			<div class="slides">
+<div class="reveal">
+    <div class="slides">
 			
-                <section>
-                    <h2> Topic </h2>
-                    <p> Performance of Time-sensitive Networking in Power Grid Protection applications </p>
-                </section>
+        <section>
+            <h2> Topic </h2>
+            <p> Performance of Time-sensitive Networking in Power Grid Protection applications </p>
+        </section>
                 
-                <section>
-                    <h2> Slide2 </h2>
-                    <p> Content </p>
-                </section>
+        <section>
+            <h2> Slide2 </h2>
+            <p> Content </p>
+        </section>
         
-			</div>
-		</div>
+        <section>
+            <h2> A formula </h2>
+            \[
+            \begin{aligned}
+            F &= F_1 \vee P_2 \vee F_3 \\
+            F &= p_2(x) \vee \forall z: p_1(x, f_2(z)) \vee \exists x: \forall y: (p_1 (f(x),y) \wedge p_2(c_1))
+            \end{aligned}
+            \]
+        </section>
+        
+        <section data-markdown
+                 data-separator="^\n\s*---\n$" 
+                 data-separator-vertical="^\n\s*--\n$">
+            <textarea data-template>
+                            
+## Markdown support
+            
+This element is written with Markdown
+
+--
+
+## Vertical Markdown slide
+
+1) Item1
+2) Item2
+3) Item3
+                    
+            </textarea>
+        </section>
+        
+    </div>
+</div>
 		
-<!--		<script src="reveal.js/dist/reveal.js"></script>
+		<script src="reveal.js/dist/reveal.js"></script>
 		<script src="reveal.js/plugin/notes/notes.js"></script>
 		<script src="reveal.js/plugin/markdown/markdown.js"></script>
 		<script src="reveal.js/plugin/highlight/highlight.js"></script>
-		<script src="plugin/animate/plugin.js"></script>
-		<script src="plugin/animate/svg.min.js"></script>
-        <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script>
-        <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script>
-        <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script>
+<!-- 		<script src="reveal.js-plugins/animate/plugin.js"></script> -->
+<!-- 		<script src="reveal.js-plugins/animate/svg.min.js"></script>--> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
         <script src="reveal.js/plugin/math/math.js"></script>
-        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-// 			Reveal.initialize({
-// 				hash: false,
-// 				height: 900,
-// 				width: 1200,
-// 				controls: true,
-// 				progress: true,
-// 				history: true,
-// 				center: true,
-// 				mouseWheel: true,
-// 				previewLinks: false,
-// //				autoSlide: 5000,
+// 			More info about initialization & config:
+// 			- https://revealjs.com/initialization/
+// 			- https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+// 				autoSlide: 5000,
 // 				animate: {
-// 					autoplay: true
+// 					autoplay: false
 // 				},
-// 
-// 				// Learn about plugins: https://revealjs.com/plugins/
-// 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealAnimate ]
-// //              plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-// 			});
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, /*RevealAnimate,*/ RevealMath ]
+			});
 		</script>
 
-		<script src="reveal.js/dist/reveal.js"></script>
+<!--		<script src="reveal.js/dist/reveal.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize();
-		</script>
+		</script>-->
 	</body>
 </html>
