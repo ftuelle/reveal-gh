@@ -8,27 +8,97 @@
 
 		<!--<link rel="stylesheet" href="dist/reset.css">-->
 		<link rel="stylesheet" href="reveal.js/dist/reveal.css">
-		<link rel="stylesheet" href="reveal.js/dist/theme/white.css">
+		<link rel="stylesheet" href="reveal.js/dist/theme/moon.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		
+        <!-- Custom CSS file		 -->
+        <link rel="stylesheet" href="ft.css">
 		
 	</head>
 	<body>
 <div class="reveal">
     <div class="slides">
-			
+    
         <section>
-            <h2> Topic </h2>
-            <p> Performance of Time-sensitive Networking in Power Grid Protection applications </p>
-        </section>
-                
-        <section>
-            <h2> Slide2 </h2>
-            <p> Content </p>
+            <h1> Inference with uncertainty </h1>
+            <p> Lecture: Introduction to Artificial Intelligence </p>
+            <p> Part 6 </p>
         </section>
         
         <section>
+            <h2> Learning objectives </h2>
+            <div style="text-align: left;">
+             <p>In this section you will learn...</p>
+             <ul>
+                 <li>...what uncertainties are</li>
+                 <li>...why uncertainties are important for AI</li>
+                 <li>...how to calculate with probabilities</li>
+                 <li>...how to use the Bayes' rules for inference under uncertainties</li>
+             </ul>
+            </div>
+        </section>
+        
+        <section>
+            <section>
+                <h2> Types of uncertainty </h2>
+            </section>
+            <section>
+                <h3> Measurement Uncertainty </h3>
+                <p>Often measurments contain uncertainties regarding the expectable deviation of the measureing process.</p>
+                <p class="example">A temperatur sensor shows a deviation of &plusmn; 0.3 &deg;. Uncertainty about the real value</p>
+                <p class="note">Uncertainty &ne; Error</p>
+            </section>
+            <section>
+                <h3> Uncertainty of Knowledge </h3>
+                <p> The actual reason for the occurrence of a particular event is not really known or at best assumed.</p>
+                <p class="example">The causes of getting a particular disease are unknown.</p>
+            </section>
+            <section>
+                <h3> Uncertainty in Actions </h3>
+                <p> To achieve some result or state often several actions that are potentially uncertain to succeed need to be taken.</p>
+                <div class="example">
+                <p> Listening to the lecture requires: </p>
+                <ul>
+                    <li>Getting up and prepared</li>
+                    <li>Get a coffee</li>
+                    <li>Go to the desk</li>
+                    <li>Turn on the computer</li>
+                    <li>Connect to the Internet</li>
+                    <li>Connect head phones</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h3> Uncertainty in Perception </h3>
+                <p>Sensors usually provide uncomplete information about the world.</p>
+                <p class=example>A GPS sensor gives the global position but says nothing about the local surrounding.</p>
+            </section>
+            <section>
+                <p class="note"> Uncertainty subsumes to information that is not completely known or taken into accout </p>
+            </section>
+            <section data-background-color="aquamarine">
+                <h3>Exercise</h3>
+                <p> Look into a data set of your choice and identify where uncertainties may be present and where they may come from </p>
+            </section>
+            
+		</section>	
+        <section>
+            <h2> Uncertainty and AI </h2>
+        </section>
+                
+        <section>
+            <h2> Calculating with probabilities </h2>
+        </section>
+        
+        <section>
+            <section>
+                <h2> Inference with uncertainties </h2>
+                <p> The Bayes' theorem </p>
+            </section>
+            
+            <section>
             <h2> A formula </h2>
             \[
             \begin{aligned}
@@ -36,6 +106,7 @@
             F &= p_2(x) \vee \forall z: p_1(x, f_2(z)) \vee \exists x: \forall y: (p_1 (f(x),y) \wedge p_2(c_1))
             \end{aligned}
             \]
+            </section>
         </section>
         
         <section data-markdown

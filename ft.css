@@ -1,0 +1,43 @@
+.example{
+    font-style: italic;
+    background-color: #b3d2d4;
+    color: teal;
+    border: 2px, hidden;
+    margin: 25px;
+    padding: 25px;
+}
+
+.example::before {
+    content: "Example: ";
+    color: #eee8d5;
+    text-transform: uppercase;
+    font: League Gothic, Impact, sans-serif;;
+}
+
+
+p.important{
+    font-style: bold;
+    background-color: #c75c5c;
+    color: white;
+    border: 2px, hidden;
+    margin: 25px;
+    padding: 25px;
+}
+
+p.note{
+    font-style: bold;
+    background-color: #eaa48e;
+    color: white;
+    border: 2px, hidden;
+    margin: 25px;
+    padding: 25px;
+}
+
+p.note::before{
+    content: "Note: ";
+    color: #eee8d5;
+    text-transform: uppercase;
+    font: League Gothic, Impact, sans-serif;
+}
+
+
