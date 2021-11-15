@@ -15,6 +15,9 @@
 		
         <!-- Custom CSS file		 -->
         <link rel="stylesheet" href="ft.css">
+    
+        <script src="jquery-3.6.0.min.js"></script>    
+        <script type="text/javascript" src="ft.js"></script>
 		
 	</head>
 	<body>
@@ -51,13 +54,20 @@
                 <p class="note">Uncertainty &ne; Error</p>
             </section>
             <section>
-                <h3> Uncertainty of Knowledge </h3>
+                <h3> Uncertainty of knowledge </h3>
                 <p> The actual reason for the occurrence of a particular event is not really known or at best assumed.</p>
                 <p class="example">The causes of getting a particular disease are unknown.</p>
             </section>
             <section>
-                <h3> Uncertainty in Actions </h3>
-                <p> To achieve some result or state often several actions that are potentially uncertain to succeed need to be taken.</p>
+                <h3> Uncertainty of occurrence </h3>
+                <p> Im many cases the time or location of occurrence of a particular event cannot be certainly predicted.</p>
+                <div class="example">
+                    <p> In bad weather situations, it is not possible to certainly predict if, when and where a lightning hits some considered infrastructure </p>
+                </div>
+            </section>
+            <section>
+                <h3> Uncertainty in actions </h3>
+                <p> Taken actions are potentially uncertain to succeed, may have side effects or do not have the desired effect.</p>
                 <div class="example">
                 <p> Listening to the lecture requires: </p>
                 <ul>
@@ -76,7 +86,8 @@
                 <p class=example>A GPS sensor gives the global position but says nothing about the local surrounding.</p>
             </section>
             <section>
-                <p class="note"> Uncertainty subsumes to information that is not completely known or taken into accout </p>
+                <p class="note"> Uncertainty subsumes to information that is unknown, imprecise, or ambiguous.</p>
+                <p class="note"> Reasons can be vagueness, conflict in information, missing specificity. </p>
             </section>
             <section data-background-color="aquamarine">
                 <h3>Exercise</h3>
@@ -85,48 +96,208 @@
             
 		</section>	
         <section>
-            <h2> Uncertainty and AI </h2>
+            <section>
+                <h2> Uncertainty and AI </h2>
+            </section>
+            <section data-background-color="aquamarine">
+                <h3>Exercise</h3>
+                <p> Read the article <a href="https://medium.com/swlh/the-interplay-between-artificial-intelligence-and-uncertainty-a19e01197230">The Interplay Between Artificial Intelligence and Uncertainty </a> and summarize how uncertainty <b>affects</b> AI and what <b>strategy</b> is taken to deal with it in modern AI. </p>
+                <img src="figures/school-of-athens.jpg">
+            </section>
+            <section data-markdown
+                 data-separator="^\n\s*---\n$" 
+                 data-separator-vertical="^\n\s*--\n$">
+            <textarea data-template>
+                            
+### How to deal with uncertainty
+* Implicit methods:
+    * Igonre uncertainty
+    * Build procedures that are robust to uncertainty
+        * Montioring and replanning 
+
+* Explicit methods:
+    * Build a <b>model</b> of the world that <b>describes the uncertainty</b> (system's state, dynamics, sensors, model)
+    * Reason about the effect of actions given the model
+            </textarea>
+            </section>
+            <section data-markdown
+                 data-separator="^\n\s*---\n$" 
+                 data-separator-vertical="^\n\s*--\n$">
+            <textarea data-template>
+
+
+### How to represent uncertainty
+
+* What languages should we use? What are semantics of our representations?
+* What queries can we answer with our representations? How do we answer them?
+* How do we construct a representation? Do we need to ask an expert or can we learn from data?
+
+            </textarea>
+            </section>
+            <section>
+                <h3> Can we use First-Order Logic? </h3>
+                <ul>
+                    <li> Predicates evaluate to true or false either </li>
+                    <li> All quantifier \[ \forall \] </li>
+                    <li> Existence quatifier \[ \exists \]</li>
+                </ul>
+            </section>
         </section>
-                
         <section>
-            <h2> Calculating with probabilities </h2>
+            <section>
+                <h2> Calculating with probabilities </h2>
+            </section>
+            <section>
+                <h3> Rolling a dice </h3>
+                <p class="example"> When rolling a dice <b> once </b> (trial) the propbability for the event "roll a six" is 1/6.</p>
+                <p class="example"> Whereas the propbability for the event "rolling a odd number" is 1/2.</p>
+            </section>
+            <section>
+                <h3> Definition </h3>
+                <p> &Omega; denotes the finit set of all possible events in a trial.</p>
+                <p> &omega; &isin; &Omega; denotes one possible result of a trial.</p>
+                <p> If &omega;<sub>i</sub> &isin; &Omega; are mutual exclusive but comprehensive they are called elementary events.</p>
+            </section>
+            <section>
+                <h3> Definition </h3>
+                <p> If A and B represent certain events:</p>
+                <p> A &and; B represent an event (intersection)</p>
+                <p> A &or; B represent an event (unification)</p>
+                <p> &not; A represent an event (negation)</p>
+                <p> If &omega;<sub>i</sub> &isin; &Omega; are mutual exclusive but comprehensive they are called elementary events.</p>
+                <p> A, B, etc. are also known as random variables
+            </section>
+            <section>
+                <h3> Definition: Probabilities </h3>
+                <p> The probability of a particular event A is denoted by P(A) </p>
+                <p> If A means "rolling a six", P(A) = 1/6. </p>
+                <p> Generalised </p>
+                \[
+                \begin{aligned}
+                P(A) = \frac{|A|}{|\Omega|} = \frac{Number\,of\,beneficial\,cases\,for\,A}{Number\,of\,all\,possible\,cases}
+                \end{aligned}
+                \]
+            </section>
+            <section>
+                <h3> It applies </h3>
+                <ol>
+                    <li> P(&Omega;) = 1. </li>
+                    <li> P(&empty;) = 0. </li>
+                    <li> For mutual exclusive events A, B: P(A &or; B) = P(A) + P(B). </li>
+                    <li> For complementary events A, &not;A: P(A) + P(&not; B) = 1. </li>
+                    <li> For arbitrary events A, B: P(A &or; B) = P(A) + P(B) - P(A &and; B).</li>
+                    <li> For A &sube; B: P(A) &le; P(B).</li>
+                    <li> If A<sub>1</sub>, ... , A<sub>n</sub> are elementary events: &sum;<sub>i=1..n</sub> P(A<sub>i</sub>) = 1 (normalisation).
+                <ol>
+            </section>
+            <section>
+                <h3> Probability distribution </h3>
+                <p> The probability distribution <b>P</b>(A) denotes the probabilities of all combinations of all values of the random variables </p>
+                <p class="example">For binary variables A, B this are: (P(A,B), P(A,&not;B), P(&not;A, B), P(&not;A,&not;B))</p>
+            </section>
         </section>
-        
         <section>
             <section>
                 <h2> Inference with uncertainties </h2>
                 <p> The Bayes' theorem </p>
             </section>
-            
+        
             <section>
-            <h2> A formula </h2>
+                <h2> Conditional probabilities </h2>
+                <p class="example"> In a street, the speed of 100 cars is measured. For each measurement it is logged if the driver is a student or not. </p>
+                <table class="tg">
+                <tr>
+                    <th class="tg-031e">Event<br></th>
+                    <th class="tg-031e">Frequency<br></th>
+                    <th class="tg-031e">rel. Frequency<br></th>
+                </tr>
+                <tr>
+                    <td class="tg-031e">Car observed<br></td>
+                    <td class="tg-031e">100</td>
+                    <td class="tg-031e">1</td>
+                </tr>
+                <tr>
+                    <td class="tg-031e">Driver is student (S)<br></td>
+                    <td class="tg-031e">30</td>
+                    <td class="tg-031e">0.3</td>
+                </tr>
+                <tr>
+                    <td class="tg-031e">Speed to high (H)<br></td>
+                    <td class="tg-031e">10</td>
+                    <td class="tg-031e">0.1</td>
+                </tr>
+                <tr>
+                    <td class="tg-031e">Student and speed to high (S &and; H)<br></td>
+                    <td class="tg-031e">5</td>
+                    <td class="tg-031e">0.05</td>
+                </tr>
+                </table>
+            </section>
+            <section data-background-color="aquamarine">
+                <h3>Exercise</h3>
+                <div>
+                <p>Drive students more frequently too fast compared to non-students?</p>
+                    <div class="fragment">
+                     \[
+                    \begin{aligned}
+                    P(H | S) = \frac{Driver\,is\,student\,and\,speed\,too\,high}{Driver\,is\,student} = \frac{1}{6}
+                    \end{aligned}
+                    \]
+                    \[
+                    \begin{aligned}
+                    P(H | &not;S) = \frac{Driver\,is\,not\,student\,and\,speed\,too\,high}{Driver\,is\,not\,student} = \frac{1}{14}
+                    \end{aligned}
+                    \]
+                    </div>
+                    <div class="fragment">
+                    <p>P(H|S) &lt P(G)</p>
+                    <p>P(G) is called <b>a-priori</b> or <b>prior</b></p>
+                    </div>
+                </div>
+            </section>
+            <section>
+            <h3> Definition </h3>
+            <p> For 2 events A, B, the probability P(A|B) for A under the condition of B is called <b>conditional probability</b> and defined by: </p>
             \[
             \begin{aligned}
-            F &= F_1 \vee P_2 \vee F_3 \\
-            F &= p_2(x) \vee \forall z: p_1(x, f_2(z)) \vee \exists x: \forall y: (p_1 (f(x),y) \wedge p_2(c_1))
+            P(A | B) = \frac{P(A&and;B)}{P(B)}
             \end{aligned}
             \]
             </section>
-        </section>
-        
-        <section data-markdown
-                 data-separator="^\n\s*---\n$" 
-                 data-separator-vertical="^\n\s*--\n$">
-            <textarea data-template>
-                            
-## Markdown support
-            
-This element is written with Markdown
-
---
-
-## Vertical Markdown slide
-
-1) Item1
-2) Item2
-3) Item3
-                    
-            </textarea>
+            <section>
+            <h3> Definition: Independence of events </h3>
+            <p> Two events A, B are denoted as <b> independent </b> if it holds:</p>
+            \[
+            \begin{aligned}
+            P(A | B) = P(A)
+            \end{aligned}
+            \]
+            <p> It follows: </p>
+             \[
+            \begin{aligned}
+            P(A &and; B) = P(A) &middot; P(B)
+            \end{aligned}
+            \]
+            </section>
+            <section>
+            <h3> Definition: Bayes theorem </h3>
+            <p> From the conditional probability follows: </p>
+            \[
+            P(A|B) = \frac{P(A &and; B)}{P(B)}\,and\,P(B|A) = \frac{P(A&and;B)}{P(A)}
+            \]
+            <p> Solving to P(A&and;B) retrieves: </p>
+             \[
+            P(A|B) = \frac{P(B | A) &middot; P(A)}{P(B)}
+            \]
+            </section>
+            <section data-background-color="aquamarine">
+            <h3> Exercise </h3>
+            <p> A sales person selling alarm systems argues: "This reliable system reports every burglary with 99% confidence."</p>
+            <ol>
+                <li> Formulate the statement of the sales person using conditional probabilities </li>
+                <li> Apply Bayes theorem and assume P(B) = 0.001 for the probability of an burglary-event and P(A) = 0.1 for the probability that an alarm is triggered (not only by burglary but also by animals, for instance).
+                <li> What is the problem with the alarm system? </li>
+            </section>
         </section>
         
     </div>
