@@ -1,0 +1,474 @@
+ <!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<title>Introduction to AI - Inference with uncertainty</title>
+
+		<!--<link rel="stylesheet" href="dist/reset.css">-->
+		<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		
+        <!-- Custom CSS file		 -->
+        <link rel="stylesheet" href="../../ft.css">
+    
+        <script src="../../jquery-3.6.0.min.js"></script>    
+        <script type="text/javascript" src="../../ft.js"></script>
+		
+	</head>
+	<body>
+<div class="reveal">
+    <div class="slides">
+<section data-markdown
+         data-separator="^\n\s*---\n$" 
+         data-separator-vertical="^\n\s*--\n$">
+<textarea data-template>
+## Data
+* Data may have different forms
+	* Set, List, Table, etc.
+	* Forms can be used for data analysis
+	* None of the forms is suitable for statistics
+* Statistics operate on variables, not data!
+	* Variable: function mapping data objects to values
+	* Random variable: Values are associated to a probability
+
+--
+
+### Data sets
+* No duplicate elements
+
+--
+
+### Flat files
+* Flat file tables with n rows and p columns
+* Rows are independent of each other
+* Row corresponds to a observation, Column to variable
+* Common: Comma-separated values (CSV), Excell
+	* Example: John,Doe,120 jefferson st.,Riverside, NJ, 08075
+
+--
+
+### Relational database
+* Relation variable: Function relating values to objects
+	* A relation variable has a domain
+	* Domain: Set of scalar values of one type (integers, strings, etc.)
+* A table is a collection of relations
+* Each Row is a tuple
+* Each Column is an attribute specifying a domain
+* SQL: language for manipulating tables
+* Relational databases are not suitable for statistics
+
+--
+
+### Distributed File systems
+* Problem
+	* Classic databases cannot handle huge files
+	* Distributed databases can but computational complexity is increasing
+	* Statistical calculations on single files do not scale
+* Map Reduce / Hadoop
+	* Data slicing allows for parallel statistical calculations
+* Good for data regression
+
+--
+
+### Graph databases
+* A graph G = (V,E) pair of sets
+	* V = set of vertices, E set of edges
+* Graph databases store nodes indexed by edges
+	* Each node has set of properties
+	* Statistical metrics exists
+	* Scalable - Efficient for traversals
+
+--
+
+### Streaming (time series) databases
+* Data objects ordered in time
+* Data objects enter "real-time"
+	* Environmental sensor data
+	* Stock market data
+* Data retrievable with short delay
+* Statistical methods must be able to handle data streams
+	* running windows, moving averages
+	* Update methods
+* Influx DB
+
+--
+
+### Symmetric matrices
+* Types of data
+	* (Dis)Similarities
+	* Distances
+	* Correlations
+* Analytical methods using input as sym. matrix
+	* Principal components
+	* Hierarchical Clustering
+
+---
+
+## Probability distributions
+
+--
+
+### Probability functions
+
+* A probability function is a non-negative function with an area (or mass) of 1.
+* Distributions are families of probability functions
+	* Most statistical methods depend of distributions
+* Most popular: The Normal (Gaussian) distribution
+	* Central limit theoreme
+	* Random variables based on real data are rarely normally distributed, but sums or means of random variables tend to be -> Normal assumption is OK, if we believe in that.
+
+--
+
+### Random variables
+* A random variable is a mapping from a set of objects to a set of values
+	* X equiv f : O -> V
+* Values are associated with probabilities:    
+	* A discrete random variable associates a **value** with a probability    
+	* A contionuous random variable associates an    **interval** with a probability.    
+* **Probability distribution**: The mathematical function describing the possible values of a random variable and their associated probabilities.
+
+--
+
+### Expectations of random variables
+* The expected value of a random variable is the weighted average of the values of that variable, where the weights are probabilities
+* We will use this definition later when computing maximum likelihood estimates of the mean
+* notation for expected value: E(X)
+
+--
+
+### Definitions
+E(c) = c
+E(cX) = cE(X)
+E(c+X) = c + E(X)
+E(X+Y) = E(X) + E(Y)
+E(XY) = E(X) E(Y) **If X, Y indepedent**
+VAR(X) = E(X^2) - E(X)^2
+VAR(cX) = c^2VAR(X)
+VAR(c + X) = VAR(X)
+VAR(X+Y) = VAR(X) + VAR(Y) **If X, Y indepedent**
+VAR(XY) = ...
+COV(X,Y) = E(XY) - E(X)E(Y)
+VAR(X+Y) = VAR(X) + VAR(Y) + 2COV(X,Y)
+VAR(X-Y) = VAR(X) + VAR(Y) - 2COV(X,Y)
+
+--
+
+### The law of large numbers
+* The average of the results obtained from a large number of trials should be close to the exptected value and will approximate that with increasing number of trials
+* R Bild aus englischer Wikipedia
+
+--
+
+### cumulative / probability density graph
+* Show grafically only
+
+---
+
+## Summarizing Data
+
+--
+
+### Removing irrelevant detail    
+* We summarize batches of data in a few numbers    
+* We summarize variables through their distributions    
+* The best summaries preserve important information    
+* All summaries sacrifice information (lossy) 
+
+--
+
+### Statistical measures
+* Location    
+	* Popular: mean, median 
+	* Others: weighted mean, trimmed mean,    ...    
+* Spread    
+	* Popular: standard deviation (sd), range    
+	* Others: Interquartile range, Median Absolute Deviation,    ...    
+* Shape    
+	* Skewness 
+	* Kurtosis
+
+--
+
+### Location
+* Mean
+	* mean = sum_i=1,n(x_i)/n
+	* Mean is the value whose sum of squared deviations to    x_i is smallest
+	* Good if batch is symmetrically distributed
+	* Not good if outliers or severe skewness of distribution
+* Median
+	* Median =  middle value of ordered list of x_i (i = 1, ..., n)
+		* If n is even, any value between the two middle values is a median (often: average of the two)
+* Median is value whose sum of absolute deviations is smallest
+* Median splits the batch
+* Robust against outliers   
+
+--
+
+### Spread
+* Standard deviation (sd)
+sigma(x) = root(Var(X))
+It means:
+* root(mean(square(deviation(mean))))
+* Designed for symmetric distributions (Normal distribution)
+* Not robust (against outliers) 
+	* Squaring large errors
+
+--
+
+### Shape
+* Skewness
+	* Measures positive or negative asymmetry
+		* Think of long tail as arrow -> if its right: positive
+	* Not robust
+* Kurtosis
+	* Measures peaked of flat shape
+	* Not robust
+
+---
+
+## Smoothing
+* discovering patterns in data
+* Patterns are described by smoothing functions
+	* Kernel smoothing
+	* Polynomial smoothing
+* Two images
+
+--
+
+### Kernel smoothing
+* Uses basic statistical measures
+	* mean, median, mode
+* Adjacent data points are aggregated
+	* KNN
+	* fixed distance
+* Pictures
+
+--
+
+### Linear regression (Polynomial)
+
+[Video](https://www.youtube.com/watch?v=osPwkFkYvNc)
+
+
+* measuring relation: X -> Y (X affects/influences Y)
+* X independent variable ; Y dependent variable
+	* We need plausible assumption / evidence of existing influence
+* Finding a function that approximates the relation in the best way
+* Linear regression: Linear function
+* Covariance
+	* Explains tendentially if high values of one random variable relate more to high or to low values of the other.
+
+--
+
+### Spline regression (Polynomial)
+
+Picuture
+
+---
+
+## Time series and spacial statistics
+* Time series: Random processes over time
+* Spacial statistics: Random processes over space
+* Both involve similar mathematical models
+	* However: No Linear regression (measurements at time/space point not independent)
+
+--
+
+### Stochastic processes
+* Up to now: Independent, identically distributed (i.i.d.) random variables.
+	* Two variables take same value with same probability
+	* are NOT mutually influencing
+	* No ordering of random variables
+	* Values are systematic effects + random error
+
+--
+
+* Time / Space:
+	* Assumptions:
+		* Random variables are ordered across time or space
+		* Random variables are equally spaced across (fixed delta)
+
+--
+
+* Autoregression
+	* Known as autoregressive (AR) behavior
+	* Each observation at a given time is a function of the previous plus random error
+	* Question: How are the present observations influenced by the past observations? Or how are local observations influenced by observations at neighboring locations?
+		* How many and which periods of the past / surrounding locations are relevant?
+
+--
+
+* First-order autoregression AR(1)
+	* Time: Observations at t are only influenced by observations at t_1.
+		* Correlate a series of random variables with itself shifted backwards by one time step.
+		* Correlate the shifted series with itself shifted backward by one time step
+		* And so on...
+	* x_t = mu + Phi x_t-1 + Eps_t
+	* Picture
+
+--
+
+* Moving average process
+	* Using the moving average of the past periods
+	* Observations at a given time is a function of the previous error plus random error
+		* x_t = mu + theta_eps_t-1 + eps_t
+
+--
+
+* Generalisation: ARAM / ARIMA processes
+	* Combination of both
+		* x_t = alpha_ + beta x_t + sum_i=1..p(Phi_ix_t-1) + sum_j=1..q(theta_j_eps_t-j + eps_t)
+	* Not further discussed in this course
+
+---
+
+## Data reduction
+
+--
+
+### Reducing
+* Reducing takes many variables and reduces them to a smaller number of variables
+* Approaches
+	* **Principal components (PC)**
+	* Multidimensional scaling (MDS)
+	* Manifold learning
+	* Random projection
+
+--
+
+### Principal Component Analysis (PCA)
+* PC constructs orthogonal weighted linear combinations
+* Typically a data set has matrix structure.
+	* E. g. for n objects (cars, cells, ...) p features are measured. Gives n points in the p-dimensional space and can be described as nxp matrix.
+* Problem
+	* comparing or grouping n points by p dimensions is hard
+
+--
+
+* General idea
+	* Often multiple features describe the same aspect of an object.
+		* Car: Speed and engine power -> performance; Length and weight -> size, seats and number of doors -> capacity, etc. 
+	* Extract the highly correlated dimensions into single ones such that the number of dimensions can be reduced.
+* Principal Procedure
+	* [Integrate](https://builtin.com/data-science/step-step-explanation-principal-component-analysis)
+	* Determine vectors for each feature (dimension) describing the value best and being orthogonal to each other (least correlation)
+	* [PCA explained visually](https://setosa.io/ev/principal-component-analysis/)
+	* [Introduction to PCA](https://tgmstat.wordpress.com/2013/11/21/introduction-to-principal-component-analysis-pca/)
+
+--
+
+* Basics
+	* Eigenvector and Eigenvalue: **Sv** = **lambdav**
+	* Covariance Matrix Cov(X_i,X_j): Comparision of two random variables regarding if high values of one variable relate to low values of the other variable.
+	* Matrix transponition: **X^T** or **X^-1**
+
+---
+
+## Anomalies
+* Literally: Lack of law
+* Single data points that do not fit to the big picture
+
+--
+
+### Best-known: Outliers
+* Best-known anomaly
+* "An outlier is an observation which deviates so much    from the other observations as to arouse suspicions that it was generated by a different mechanism” (Hawkins, 1980)    
+* Presumes a distribution with tails
+* Identifying outliers is tidy
+
+--
+
+### Other anomalies
+* Coding errors in data
+* Misspellings
+* Singular events
+
+--
+
+### Anomalies my bias statistical estimates
+* Don't worry about outliers but their influence!
+* Picture slide 3
+* Do **not** drop outliers before fitting and unless you know why they are outliers
+	* There are alternatives such as robust methods, trimming 
+
+--
+
+### Why outliers are interesting
+* Improve effectiveness of research
+	* Explicetly evaluate outliers instead of standard results
+* Outliers may lead to a better model
+	* No outlier without a model!
+	* Examining outliers may help to improve the model
+
+--
+
+### Tests of outliers
+* Popular tests evaluate the distance of data values from the center. Such as
+	* Grubbs
+		* Iteratively removes outliers 1-by-1.
+	* Tukey
+		* Interquartile range: Q_3 - Q_1)
+		* Rule of thumb: Outlier if value is outside 1.5 IQR
+			* value > Q_3 + 1.5(IQR), value < Q_1 - 1.5(IQR)
+	* Both require Normal Distribution
+* Include slide 8
+
+--
+
+### Graphical methods
+* Include slides 9 - 15
+
+---
+
+## Not topic this time
+* Comparing and Grouping of random variables
+* Inference
+* Machine Learning
+* Visualisation / Exploring
+</textarea>
+</section>
+    </div>
+</div>
+		
+		<script src="../../reveal.js/dist/reveal.js"></script>
+		<script src="../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+<!-- 		<script src="reveal.js-plugins/animate/plugin.js"></script> -->
+<!-- 		<script src="reveal.js-plugins/animate/svg.min.js"></script>--> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+        <script src="../../reveal.js/plugin/math/math.js"></script>
+<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+		<script>
+// 			More info about initialization & config:
+// 			- https://revealjs.com/initialization/
+// 			- https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+				slideNumber: true,
+// 				autoSlide: 5000,
+// 				animate: {
+// 					autoplay: false
+// 				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, /*RevealAnimate,*/ RevealMath ]
+			});
+		</script>
+	</body>
+</html>
