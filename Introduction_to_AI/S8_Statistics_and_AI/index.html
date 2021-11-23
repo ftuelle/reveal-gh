@@ -23,23 +23,54 @@
 	<body>
 <div class="reveal">
     <div class="slides">
+    
+<section>
+            <h1> Statistics and AI </h1>
+            <p> Lecture: Introduction to Artificial Intelligence </p>
+            <p> Part 8 </p>
+</section>
+        
+<section>
+            <h2> Learning objectives </h2>
+            <div style="text-align: left;">
+             <p>In this section you will learn...</p>
+             <ul>
+                 <li>...What data are</li>
+                 <li>...What distributions are</li>
+                 <li>...Imprtant statistic methods</li>
+                 <li>...approaches to improve data for analysis</li>
+             </ul>
+            </div>
+</section>
+
+<section>
+            <h2> Credits </h2>
+            <p>Contents are inspired and adopted from Leland Wilkinson, University of Illinois, Chiacago and his Lecture Notes on Data Analysis, Statistics, and Machine Learning.</p>
+            <a href="https://www.cs.uic.edu/~wilkinson/"> Leland Wilkinson home page </a>
+</section>
+    
 <section data-markdown
          data-separator="^\n\s*---\n$" 
          data-separator-vertical="^\n\s*--\n$">
 <textarea data-template>
 ## Data
-* Data may have different forms
+* Data may have different *forms*
 	* Set, List, Table, etc.
-	* Forms can be used for data analysis
-	* None of the forms is suitable for statistics
-* Statistics operate on variables, not data!
-	* Variable: function mapping data objects to values
-	* Random variable: Values are associated to a probability
+	* These can be used in data analysis
+	* But they are **not suitable** for statistics
+
+--
+
+<p class="important"> Statistics operate on <b>variables</b>, not data! </p>
+<ul>
+    <li> Variable: <em>function</em> mapping data objects to <em>values</em> </li>
+    <li> Random variable: <em>values</em> are associated to a <em>probability</em> </li>
+</ul>
 
 --
 
 ### Data sets
-* No duplicate elements
+Generally: do **not** allow duplicates!
 
 --
 
@@ -47,41 +78,82 @@
 * Flat file tables with n rows and p columns
 * Rows are independent of each other
 * Row corresponds to a observation, Column to variable
-* Common: Comma-separated values (CSV), Excell
-	* Example: John,Doe,120 jefferson st.,Riverside, NJ, 08075
+* Common: Comma-separated values (CSV), Excel
+
+<p class="example"> <code>John,Doe,12 may st.,Riverside, NJ, 08075</code></p>
 
 --
 
 ### Relational database
-* Relation variable: Function relating values to objects
-	* A relation variable has a domain
-	* Domain: Set of scalar values of one type (integers, strings, etc.)
-* A table is a collection of relations
+
+<div style="text-align: left;">
+
+**Relation variable:** A function relating values to objects
+* A relation variable has a domain
+* Domain: Set of scalar values of one type (integers, strings, etc.)
+
+**Table:** A collection of relations
 * Each Row is a tuple
 * Each Column is an attribute specifying a domain
-* SQL: language for manipulating tables
-* Relational databases are not suitable for statistics
+
+**SQL:** A language for manipulating tables
+</div>
+
+--
+
+<p class="important"> Relational databases are <b>not</b> suitable for statistics </p>
+
+Statistic methods require ordering of values:
+* Tuples in tables are unorderd
+* Colums are unordered
+    * Unsuitable for time series statistics
+* Sample may contain duplicates
+    * Not allows in relational databases
+    
+<p class="note"> Hacks exist </p>
 
 --
 
 ### Distributed File systems
-* Problem
-	* Classic databases cannot handle huge files
-	* Distributed databases can but computational complexity is increasing
-	* Statistical calculations on single files do not scale
-* Map Reduce / Hadoop
-	* Data slicing allows for parallel statistical calculations
-* Good for data regression
+
+**Problem:**
+* Classic databases cannot handle huge files
+* Distributed databases can but computational complexity is increasing
+* Statistical calculations on single files do not scale
+
+**MapReduce / Hadoop:**
+
+<div style="text-align: left;">
+
+* Data slicing allows for parallel statistical calculations
+    * Good for data regression
+
+</div>
+
+--
+
+### MapReduce
+
+<!-- .slide: data-background=" #a3c1ad" -->
+![MapReduce2.svg](figures/MapReduce2.svg)
+
+<div style="text-align: right;">
+
+Soruce: Wikipedia
+
+</div>
 
 --
 
 ### Graph databases
-* A graph G = (V,E) pair of sets
-	* V = set of vertices, E set of edges
+* A graph `$ G = (V,E) $` pair of sets
+    * `$V$` set of vertices, 
+	* `$E$` set of edges
 * Graph databases store nodes indexed by edges
 	* Each node has set of properties
 	* Statistical metrics exists
-	* Scalable - Efficient for traversals
+        * Diameter, Centrality, Giant
+	* Scalable: efficient for traversals
 
 --
 
@@ -94,18 +166,44 @@
 * Statistical methods must be able to handle data streams
 	* running windows, moving averages
 	* Update methods
-* Influx DB
+
+<p class="example"> InfluxDB </p>
 
 --
 
 ### Symmetric matrices
-* Types of data
-	* (Dis)Similarities
+
+`$ \textbf{S} $` is a symmetric matrix `$ (s_{ij} = s_{ji}) $`
+
+* Types of data that comprise *symmetric* matrices
+	* (Dis)similarities
 	* Distances
 	* Correlations
-* Analytical methods using input as sym. matrix
+* Analytical methods using input as *symmatric* matrix
 	* Principal components
-	* Hierarchical Clustering
+	* Hierarchical clustering
+	* Multidimensional scaling (MDS)
+
+
+--
+
+### Exercise: Symmetric Matrices in R
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+Please create a symmetric `$ 10 \times 10 $` matrix in R. Consider the R functions <code>lower.tri()</code> and <code>upper.tri()</code>. Fill the matrix with a sequence of numbers as given in the `$ 3 \times 3 $` matrix below.
+
+`$$
+\begin{bmatrix}
+0 & 1 & 2 \\
+1 & 0 & 3 \\
+2 & 3 & 0 
+\end{bmatrix}
+$$`
+
+Time: 15 Minutes
+
+</div>
 
 ---
 
@@ -115,57 +213,144 @@
 
 ### Probability functions
 
-* A probability function is a non-negative function with an area (or mass) of 1.
-* Distributions are families of probability functions
-	* Most statistical methods depend of distributions
-* Most popular: The Normal (Gaussian) distribution
-	* Central limit theoreme
-	* Random variables based on real data are rarely normally distributed, but sums or means of random variables tend to be -> Normal assumption is OK, if we believe in that.
+<div style="text-align: left;">
+
+**A probability function** is a non-negative function with an area (or mass) of 1.
+
+**Distributions** are families of probability functions
+* Most statistical methods depend of distributions
+
+**Most popular:** The Normal (Gaussian) distribution
+* Central limit theoreme
+
+</div>
+
+<p class="note"> Random variables based on real data are rarely normally distributed, but sums or means of random variables tend to be. <br> &rarr; Normal assumption is OK, if we believe in that. </p>
 
 --
 
 ### Random variables
-* A random variable is a mapping from a set of objects to a set of values
-	* X equiv f : O -> V
-* Values are associated with probabilities:    
-	* A discrete random variable associates a **value** with a probability    
-	* A contionuous random variable associates an    **interval** with a probability.    
-* **Probability distribution**: The mathematical function describing the possible values of a random variable and their associated probabilities.
+
+A **random variable** is a mapping from a set of objects to a set of values:
+
+`$$ X \equiv f : O \rightarrow V $$`
+
+**Values** are associated with probabilities:   
+* **Discrete random variable:** associates a *value* with a probability.
+* **Contionuous random variable:** associates an *interval* with a probability.    
+
+**Probability distribution**: *Mathematical function* describing the *possible values* of a random variable and their associated probabilities.
 
 --
 
 ### Expectations of random variables
-* The expected value of a random variable is the weighted average of the values of that variable, where the weights are probabilities
-* We will use this definition later when computing maximum likelihood estimates of the mean
-* notation for expected value: E(X)
+* The **expected value** of a random variable is the *weighted average* of the values of that variable
+    * Weights are the probabilities(!)
+* Allows computing of the *maximum likelihood estimates* of the mean
+
+<p class="note"> Notation for expected value: $$ E(X) $$ </p>
 
 --
 
 ### Definitions
-E(c) = c
-E(cX) = cE(X)
-E(c+X) = c + E(X)
-E(X+Y) = E(X) + E(Y)
-E(XY) = E(X) E(Y) **If X, Y indepedent**
-VAR(X) = E(X^2) - E(X)^2
-VAR(cX) = c^2VAR(X)
-VAR(c + X) = VAR(X)
-VAR(X+Y) = VAR(X) + VAR(Y) **If X, Y indepedent**
-VAR(XY) = ...
-COV(X,Y) = E(XY) - E(X)E(Y)
-VAR(X+Y) = VAR(X) + VAR(Y) + 2COV(X,Y)
-VAR(X-Y) = VAR(X) + VAR(Y) - 2COV(X,Y)
+
+`$$ \begin{aligned} 
+E(c) &amp= c \\
+E(cX) &amp= cE(X) \\
+E(c+X) &amp= c + E(X) \\
+E(X+Y) &amp= E(X) + E(Y) \\
+E(XY) &amp= E(X) E(Y) \textrm{ If X, Y indepedent} \\
+VAR(X) &amp= E(X^2) - E(X)^2 \\
+VAR(cX) &amp= c^2VAR(X) \\
+VAR(c + X) &amp= VAR(X) \\
+VAR(X+Y) &amp= VAR(X) + VAR(Y) \textrm{ If X, Y indepedent} \\
+COV(X,Y) &amp= E(XY) - E(X)E(Y) \\
+VAR(X+Y) &amp= VAR(X) + VAR(Y) + 2COV(X,Y) \\
+VAR(X-Y) &amp= VAR(X) + VAR(Y) - 2COV(X,Y) 
+\end{aligned}$$`
 
 --
 
-### The law of large numbers
-* The average of the results obtained from a large number of trials should be close to the exptected value and will approximate that with increasing number of trials
-* R Bild aus englischer Wikipedia
+### Variance and Standard Deviation and Covariance
+
+**Variance** of random variable `$ X $`, `$ VAR(X) $`, measures *dispersion* of values around `$ E(X) $`.
+
+`$$ VAR(X) = E((X-\mu)^2) $$`
+
+**Standard Deviation:** Average distance from the mean
+
+`$$ \sigma(X) = \sqrt{VAR(X)} $$`
+
+<p class="note"> The <b>Covariance</b> measures if high values of one random variable relate more to high or low values of another. </p>
 
 --
 
-### cumulative / probability density graph
-* Show grafically only
+### The law of large numbers (LLN)
+"The average of the results obtained from a large number of trials should approximate the expected value with increasing number of trials."
+
+![Lawoflargenumbers.svg](figures/Lawoflargenumbers.svg)
+
+
+--
+
+### Exercise: LLN
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+To experience the LNN we can to a Monte Carlo (MC) experiment in R. For this, consider a box that holds `$ 10 $` tickets. Three of them are labled with the letter "A"; the rest are labled "B". To execute a repeated random process (executing trials) R provides the function <code>sample()</code>.
+
+1. Execute the MC experiment in R for 20 times. Set the <code>replace</code> parameter of <code>sample()</code> to <code>TRUE</code>.
+2. Compute the proportion of times a A-ticket or B-ticket as been selected. You may use the <code>prop.table()</code> function of R.
+3. Execute the MC experiment in R for 10000 times and compute the proportion.
+4. Compare the results of 2. and 3.
+
+Time: 15 Minutes.
+
+</div>
+
+--
+
+### Exercise: Expected Value
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+Imagine that you are about to play the following game: you will flip a fair coin twice.
+* If you get Tails both times, you lose a dollar.
+* If you get exactly one Head, nothing happens.
+* If you get Heads both times, you win two dollars.
+
+Let `$ W $` be the number of dollars you will win. `$ W $` is a clearly a random variable: it’s a number whose value - either -1, 0, or 2 — depends on the outcome of the random process of flipping the fair coin twice. What is the expected value of W?
+
+</div>
+
+--
+
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+### Steps-by-step
+1. What are the possible outcomes of the trial and what are they meaning for `$ W $`?
+2. What are the probabilities of W takes the values -1, 0, or 2?
+3. Compute the expected value, manually.
+4. Execute a MC experiment using the <code>sample()</code> function. Provide a vector `$\textbf{w}$` of possible values for `$ W $` and a vector `$\textbf{pw}$` containing the respective probabilities (see 2.). Assign `$\textbf{pw}$` to the parameter <code>prob</code> of <code>sample()</code>.
+
+Time: 20 Minutes.
+
+</div>
+
+--
+
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+### Probability Distribution
+The linked tutorial introduces several important probablity distributions. As an exercise work through the exercise.
+
+[Probability Distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions)
+
+Time: 45 Minutes.
+
+</div>
 
 ---
 
@@ -174,46 +359,51 @@ VAR(X-Y) = VAR(X) + VAR(Y) - 2COV(X,Y)
 --
 
 ### Removing irrelevant detail    
-* We summarize batches of data in a few numbers    
-* We summarize variables through their distributions    
-* The best summaries preserve important information    
-* All summaries sacrifice information (lossy) 
+* Summarising batches of data in a few numbers    
+* Summarising variables through their distributions    
+* Best: preserve important information    
+* All summaries lose information 
 
 --
 
 ### Statistical measures
-* Location    
+* **Location**    
 	* Popular: mean, median 
 	* Others: weighted mean, trimmed mean,    ...    
-* Spread    
+* **Spread**    
 	* Popular: standard deviation (sd), range    
 	* Others: Interquartile range, Median Absolute Deviation,    ...    
-* Shape    
+* **Shape**    
 	* Skewness 
 	* Kurtosis
 
 --
 
 ### Location
-* Mean
-	* mean = sum_i=1,n(x_i)/n
-	* Mean is the value whose sum of squared deviations to    x_i is smallest
-	* Good if batch is symmetrically distributed
-	* Not good if outliers or severe skewness of distribution
-* Median
-	* Median =  middle value of ordered list of x_i (i = 1, ..., n)
-		* If n is even, any value between the two middle values is a median (often: average of the two)
-* Median is value whose sum of absolute deviations is smallest
+**Mean**
+`$$ mean = \sum_{i=1}^n \frac{(x_i)}{n} $$`
+
+* Mean is the value whose sum of *squared deviations to `$ x_i $` is smallest*
+* Good if batch is symmetrically distributed
+* Not good in case of outliers or severe skewness of the distribution
+
+--
+
+**Median**
+
+Median =  middle value of ordered list of `$ x_i (i = 1, ..., n) $`
+* If `$ n $` is even, any value between the two middle values is a median (often: average of the two)
+* Median is value whose sum of *absolute deviations is smallest*
 * Median splits the batch
 * Robust against outliers   
 
 --
 
 ### Spread
-* Standard deviation (sd)
-sigma(x) = root(Var(X))
-It means:
-* root(mean(square(deviation(mean))))
+**Standard deviation (sd)**
+`$$ \sigma(X) =\sqrt{(VAR(X))} $$`
+It means Literally:
+`$$ \sqrt{(mean(square(deviation(mean))))} $$`
 * Designed for symmetric distributions (Normal distribution)
 * Not robust (against outliers) 
 	* Squaring large errors
@@ -221,22 +411,72 @@ It means:
 --
 
 ### Shape
-* Skewness
-	* Measures positive or negative asymmetry
-		* Think of long tail as arrow -> if its right: positive
-	* Not robust
-* Kurtosis
-	* Measures peaked of flat shape
-	* Not robust
+**Skewness:** Measures positive or negative asymmetry
+* Think of long tail as arrow -> if its right: positive
+* Not robust
+
+<div style="background-color: #a3c1ad;">
+
+![Skewness.svg](figures/Skewness.svg)
+<p style="text-align: right;"> Wikipedia </p>
+
+</div>
+
+--
+
+**Kurtosis:** Measures peaked of flat shape
+* Not robust
+* Gernally:
+    * Small Kurtosis: Homogeneous spreading of events, 
+    * Large Kurtosis: Spreading results from extreme but rare events.
+
+![kurtosis4.png](figures/kurtosis4.png)
+
+<p style="text-align: right;"> www.statext.com </p>
+
+
+--
+
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+### Data Summarising
+Load a data set of your choice, e. g. built-in data set faithful and compute:
+* mean
+* median
+* variance
+* standad deviation
+* covariance
+* Interquartile range
+
+Time: 20 Minutes.
+
+</div>
+
 
 ---
 
 ## Smoothing
-* discovering patterns in data
+* Discovering patterns in data
 * Patterns are described by smoothing functions
 	* Kernel smoothing
 	* Polynomial smoothing
-* Two images
+
+--
+
+### Scatter plot
+
+![scatter.png](figures/scatter.png)
+
+<p style="text-align: right;"> Wilkinson </p>
+
+--
+
+### Smoothing function
+
+![scatter_smoothed.png](figures/scatter_smoothed.png)
+
+<p style="text-align: right;"> Wilkinson </p>
 
 --
 
@@ -244,86 +484,180 @@ It means:
 * Uses basic statistical measures
 	* mean, median, mode
 * Adjacent data points are aggregated
-	* KNN
+	* k-nearest neighbor (KNN)
 	* fixed distance
-* Pictures
 
 --
 
-### Linear regression (Polynomial)
+### Kernel smoothers
 
-[Video](https://www.youtube.com/watch?v=osPwkFkYvNc)
-
-
-* measuring relation: X -> Y (X affects/influences Y)
-* X independent variable ; Y dependent variable
-	* We need plausible assumption / evidence of existing influence
-* Finding a function that approximates the relation in the best way
-* Linear regression: Linear function
-* Covariance
-	* Explains tendentially if high values of one random variable relate more to high or to low values of the other.
+![kernel_smoothers.png](figures/kernel_smoothers.png)
 
 --
 
-### Spline regression (Polynomial)
+### k-nearest-neighbors
 
-Picuture
+![scatter_knn.png](figures/scatter_knn.png)
+
+--
+
+### Fixed distance
+
+![scatter_fixed.png](figures/scatter_fixed.png)
+
+--
+
+### Polynomial smoothing
+* Uses a polynomial function
+    * Linear
+    * Higher-order
+
+--
+
+### Linear regression
+
+<!-- [Video](https://www.youtube.com/watch?v=osPwkFkYvNc) -->
+
+Measuring the influence of one random variables `$ X $` on another random variable `$ Y $`: 
+
+`$$ X \rightarrow Y:= X \textrm{ affects/influcences } Y $$`
+
+`$ X $` is called **independent** variable, `$ Y $` **dependent** variable
+
+<p class="important"> A plausible assumption / evidence of existing influence is needed! </p>
+
+**Goal:** Finding a function that approximates the relation in the best way
+
+--
+
+### Linear regression: Linear function
+
+<div style="background-color: #a3c1ad;">
+
+
+<img src="figures/linear_regression.svg" 
+     height="500" />
+
+</div>
+
+<p class="note"> Shows covariance: Tendence that high values of one random variable relate to high values the other. </p>
+
+--
+
+### Spline regression
+
+Higher-order function expressing relation between variables.
+
+![spline.png](figures/spline.png)
+
+--
+
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+### Linear regression
+
+1. Load the *cars* data set using the <code>data()</code> function.
+
+2. Plot car speeds on the y-axis and stopping distances on the x-axis. What kind of pattern is present?
+
+3. Using the <code>lm()</code> function to fit a linear model to the data with the stopping distance as the response variable. Plot the line of best fit.
+
+4. Use <code>summary()</code> to obtain parameter estimates and model details. Is the slope significantly different than zero? How much of the variance can be explained by car speed?
+
+5. Use the <code>plot()</code> command on the linear model to obtain the four plots of residuals. The residuals are the difference between your observed data and your predicted values.
+
+Time 30 Minutes.
+
+</div>
 
 ---
 
 ## Time series and spacial statistics
-* Time series: Random processes over time
-* Spacial statistics: Random processes over space
+* Time series: Random processes over *time*
+* Spacial statistics: Random processes over *space*
 * Both involve similar mathematical models
-	* However: No Linear regression (measurements at time/space point not independent)
+
+<p class="note"> Events at time/space point not necessarily independent: Smoothing difficult. </p>
 
 --
 
 ### Stochastic processes
 * Up to now: Independent, identically distributed (i.i.d.) random variables.
 	* Two variables take same value with same probability
-	* are NOT mutually influencing
+	* Variables are **not mutually** influencing
 	* No ordering of random variables
 	* Values are systematic effects + random error
 
 --
 
-* Time / Space:
-	* Assumptions:
-		* Random variables are ordered across time or space
-		* Random variables are equally spaced across (fixed delta)
+### Time / Space Assumptions:
+* Random variables are ordered across time or space
+* Random variables are equally spaced (fixed delta)
 
 --
 
-* Autoregression
-	* Known as autoregressive (AR) behavior
-	* Each observation at a given time is a function of the previous plus random error
-	* Question: How are the present observations influenced by the past observations? Or how are local observations influenced by observations at neighboring locations?
-		* How many and which periods of the past / surrounding locations are relevant?
+### Autoregression (AR) / Autoregressive behaviour 
+Each observation at a given time is a function of the *previous* plus random error
+
+**Questions:** 
+* How are the present observations influenced by the past observations? 
+* How are local observations influenced by observations at neighboring locations?
+* How many and which periods of the past / surrounding locations are relevant?
 
 --
 
-* First-order autoregression AR(1)
-	* Time: Observations at t are only influenced by observations at t_1.
-		* Correlate a series of random variables with itself shifted backwards by one time step.
-		* Correlate the shifted series with itself shifted backward by one time step
-		* And so on...
-	* x_t = mu + Phi x_t-1 + Eps_t
-	* Picture
+### First-order autoregression AR(1)
+Observations at time `$ t $` are only influenced by observations at time `$t_{-1}$`.
+
+* Correlate a series of random variables with itself shifted backwards by one time step.
+* Correlate the shifted series with itself shifted backward by one time step
+* And so on...
+
+`$$ x_t = \mu + \phi x_{t-1} + \epsilon_t $$`
 
 --
 
-* Moving average process
-	* Using the moving average of the past periods
-	* Observations at a given time is a function of the previous error plus random error
-		* x_t = mu + theta_eps_t-1 + eps_t
+### Autoregression function plot
+
+![autocorrelation.png](figures/autocorrelation.png)
+
+<p style="text-align: right;"> Wilkinson </p>
+
 
 --
 
-* Generalisation: ARAM / ARIMA processes
-	* Combination of both
-		* x_t = alpha_ + beta x_t + sum_i=1..p(Phi_ix_t-1) + sum_j=1..q(theta_j_eps_t-j + eps_t)
-	* Not further discussed in this course
+### Moving average process
+* Using the moving average of the past periods
+* Observations at a given time is a function of the *previous error* plus random error
+
+`$$ x_t = \mu + \theta_{\epsilon_{t-1}} + \epsilon_t $$`
+
+--
+
+### Autoregression function plot (Moving averages)
+
+![Moving_averages.png](figures/Moving_averages.png)
+
+<p style="text-align: right;"> Wilkinson </p>
+
+--
+
+### Generalisation: ARMA / ARIMA processes
+Combination of both
+`$$ x_t = \alpha + \beta x_t + \sum_{i=1}^p{\phi_i x_{t-1}} + \sum_{j=1}^q{\theta_j \epsilon_{t-j}} + \epsilon_t $$`
+Not further discussed in this course
+
+--
+
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+### Autoregression 
+
+Currently Missing. But there is the <code> acf() </code> function in R which provides autocorrelation function plots. Be creative ;-)
+
+</div>
 
 ---
 
@@ -332,40 +666,104 @@ Picuture
 --
 
 ### Reducing
-* Reducing takes many variables and reduces them to a smaller number of variables
-* Approaches
-	* **Principal components (PC)**
-	* Multidimensional scaling (MDS)
-	* Manifold learning
-	* Random projection
+A large number of variables is reduced to a smaller number of variables
+
+* **Approaches:**
+    * **Principal components (PC)**
+    * Multidimensional scaling (MDS)
+    * Manifold learning
+    * Random projection
 
 --
 
 ### Principal Component Analysis (PCA)
-* PC constructs orthogonal weighted linear combinations
-* Typically a data set has matrix structure.
-	* E. g. for n objects (cars, cells, ...) p features are measured. Gives n points in the p-dimensional space and can be described as nxp matrix.
-* Problem
-	* comparing or grouping n points by p dimensions is hard
+
+Dimension reduction by *orthogonal weighted linear combinations*
+
+Typically a data set has matrix structure:
+
+E. g. for `$ n $` objects (cars, cells, ...) `$ p $` features are measured. Gives `$ n $` points in the `$ p $`-dimensional space and can be described as `$ n \times p $` matrix.
+
+<p class="important"> However, comparing or grouping n points by p dimensions is tidy! </p>
 
 --
 
-* General idea
-	* Often multiple features describe the same aspect of an object.
-		* Car: Speed and engine power -> performance; Length and weight -> size, seats and number of doors -> capacity, etc. 
-	* Extract the highly correlated dimensions into single ones such that the number of dimensions can be reduced.
-* Principal Procedure
-	* [Integrate](https://builtin.com/data-science/step-step-explanation-principal-component-analysis)
-	* Determine vectors for each feature (dimension) describing the value best and being orthogonal to each other (least correlation)
-	* [PCA explained visually](https://setosa.io/ev/principal-component-analysis/)
-	* [Introduction to PCA](https://tgmstat.wordpress.com/2013/11/21/introduction-to-principal-component-analysis-pca/)
+### PCA: General Idea
+
+Extract the highly correlated dimensions into single ones such that the number of dimensions can be reduced with minimal loss of information.
+
+<div class="example">
+
+Often multiple features describe the same aspect of an object.
+* Car: 
+    * Speed and engine power &#8594; performance 
+    * Length and weight &#8594; size
+    * Seats and number of doors &#8594; capacity 
+
+</div>
 
 --
 
-* Basics
-	* Eigenvector and Eigenvalue: **Sv** = **lambdav**
-	* Covariance Matrix Cov(X_i,X_j): Comparision of two random variables regarding if high values of one variable relate to low values of the other variable.
-	* Matrix transponition: **X^T** or **X^-1**
+### Basics
+**Eigenvector and Eigenvalue:** 
+
+`$$ \textbf{S v} = \lambda \textbf{v} $$`
+
+**Covariance Matrix:**
+
+Comparision of two random variables regarding if high values of one variable relate to low values of the other variable.
+
+`$$ COV(X_i,X_j) $$` 
+
+**Matrix Transpose (Notation):** 
+
+`$$ \textbf{X}^T or \textbf{X}^{-1}  $$`
+
+--
+
+### Principal Procedure
+
+Determine vectors for each feature (dimension) describing the value best and being orthogonal to each other (least correlation)
+
+1. Standardising the range of Contionuous variables
+    * avoid bias resulting from large differences of ranges of variables
+    * retrieve standardised data set
+2.  Covariance matrix computation
+    * Detect the relationsship between variables of the input data
+    
+`$$
+\begin{bmatrix}
+COV(X,X) & COV(X,Y) & COV(X,Z) \\
+COV(Y,X) & COV(Y,Y) & COV(Y,Z) \\
+COV(Y,Z) & COV(Y,Z) & COV(Y,Z) 
+\end{bmatrix}
+$$`
+
+--
+
+3. Identifying the PCs
+    * Compute Eigenvalue and Eigenvector of the COV-Matrix
+    
+4. Selecting most relevant PCs (Feature Vector creation)
+    * E. g. Krüger-Kriterium `$ \lambda > 1 $`
+    
+5. Transponing data to new axis
+    `$$ NewData = FeatureVector^T \times StandardisedData^T $$`
+
+--
+
+### Exercise
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+<p> Read the following articles and retrace the procedure: </p>
+<ul>
+ <li> <a href="https://builtin.com/data-science/step-step-explanation-principal-component-analysis"> 5 steps of PCA </a> </li>
+ <li> <a href="https://tgmstat.wordpress.com/2013/11/21/introduction-to-principal-component-analysis-pca/"> Introduction to the PCA </a> </li>
+ <li> <a href="https://setosa.io/ev/principal-component-analysis/"> PCA visually explained </a> </li>
+</ul>
+
+</div>
 
 ---
 
@@ -376,8 +774,9 @@ Picuture
 --
 
 ### Best-known: Outliers
-* Best-known anomaly
-* "An outlier is an observation which deviates so much    from the other observations as to arouse suspicions that it was generated by a different mechanism” (Hawkins, 1980)    
+
+"An outlier is an observation which deviates so much from the other observations as to arouse suspicions that it was generated by a different mechanism” (Hawkins, 1980)
+
 * Presumes a distribution with tails
 * Identifying outliers is tidy
 
@@ -390,11 +789,12 @@ Picuture
 
 --
 
-### Anomalies my bias statistical estimates
-* Don't worry about outliers but their influence!
-* Picture slide 3
-* Do **not** drop outliers before fitting and unless you know why they are outliers
-	* There are alternatives such as robust methods, trimming 
+### Anomalies may bias statistical estimates
+Don't worry about outliers but their influence!
+
+![anomalies1.png](figures/anomalies1.png)
+
+<p class="important"> Do <b>not</b> drop outliers before fitting and unless you know why they are outliers. There are alternatives such as robust methods, trimming </p>
 
 --
 
@@ -412,18 +812,89 @@ Picuture
 	* Grubbs
 		* Iteratively removes outliers 1-by-1.
 	* Tukey
-		* Interquartile range: Q_3 - Q_1)
-		* Rule of thumb: Outlier if value is outside 1.5 IQR
-			* value > Q_3 + 1.5(IQR), value < Q_1 - 1.5(IQR)
-	* Both require Normal Distribution
-* Include slide 8
+		* Interquartile range: `$ Q_3 - Q_1 $`
+		* Rule of thumb: Outlier if value is outside `$ 1.5 IQR $`
+		
+`$$ value > Q_3 + 1.5(IQR) \text{ or } value < Q_1 - 1.5(IQR) $$`
+	
+<p class="note"> Both require Normal Distribution </p>
+
+--
+
+![outliers.png](figures/outliers.png)
+
+<p style="text-align: right;"> Wilkinson </p>
+
+* Left has an outlier but not right?
+    * Both samples have same mean and SD
+    * &#8594; Problem boils down to gaps not to distance from centre
 
 --
 
 ### Graphical methods
-* Include slides 9 - 15
+
+--
+
+## Box plot
+
+![boxplot.png](figures/boxplot.png)
+
+<p style="text-align: right;"> Wilkinson </p>
+
+--
+
+## Probability plot
+
+![probability_plot.png](figures/probability_plot.png)
+
+<p style="text-align: right;"> Wilkinson </p>
+
+<p class="note"> Necessary to know the distribution </p>
+
+--
+
+## Transformations
+
+![transformations.png](figures/transformations.png)
+
+<p style="text-align: right;"> Wilkinson </p>
+
+In particular skewed batches can profit from transformations
+
+--
+
+## Spikes
+
+![spikes.png](figures/spikes.png)
+
+* Use dot plots, check for stacks
+
+<p style="text-align: right;"> Zuur et al. </p>
+
+
+--
+
+## Multivariate Outliers
+
+![mahalanobis.png](figures/mahalanobis.png)
+
+Mahalanobis distance
+
+--
+
+### Exercise
+<!-- .slide: data-background=" aquamarine" -->
+<div class="exercise"> 
+
+<p> Compute the Mahalanobis distance </p>
+
+[Exercise Mahalanobis Distance](https://www.r-bloggers.com/2021/08/how-to-calculate-mahalanobis-distance-in-r/)
+
+</div>
+
 
 ---
+
 
 ## Not topic this time
 * Comparing and Grouping of random variables
