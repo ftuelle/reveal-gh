@@ -895,6 +895,205 @@ Mahalanobis distance
 
 ---
 
+## Hypothesis testing
+
+--
+
+As a model of statistical inference, hypothesis testing is a method to check if the available data prove or disprove a previously stated hypothesis
+
+--
+
+### 5 steps of hypothesis testing
+
+1. Stating the hypotheses
+2. Collecting the data suitable to test the hypothesis
+3. Statistical testing
+4. Checking if hypothesis holds or is rejected
+5. Presentation of the results
+
+--
+
+### Stating the hypotheses
+
+Required: Null-hypothesis H<sub>0</sub> and the alternate hypothesis H<sub>a</sub>.
+
+H<sub>a</sub>: Assumes a relationship between the considerd random variables.
+H<sub>0</sub>: Assumes **no relationship** between the random variables.
+
+--
+
+<div class="example">
+
+### Vitamin C protects against cold
+
+You want to know if the regular consumption of vitamin C protects against getting a cold. From your own observation you assume that people that consume vitamin C preparates have less sick days as others. Hence:
+
+H<sub>0</sub>: People consumed regularly vitamin C have same sick days than others.
+
+H<sub>a</sub>: People consumed regularly vitamin C have less sick days than others. 
+
+</div>
+
+--
+
+### Collecting data
+
+Very important: Collect and sampling representative data:
+
+* Equal proportion in variables
+* Sufficient size of the sample
+* Covering different external parameters
+* Locational scope (region, worldwide)
+
+--
+
+<div class="example">
+
+### Vitamin C protects against cold
+
+* Equal population of consumers and non-consumers
+* Equal proportion of male, female 
+* Variety of socio-economic classes
+* Variety of age classes
+* Variety of climate zones
+
+</div>
+
+--
+
+### Performing the statistical test
+
+Statistical tests usually perform an comparision between **within-group variance** versus **between-group-variance**.
+
+Hence: Grouping of data is necessary
+* Male / female
+* Adult / children
+* Users / non-users
+
+--
+
+### within-group-variance
+How spread the data within a category
+
+### between-group-variance
+How different are groups from each other?
+
+--
+
+### p-value (probability value)
+
+Describes the likelihood that a particular set of observations supports H<sub>0</sub>.
+
+A small p-value means rejecting H<sub>0</sub>.
+
+--
+
+The p-value says how often a test statistic (e. g. t-test) would be as extreme or more extreme as the one calculated using the collected data if H<sub>0</sub> would be true.
+
+<div class="example">
+	p-value of 0.05 means that in 5% of the time a statistic test would be at least as extreme as the one found if H<sub>0</sub> was true.
+</div>
+
+--
+
+### p-value and statistical tests
+
+p-values are related to the statistical test used:
+
+* Different statistical tests have different assumptions and generate different test statistics:
+	* Test must fit to collected data and must match the effect/relationship to be tested
+* The number of **independent variables** included changes how large/small the test statistic needs to be to generate the same p-value
+
+--
+
+### p-values and statistical significance
+
+A result is statistically significant if it is unlikely to be explained by chance or random factors
+
+--
+
+<!-- .slide: data-background=" aquamarine" -->
+### Question
+
+How does this statement relate to the p-value?
+
+--
+
+### Choosing statistical tests
+
+Choice is based on *type of data*:
+
+**Quantitative data:** (describing amounts)
+* Discrete: integers (e.g. number of students)
+* Continuous: ratios (e.g. temperature)
+
+**Qualitative data:** (describing groupings)
+* Binary: boolean (e.g. true/false)
+* Nominal: unordered groups (e.g. Colours, Brands)
+* Ordinal: ordered groups (e.g. adults/children, consumers/non-consumers)
+
+--
+
+**Independent variables**
+* usually *manipulated* within experiment
+
+**Dependent variables**
+* usually *measured* within experiment
+
+**Control variables**
+* Held constant during the experiment
+
+--
+
+![choosing_stat_test.svg](figures/choosing_stat_test.svg)
+
+--
+
+<div class="example">
+
+### Vitamin C protects against cold
+	
+Based on the data collected, a one-tailed t-test is being performed. This results in:
+* An estimate of the difference in sick days between the two groups
+* a **p-value** showing how likely it is to see this difference if the null hypothesis of no difference is true.
+	
+The difference in sick days, e. g, 4,6 days for vitamin c consuments and 5,4 days for non-consuments with an estimate of the true difference of 2.4 days. The p-value might be 0.07.
+	
+</div>
+
+--
+
+### Checking if hypothesis holds or is rejected
+
+the resulting p-value is 0.07, hence > 0.05. In that case the null-hypothesis H<sub>0</sub> holds. Apparently there is no difference between the two groups (the difference in the data could be by chance).
+
+--
+
+### Presenting the results
+
+* Hypothesis tesing does is not a proof
+* It merely shows that our data supports the alternate hypothesis or not
+* Nothing more.
+
+--
+
+<!-- .slide: data-background=" aquamarine" -->
+### Excercise
+
+TBD
+
+--
+
+<!--
+[5steps](https://www.scribbr.com/statistics/hypothesis-testing/)
+[tests](https://www.scribbr.com/statistics/statistical-tests/)
+[testingR](https://www.statology.org/hypothesis-testing-in-r/)
+[testinginr8](https://www.andrew.cmu.edu/user/achoulde/94842/lectures/lecture07/lecture07-94842.html)
+[introtohypotestin](https://data-flair.training/blogs/hypothesis-testing-in-r/)
+[T und mu test](https://techvidvan.com/tutorials/hypothesis-testing-in-r/)
+[r tutorial](http://www.r-tutor.com/elementary-statistics/hypothesis-testing)
+[Examples hypo testing](https://rstatisticsblog.com/data-science-in-action/data-preprocessing/hypothesis-testing-in-r-with-examples-interpretations/)
+-->
 
 ## Not topic this time
 * Comparing and Grouping of random variables
