@@ -1,0 +1,294 @@
+ <!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<title>Introduction to AI - Machine Learning</title>
+
+		<!--<link rel="stylesheet" href="dist/reset.css">-->
+		<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		
+        <!-- Custom CSS file		 -->
+        <link rel="stylesheet" href="../../ft.css">
+    
+        <script src="../../jquery-3.6.0.min.js"></script>    
+        <script type="text/javascript" src="../../ft.js"></script>
+		
+	</head>
+	<body>
+<div class="reveal">
+    <div class="slides">
+    
+<section>
+            <h1> Machine Learning </h1>
+            <p> Lecture: Introduction to Artificial Intelligence </p>
+            <p> Part 9 </p>
+</section>
+        
+<section>
+            <h2> Learning objectives </h2>
+            <div style="text-align: left;">
+             <p>In this section you will learn...</p>
+             <ul>
+                 <li>...what is machine learning</li>
+                 <li>...</li>
+                 <li>...</li>
+                 <li>...</li>
+             </ul>
+            </div>
+</section>
+
+<section>
+            <h2> Credits </h2>
+            <p>Giving Credits to the sources</p>
+</section>
+
+<section>
+	<section>
+		<h2>What is machine learning?</h2>
+	</section>
+	
+	<section>
+		<h3>Problem solving</h3>
+		<ul>
+			<li>Computer scientists write programs</li>
+			<li>Programs encode a set of rules useful for solving a specific problem</li>
+			<li>Often: It's <em>very difficult to specify that rules</em></li>
+		</ul>
+	</section>
+	<section>
+		<h3>Identifying the fern leafs</h3>
+		<img src="figures/fern_and_conifer.png" alt="Fern and Conifers">
+		<p class="source">analyticsindiamag.com</p>
+	</section>
+	<section>
+		<h3> Learning programs... </h3>
+		<p>...<b>learn the set of rules</b> for solving a problem instead of encoding the rules itself. 
+		<p>Three general approaches are available:</p>
+		<ol>
+			<li>Unsupervised Learning: trial and error</li>
+			<li>Supervised Learning: imitating behaviour on examples</li>
+			<li>Reinforcement Learning: imitating behaviour on rewards</li>
+		</ol>
+	</section>
+	<section>
+		<h3>Learning means</h3>
+		<p>Extracting obvious or hidden information from training examples into the system.</p>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Why using machine learning?</h2>
+	</section>
+	<section>
+		<p>Hard to write programs such as handwriting detection</p>
+		<img src="figures/handwriting.jpg" height="700">
+		<p class="source">DFKI</p>
+	</section>
+	<section>
+		<ul>
+			<li>What distinguishes a letter 'A' from 'H'?</li>
+			<li>How does our brain solve the problem?</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Approach for a learning program</h3>
+		<ul>
+			<li>Collecting examples specifying the correct output for a given input.</li>
+			<li>A machine learning algorithm creates a program out of these examples that solves the problem.</li>
+			<li>If done well, the program works for new cases as well as for the trained ones.</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Tasks of learning algorithms</h3>
+	</section>
+	<section>
+		<h3>Classification</h3>
+		<p>Determine which discrete category the example is</p>
+		<img src="figures/cats_and_dogs.png">
+	</section>
+	<section>
+		<p>What about this?</p>
+		<img src="figures/pandadog.png">
+	</section>
+	<section>
+		<p>Is it a heart disease?</p>
+		<img src="figures/ekg.jpg" width="1000">
+	</section>
+	<section>
+		<h3>Pattern recognition</h3>
+		<p>Speech recognition, facial identity</p>
+	</section>
+	<section>
+		<a href=https://www.youtube.com/watch?v=hqd1WUt1RhY>https://www.youtube.com/watch?v=hqd1WUt1RhY</a>
+	</section>
+	<section>
+		<a href=https://www.youtube.com/watch?v=jeRCvbN_bLA>https://www.youtube.com/watch?v=jeRCvbN_bLA</a>
+	</section>
+	<section>
+		<h3>Recommender Systems</h3>
+		<p>Noisy data, commercial pay-off (e.g., Amazon, Netflix</p>
+	</section>
+	<section>
+		<h3>Information retrieval</h3>
+		<p>Find documents or images with similar content</p>
+	</section>
+	<section>
+		<img src="figures/information_retrieval.png">
+	</section>
+	<section>
+		<img src="figures/google-search-ai.png">
+	</section>
+	<section>
+		<h3>Computer vision</h3>
+		<p>detection, segmentation, depth estimation, optical flow, etc.</p>
+	</section>
+	<section>
+		<img src="figures/computer_vision.png">
+	</section>
+	<section>
+		<p>Microsoft Kinect</p>
+		<a href="https://www.youtube.com/watch?v=op82fDRRqSY">https://www.youtube.com/watch?v=op82fDRRqSY</a>
+	</section>
+	<section>
+		<img src="figures/van_gogh-munch.png">
+	</section>
+	<section>
+		<h3>Robotics</h3>
+		<p>perception, planning, etc.</p>
+	</section>
+	<section>
+		<p>Autonomous driving</p>
+		<img src="figures/autonomous-driving.png">
+	</section>
+	<section>
+		<p>Flying robots</p>
+		<a href="https://www.youtube.com/watch?v=YQIMGV5vtd4">https://www.youtube.com/watch?v=YQIMGV5vtd4</a>
+	</section>
+	<section>
+		<h3>Playing games</h3>
+	</section>
+	<section>
+		<p>Alpha Go</p>
+		<img src="figures/alpha-go.png">
+	</section>
+	<section>
+		<p>Poker</p>
+		<img src="figures/poker.png">
+	</section>
+	<section>
+		<h3>Recognizing anomalies</h3>
+		<p>Unusual sequences of credit card transactions, panic situation at airport</p>
+		<h3>Spam filtering, fraud detection</h3>
+		<p>Detection of suspicious messages and activities</p>
+		<h3>Many other things...</h3>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Types of Learning</h2>
+	</section>
+	<section>
+		<h3>Supervised Learning</h3>
+		<p>Correct output is known for each training example</p>
+		<ul>
+			<li>Learn to predict output when given an input vector</li>
+			<li>Classification: 1-of-N output (speech recognition, object recognition, medical diagnosis</li>
+			<li>Regression: real-valued output (predicting market prices, customer rating</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Unsupervised Learning</h3>
+		<p>Create an internal representation of the input, capturing regularities/structure in data</p>
+		<ul>
+			<li>Form clusters</li>
+			<li>Extraction of features</li>
+		</ul>
+		<p>How do we know if a representation is good?</p>
+	</section>
+	<section>
+		<h3>Reinforcement learning</h3>
+		<p>Learn action to maximize payoff</p>
+		<ul>
+			<li>Not much information in payoff signal</li>
+			<li>Payoff is often delayed</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Machine Learning and Big Data</h2>
+	</section>
+	<section>
+		<ul>
+			<li>Typically simple ML techniques are applied</li>
+			<li>Formerly: Performance issues for complex ML techniques. But this changed.</li>
+			<li>Now: Many ML problems involve tons of data. But the domain of ML is still in AI (recognition etc.)</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Machine Learning and Statistics</h2>
+	</section>
+	<section>
+		<ul>
+			<li>ML uses statistical theory to build models</li>
+			<li>ML is rediscovery of statistics already knew</li>
+			<li>Emphasis is different
+				<ul>
+					<li>Good piece of statistics:Clever proof that relatively simple estimation procedure is asymptotically unbiased.</li>
+					<li>Good piece of ML: Demo that a complicated algorithm produces impressive results on a specific task.</li>
+				</ul>
+			</li>
+			<li>Can view ML as applying computational techniques to statistical problems. But with different aims (speed vs. accuracy)</li>
+		</ul>
+	</section>
+</section>
+
+</div>
+</div>
+		
+		<script src="../../reveal.js/dist/reveal.js"></script>
+		<script src="../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+<!-- 		<script src="reveal.js-plugins/animate/plugin.js"></script> -->
+<!-- 		<script src="reveal.js-plugins/animate/svg.min.js"></script>--> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+        <script src="../../reveal.js/plugin/math/math.js"></script>
+<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+		<script>
+// 			More info about initialization & config:
+// 			- https://revealjs.com/initialization/
+// 			- https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+				slideNumber: true,
+				autoPlayMedia: true,
+// 				autoSlide: 5000,
+// 				animate: {
+// 					autoplay: false
+// 				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, /*RevealAnimate,*/ RevealMath ]
+			});
+		</script>
+	</body>
+</html>
