@@ -196,11 +196,171 @@
 	<section>
 		<h3>Supervised Learning</h3>
 		<p>Correct output is known for each training example</p>
+	</section>
+	<section>
+        <h4> Supervision </h4>
+        <p> Presenting <b>trainig data</b> with input and respective output to the system. </p>
+        <h4> Concept Learning </h4>
+        <p> System <b>retrieves a model (~hypothesis)</b> relating input data to output data. </p>
+        <h4> Regression / Classification </h4>
+        <p> Using that model to <b>accurately predict</b> outputs on any new input example.</p>
+	</section>	
+    <section data-markdown
+         data-separator="^\n\s*---\n$" 
+         data-separator-vertical="^\n\s*--\n$">
+    <textarea data-template>
+
+Learn to predict output when given an input vector.
+
+<div class="example">
+
+#### House prices
+
+| Rooms | Size (sqm) | District | Price       |
+|-------|------------|----------|-------------|
+| 3     | 80         | Centre   | 100 000 EUR |
+| 2     | 60         | Suburb   | 60 000 EUR  |
+| 4     | 120        | Suburb   | 100 000 EUR |
+| 1     | 30         | Centre   | 67 000 EUR  |
+| 4     | 100        | Centre   | 140 000 EUR |
+
+</div>
+
+    </textarea>
+
+    </section>
+
+    <section>
+
+    <h3>Steps of Suvervised Learning</h3>
+
+    <img src="figures/steps_supervised_learning.webp" alt="Fern and Conifers">
+    <p class="source">buddingengineer.com</p>
+
+    </section>
+    <section>
+    <ul>
+    <li><b>Data Ingestion:</b> Reading data from external sources (Files, Websites, etc.)</li>
+    <li><b>Data Cleaning:</b> Make data sets digestable for algorithms (remove gaps, errors, etc.)</li>
+    <li><b>EDA:</b> Exploratory Data Analysis: Make suitable to the analysis (see Statistics section)</li>
+    <li><b>Model Training and Evaluation:</b>Choose Supervised Learning algorithm. Which one?</li>
+    <li><b>Prediction:</b>After model completion, retrain system with whole data set (seen and unseen)</li>
+    </ul>
+    </section>
+
+	<section>
+		<h3>Categories of Supervised Learning</h3>
+	</section>
+	<section>
 		<ul>
-			<li>Learn to predict output when given an input vector</li>
-			<li>Classification: 1-of-N output (speech recognition, object recognition, medical diagnosis</li>
+			<li></li>
+			<li>Classification: 1-of-N output (speech recognition, object recognition, medical diagnosis)</li>
 			<li>Regression: real-valued output (predicting market prices, customer rating</li>
 		</ul>
+	</section>
+	<section>
+		<h3>Regression</h3>
+		<p>Deals with continuous output data <b>or</b> when model relates between a dependent variables and one or more independent variables.</p>
+	</section>
+	<section>
+		<h3>Typical Regression Algorithms</h3>
+		<ul>
+			<li>Linear regression</li>
+			<li>Step-wise regression</li>
+			<li>Neural Network Regression</li>
+			<li>Support Vector Machines</li>
+		</ul>
+	</section>
+	<section>
+		<div class="example">
+			<h3>Example: Regression problems</h3>
+			<ul>
+				<li>Predicting real estate prices.</li>
+				<li>Household electric power consumption</li>
+				<li>Predicting salary from HR devastate</li>
+			</ul>
+		</div>
+	</section>
+	<section>
+		<h3>Classification</h3>
+		<p>Deals with discrete, separate and distinct output data <b>or</b> when a category should be predicted new input data belongs to.</p>
+	</section>
+	<section>
+		<h3>Typical Classification Algorithms</h3>
+		<ul>
+			<li>K-Nearest Neighbors</li>
+			<li>Decision Tree</li>
+			<li>Support Vector Machines</li>
+			<li>Naive Bayes</li>
+			<li>Neural Network Classification</li>
+		</ul>
+	</section>
+	<section>
+		<div class="example">
+			<h3>Example: Classification problems</h3>
+			<ul>
+				<li>Predicting cancer risk.</li>
+				<li>Face recognition</li>
+				<li>Mushroom classification</li>
+			</ul>
+		</div>
+	</section>
+
+	<section data-background-color="aquamarine">
+		<h3> Exercise </h3>
+		<p>Please watch the video Support Vector Machines (SVM) Overview and Demo using R and summarize:</p>
+		<ul>
+			<li> Make notes of what is the idea of SVM </li>
+			<li> How works SVM principally</li>
+			<li>Comprehend (try out) the demo with your 
+			</li>
+		</ul>
+		<a href="https://www.youtube.com/watch?v=ueKqDlMxueE">Support Vector Machines (SVM) Overview and Demo using R</a>
+		<p>Time: 20 Minutes</p>
+	</section>
+
+	<section data-background-color="aquamarine">
+		<h3> Exercise </h3>
+		<p>Please read the Introduction to Artificial Neural Networks and take notes to the following aspects:</p>
+		<ul>
+			<li> How work neural networks principally (Section 1 and 2)?
+			</li>
+			<li>How they are trained (section 3)?</li>
+			<li> What to consider when implementing?(section 5)
+			</li>
+		</ul>
+		<a href="https://arxiv.org/pdf/astro-ph/0102224.pdf">An introduction to artificial neural networks</a>
+
+		<p>Time: 30 Minutes</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Exercise</h3>
+	</section>
+	<section>
+		<h3>Unsupervised Learning</h3>
+		<p>Only using input data</p>
+	</section>
+	<section>
+		<p>Whats that?</p>
+		<img src="figures/blurred_eye.jpeg" alt="Blurred Eye">
+    <p class="source">stackoverflow.com</p>
+		
+	</section>
+	<section>
+		<h4>How could we identify (blurred)?</h4>
+		<ul>
+			<li>Unlikely that you saw an eye exactly like this...</li>
+			<li>But... we identified the form, eyeball, lens, pupil</li>
+			<li>We understood the <b>hidden pattern</b> of an eye...</li>
+		</ul>
+	</section>
+	<section>
+		<p><b>Unsupervised learning:</b></p>
+		<br>
+		<P>Learning the hidden pattern from input data only with minimum human supervision.</P>
+	</section>
+	<section>
+		<h3>Categories of unsupervised Learning</h3>
 	</section>
 	<section>
 		<h3>Unsupervised Learning</h3>
@@ -212,12 +372,124 @@
 		<p>How do we know if a representation is good?</p>
 	</section>
 	<section>
+		<h3>Clustering</h3>
+		<img src="figures/clustering.webp" alt="Clustered data">
+    <p class="source">buddingengineer.com</p>
+	<br>
+	<p>Grouping similar objects (in terms of features) together</p>
+	</section>
+	<section>
+		<div class="example">
+			<p>Automated photo album creation</p>
+			<ul>
+				<li>Animals</li>
+				<li>Familiy members</li>
+				<li>Locations</li>
+				<li>Landscapes</li>
+			</ul>
+		</div>
+	</section>
+	<section>
+		<h3>Clustering Algorithms</h3>
+		<p>Usually very application dependent and specific to particular tasks as groups of objects can be built on a huge variety of parameters...</p>
+		<p>e. g., distance, statistical distribution, mean vectors, etc.</p>
+	</section>
+	<section>
+		<h3>Association</h3>
+		<p>A connection of cooperative link between people and organizations</p>
+	</section>
+	<section>
+		<ul>
+			<li>Used for finding hidden patterns or connections in data</li>
+			<li>Rule-based machine learning method (develops rules from data</li>
+		</ul>
+	</section>
+	<section>
+		<div class="example">
+			<h3>Grocery Shopping</h3>
+			<ul>
+				<li>Always when buying bread, also butter is buyed</li>
+				<li>The alogrithm could easily detect that relation</li>
+				<li>Shop owner can place bread besides butter</li>
+			</ul>
+		</div>
+	</section>
+	<section>
+		<h4>Association is often used for</h4>
+		<ul>
+			<li>Market Basket Analysis (What do people buy together?)</li>
+			<li> Marketing Strategy (What to show people more?)</li>
+			<li>Recommender System (Major Application)</li>
+			<li>Price Bundling and Discounts</li>
+			<li>Intrusion Detection</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Dimensionality Reduction</h3>
+		<p>How to deal with too many features</p>
+	</section>
+	<section>
+		<h4>Goal</h4>
+		<p>Representing the same information but reducing the dimensionality of the input data</p>
+		<br>
+		<p class="example">Visualisation of 2D data is better to understand compared to 3D data.</p>
+		<p>See "Statistics and AI Session"</p>
+	</section>
+	<section>
+		<h3>Some UL Algorithms</h3>
+		<ul>
+			<li>K-Means</li>
+			<li>Agglomerative Hierarchical Clustering</li>
+			<li>Anomaly Detection</li>
+			<li>Principal Component Analysis</li>
+			<li>Apriori algorithm</li>
+		</ul>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Exercise</h3>
+		<p>Please read the following article and summarize the algorithms</p>
+		<a href=https://dataaspirant.com/unsupervised-learning-algorithms/">Five Most Popular Unsupervised Learning Algorithms</a>
+		<p>Time: 20 Minutes</p>
+	</section>
+	<section>
 		<h3>Reinforcement learning</h3>
 		<p>Learn action to maximize payoff</p>
+	</section>
+	<section>
+		<h3>What is RL?</h3>
+		<p>Reinforcement Learning is about learning what to do - how to map situations to actions, so as to maximize a numerical reward signal. The learner is not told what to do, but instead it must discover which actions yield the most reward via trial-and-error.</p>
+	</section>
+	<section>
+		<h3>How works RL?</h3>
+		<img src="figures/rl.jpg" alt="RL Basic Diagram">
 		<ul>
-			<li>Not much information in payoff signal</li>
-			<li>Payoff is often delayed</li>
+			<li>Agent interacts with environment</li>
+			<li>Agents are self-trained on reward and punishment</li>
+			<li>Goal: Take best possible action/path to gain maximum rewards.</li>
 		</ul>
+	</section>
+	<section>
+		<h3>Another Example</h3>
+		<img src="figures/dog.jpg" alt="Dog Training">
+	</section>
+	<section>
+		<h4>Some Terminology</h4>
+		<ul>
+			<li><b>Agent</b> - the learner</li>
+			<li><b>Environment</b> - Physical world the agent interacts with</li>
+			<li><b>State</b> - Current situation of the agent in the environment</li>
+			<li><b>Reward</b> - Reward the agent gets from the environment for an action</li>
+			<li><b>Policy</b> - The agent prepares a strategy how to map situations to actions</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Categories of RL</h3>
+	</section>
+	<section>
+		<h4>Positive Reinforcement</h4>
+		<p>Positive behaviour followed by positive consequence.</p>
+		<h4>Negative Reinforcement</h4>
+		<p>Positive behaviour followed by removal of negative consequences</p>
 	</section>
 </section>
 <section>
@@ -250,10 +522,11 @@
 		</ul>
 	</section>
 </section>
-<section>
+<section data-background-color="aquamarine">
 <h3> Exercise </h3>
 <p> Please work through the End-to-End tutorial </p>
 <a href="https://machinelearningmastery.com/machine-learning-in-r-step-by-step/">https://machinelearningmastery.com/machine-learning-in-r-step-by-step/</a>
+<p>Time: 30 Minutes</p>
 </section>
 
 </div>
