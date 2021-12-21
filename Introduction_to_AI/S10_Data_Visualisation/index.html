@@ -1,0 +1,401 @@
+ <!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<title>Introduction to AI - Data Visualisation</title>
+
+		<!--<link rel="stylesheet" href="dist/reset.css">-->
+		<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		
+        <!-- Custom CSS file		 -->
+        <link rel="stylesheet" href="../../ft.css">
+    
+        <script src="../../jquery-3.6.0.min.js"></script>    
+        <script type="text/javascript" src="../../ft.js"></script>
+		
+	</head>
+	<body>
+<div class="reveal">
+    <div class="slides">
+    
+<section>
+            <h1> Data Visualisation </h1>
+            <p> Lecture: Introduction to Artificial Intelligence </p>
+            <p> Part 10 </p>
+</section>
+        
+<section>
+            <h2> Learning objectives </h2>
+            <div style="text-align: left;">
+             <p>In this section you will learn...</p>
+             <ul>
+                <li>...what data visualisation means</li> 
+				<li>...why data visualisation is important for AI</li>
+				 <li>...rules for good visualisations</li>
+             </ul>
+            </div>
+</section>
+
+<section>
+            <h2> Credits </h2>
+            <p>Contents in the Introduction section are based on the lecture slides of Rebeccca Bartlett, Heather MacDonald, and Scott Turner from Carlton Uni.</p>
+			<p>https://badvisualisations.tumblr.com/</p>
+</section>
+<section>
+	<section>
+		<h2>Introduction to data visualisation</h2>
+		<p>Include:</p>
+		<ul>
+			<li>https://library.carleton.ca/sites/default/files/help/Intro%20to%20Data%20Viz%202016.pdf</li>
+			<li>https://www.omnisci.com/learn/data-visualization</li>
+			<li>https://cs.boisestate.edu/~alark/cs564/lectures/Introduction_to_Data_Visualization.pdf</li>
+			<li>https://www.informationisbeautiful.net/visualizations/the-middle-east-key-players-notable-relationships/</li>
+		</ul>
+	</section>
+	<section>
+		<h3>A few definitions...</h3>
+		<p>"Data (or information) visualisation deals with <b>graphic representation</b> of data. It is [...] a way of communicating when <b>data is numerous"</b>...</p>
+		<p class="source">Wikipedia</p>
+	</section>
+	<section>
+		<h3>Data visualization...</h3>
+		<p>"... presents data as an <b>image or graphic</b> to make it easier to <b>identify patterns</b> and <b>understand</b> difficult concepts. Technology allows users to <b>interact</b> with the data [...] to see <b>more detail</b> and create <b>new insights</b>".</p>
+		<p class="source"><a href="https://www.omnisci.com/learn/data-visualization">www.omnisci.com</a></p>
+	</section>
+	<section>
+		<h3>Summarised, Visualisation helps...</h3>
+		<ul>
+			<li>...to understand and learn from data.</li>
+			<li>...to explore and communicate data.</li>
+			<li>...for taking informed decisions.</li>
+			<li>...for reasoning from data.</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Viewers can...</h3>
+		<p>Detect <b>patterns, trends, and correlations</b> in data</p>
+		<p>for</p>
+		<p><b>Drawing inferences, anticipate potential trajectories and outcomes, ask new questions</b> of the data unveiled by the look on the data</p>
+	</section>
+	<section>
+		<h3>How to visualise data</h3>
+		<p><b>Graphical elements</b> need to be <b>wisely chosen</b> in order to extract and point out the information corresponding to the given <b>task or purpose</b></p>
+	</section>
+	<section>
+		<div class="example">
+			<a href="https://datavizcatalogue.com/"><h3>The Data Visualisation Catalogue</h3></a>
+			<p>Explanation of purpose and usage of different graphical elements.</p>
+			<p>Check out the 'Search by Function' feature.</p>
+		</div>
+	</section>
+	<section>
+		<h3>Required Considerations</h3>
+		<ul>
+			<li>What data (or subset of data) is <b>relevant</b> for your aim?</li>
+			<li>Who is your <b>audience?</b></li>
+			<li>How will you <b>encode</b> your data?</li>
+			<li>How will you <b>structure</b> the visualization?</li>
+			<li>How will you demonstrate the <b>relationship</b> between data?</li>
+			<li>Determine the <b>scale</b> of your visualization.</li>
+			<li>Which elements will the user <b>interact</b> with?</li>
+			<li>Will a user <b>intuitively understand</b> how the visualization works and what it represents?</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+	<h2>Data Visualisation and AI</h2>
+	</section>
+	<section>
+		<p>Data visualisation is only a help for humans but computers don't need?</p>
+	</section>
+	<section>
+		<div class="example">
+		<h3>Country with the largest Hindu population</h3>
+		<img src="figures/hindu.png" alt="Raw data vs bar plot" width="800">
+            <p class="source">ellycode.com</p>
+		</div>
+	</section>
+	<section>
+		<h3>Well..., yes, but...</h3>
+		<p>...(on a common scale) AI systems behave similar to human data analysts.</p>
+		<p>...Both using incoming and aggregate data to predict and make decisions.</p>
+	</section>
+	<section>
+		<div class="example">
+			<ul>
+				<li>Tracking customer behavior, transactions, performance, etc. are widely used by retail companies, banks, and more.</li>
+				<li>Many businesses have been using AI systems to handles large customer bases for customer service and marketing.</li>
+			</ul>
+		</div>
+	</section>
+	<section>
+		<h3>Data Visualisation is the bridge...</h3>
+
+		<p>Between AI and humans for...</p>
+	</section>
+	<section>
+		<h3>... visual data exploration</h3>
+		<p>Important for data cleaning, feature extraction, data preparation, etc.</p>
+	</section>
+	<section>
+		<h3>... making AI understandable and usable</h3>
+		<img src="figures/dashboard.png" alt="Dashboard presenting data AI processes" width="800">
+            <p class="source">ellycode.com</p>
+	</section>
+	<section>
+		<h3>... communicating results</h3>
+		<p>Presenting the AI results to analysts, clients, politcs,...</p>
+
+		<div class="example">
+			Autonomous cars had some accidents and caused deaths. How bad is that really? Compared to common traffic? Data visualisation helps.
+		</div>
+	</section>
+	<section data-background-color="aquamarine">
+		<h2>Exercise</h2>
+		<p>Please read the following article, which more aspects can you find that link AI and visualisation? Collect these.</p>
+
+		<a href="https://medium.com/plotly/data-visualization-for-artificial-intelligence-and-vice-versa-a38869065d88">Data Visualization for Artificial Intelligence, and Vice Versa</a>
+
+		<p>Time: 20 minutes</p>
+	</section>
+</section>
+<section>
+	<section>
+	<h2>Good and Bad Data Visualisation</h2>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Group Discussion</h3>
+		<p>On the following 10 slides, you see bad examples for visualisations.</p>
+		<ol>
+		<li>Look at them and collect what you find.</li>
+		<li>In 10 minutes you will be assigned to a group</li>
+		<li>Discuss your results (10 Min) and
+		write down your results and share in the collaborative editor (ilearn)</li>
+		<li>Each group presents the results to the others (2 Min per group).</li>
+		</ol>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 1</h3>
+		<img src="figures/bad_example_1.jpg" alt="Bad Example 1" width="800">
+            <p class="source">ESPN CricInfo</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 2</h3>
+		<img src="figures/bad_example_2.jpg" alt="Bad example 2" width="800">
+            <p class="source">Britannia</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 3</h3>
+		<img src="figures/bad_example_3.jpg" alt="Bad example 3" width="800">
+            <p class="source">ESPN CricInfo</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 4</h3>
+		<img src="figures/bad_example_4.png" alt="Bad example 4">
+            <p class="source">howmuch</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 5</h3>
+		<img src="figures/bad_example_5.jpg" alt="Bad example 5" width="800">
+            <p class="source">DishTV</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 6</h3>
+		<img src="figures/bad_example_6.png" alt="Bad example 6" width="800">
+            <p class="source">CNBC</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 7</h3>
+		<img src="figures/bad_example_7.jpg" alt="Bad example 7" width="800">
+            <p class="source">ESPN CricInfo</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 8</h3>
+		<img src="figures/bad_example_8.jpg" alt="Bad example 7" width="800">
+            <p class="source">TitleMax</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 9</h3>
+		<img src="figures/bad_example_9.png" alt="Bad example 9">
+            <p class="source">CNA</p>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Bad example 10</h3>
+		<img src="figures/bad_example_10.png" alt="Bad example 10" width="800">
+            <p class="source">CNA</p>
+	</section>
+	<section>
+		<h3>Rules for good visuals</h3>
+		<ul>
+			<li><b>Title:</b> Engaging and clear, large enough, encouraging to viewers</li>
+			<li><b>Text:</b> Typos, Grammar, Punctuation</li>
+			<li><b>Visuals:</b> Essentials are clear, Minimal, good to read from distance</li>
+			<li><b>Formatting:</b> Enough space, too busy, crammed?</li>
+			<li><b>Data:</b> Only essential data shown?</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Countinued...</h3>
+		<ul>
+			<li><b>Key message:</b> Clear to understand? Story comprehensible?</li>
+			<li><b>Tooltips:</b> Formatted?</li>
+			<li><b>Data Sources:</b> Credits given?</li>
+			<li><b>Animations:</b> Tested, working, non-misleading, and clear how to use?</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Dashboards</h2>
+	</section>
+	<section>
+		<img src="figures/opsview.jpg" alt="Opsview screen" width="800">
+				<p class="source">Wikipedia</p>
+	</section>
+	<section>
+		<h3>What is a Dashboard</h3>
+		<p>Displays the <b>most relevant information</b> for one or more <b>particular objectives</b>, arranged on a <b>single screen</b> to allow monitoring at a glance.</p>
+	</section>
+	<section>
+		<h3>Dashboards...</h3>
+		<img class="r-stretch" src="figures/dashboard3.png" alt="Opsview screen">
+		<p>...emphasize on graphics in order to efficiently communicate information and richer meaning.</p>
+	</section>
+	<section>
+		<h3>Dashboards...</h3>
+		<ul>
+			<li>... are Visual Displays</li>
+			<li>... display mission-critical information.</li>
+			<li>... consolidate information from different sources.</li>
+			<li>...should fit on a single screen</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Types of Dashboards</h3>
+		<ul>
+			<li>Settings Dashboards in Operating Systems (Windows, IOS, Android</li>
+			<li>User Dashboards at Websites (e. g. Google)</li>
+			<li>Show Key-Performance-Indicators of companies</li>
+			<li>Executive information systems are based on Dashboards</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Dashboards...</h3>
+		<ul>
+			<li>...show information in form of summaries or exceptions</li>
+			<li>...have small, concise, clear display mechanisms</li>
+			<li>...are customizable</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Common Design mistakes</h3>
+		<ul>
+			<li>become to large (multiple sceens)</li>
+			<li>Supplying inadequate data</li>
+			<li>Excessive detail or precision</li>
+			<li>Use inappropriate visualisations</li>
+			<li>Encoding data inaccurrately</li>
+			<li>Miss to emphasize the important information</li>
+			<li>Cluttering the display</li>
+			<li>Misuse color</li>
+		</ul>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Exercise</h3>
+		<p>Please read the following article:</p>
+		<a href="https://journals.sagepub.com/doi/pdf/10.1177/20539517211025561">"How narratives told by predictive analytics reconfigure roles, risk and sociality"</a>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Answer the following questions:</h3>
+		<ul>
+			<li>What are the researchers trying to do with dashboards?</li>
+			<li>What is the role of Machine Learning?</li>
+			<li>What are their major findings?</li>
+		</ul>
+		<p>Time: 30 Minutes</p>
+	</section>
+</section>
+<section>
+	<section>
+		<h3>Further readings</h3>
+	<ul>
+		<li><a href="https://www.visualisingdata.com/book/">Visualising data</a></li>
+		<li><a href="https://www.storytellingwithdata.com/">Storytelling with data</a></li>
+		<li><a href="https://www.onlineprogrammingbooks.com/r-data-science/">Data Science with R</a></li>
+		<li><a href="https://www.edwardtufte.com/tufte/books_vdqi">The Visual Display of Quantitative Information</a></li>
+	</ul>
+	
+	</section>
+</section>
+<section>
+	
+</section>
+
+<section data-markdown
+         data-separator="^\n\s*---\n$" 
+         data-separator-vertical="^\n\s*--\n$">
+<textarea data-template>
+
+### Using markdown
+
+* Be aware of starting each line without indention!
+* Can be combined with HTML by just <bf>using tags inline</bf>
+* Will be converted automatically to HTML during parsing.
+
+</textarea>
+</section>
+
+<section>
+            <img src="figures/school-of-athens.jpg" alt="School of athens with computers" width="600">
+            <p class="source">Image Source<p>
+</section>
+
+
+    
+    </div>
+</div>
+		
+		<script src="../../reveal.js/dist/reveal.js"></script>
+		<script src="../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+<!-- 		<script src="reveal.js-plugins/animate/plugin.js"></script> -->
+<!-- 		<script src="reveal.js-plugins/animate/svg.min.js"></script>--> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+        <script src="../../reveal.js/plugin/math/math.js"></script>
+<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+		<script>
+// 			More info about initialization & config:
+// 			- https://revealjs.com/initialization/
+// 			- https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+				slideNumber: true,
+// 				autoSlide: 5000,
+// 				animate: {
+// 					autoplay: false
+// 				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, /*RevealAnimate,*/ RevealMath ]
+			});
+		</script>
+	</body>
+</html>
