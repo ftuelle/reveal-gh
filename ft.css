@@ -111,4 +111,10 @@ p.source::before{
   font-size: 48px;
 }
 
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
 
