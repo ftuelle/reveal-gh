@@ -1,0 +1,357 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<title>Introduction to AI - Knowledge Management</title>
+
+	<!--<link rel="stylesheet" href="dist/reset.css">-->
+	<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+
+	<!-- Custom CSS file		 -->
+	<link rel="stylesheet" href="../../ft.css">
+
+	<script src="../../jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../../ft.js"></script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h1> Knowledge Management and AI </h1>
+				<p> Lecture: Introduction to Artificial Intelligence </p>
+				<p> Part 11 </p>
+			</section>
+
+			<section>
+				<h2> Learning objectives </h2>
+				<div style="text-align: left;">
+					<p>In this section you will learn...</p>
+					<ul>
+						<li>the basics of knowledge management</li>
+						<li>the relations between knowledge management and AI</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2> Credits </h2>
+				<p>Parts of this lecture are based on the lecture "Knowledge Management" of Prof. Dr. S. P. Ponzetto
+					(University of Mannheim)</p>
+			</section>
+
+			<section data-markdown data-separator="^\n\s*---\n$" data-separator-vertical="^\n\s*--\n$">
+<textarea data-template>
+### Recap: Knowledge-based systems
+<img src="figures/structure_of_kbs.png" alt="Structure of knowledge-based-systems" width="600">
+</textarea>
+			</section>
+
+			<section>
+				<h3>Overview</h3>
+				<ul>
+					<li>What is knowledge?</li>
+					<li>The Role of knowledge in Organisations</li>
+					<li>Knowledge Resources and Technologies</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<h2>What is knowledge?</h2>
+				</section>
+				<section>
+					<h3>What is knowledge?</h3>
+					<p> Different definitions exist in different fields:</p>
+					<ul>
+						<li>Comuter science vs. cognitive science</li>
+					</ul>
+					<p>Definition goes in line with how knowledge is treated (modelled, stored, processed).</p>
+				</section>
+				<section>
+					<h3>What is knowledge? - Dictionary definitions</h3>
+					<ol>
+						<li>the fact or condition of knowing something with familiarity <b>gained through experience or
+								association</b>: acquaintance with or understandig of a science, art, or technique.</li>
+						<li>the fact or condition of being aware of something: the range of one's information or
+							understanding.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>What is knowledge? - Dictionary definitions</h3>
+					<ol>
+						<li>the circumstance of condition of <b>apprehending truth or fact through reasoning</b>:
+							cognition.</li>
+						<li>the fact or condition of having information or of being learned.</li>
+					</ol>
+				</section>
+				<section>
+					<h3>What is knowledge? - From Tokens to Wisdom</h3>
+					<img src="figures/Definition_of_knowledge.png" alt="From Tokens to Wisdom" width="600">
+				</section>
+				<section>
+					<h3>What is knowledge? - Another definition</h3>
+
+					<p>"Knowledge is a fluid mix of framed experience, values, contextual information, and expert
+						insight that provide a <b>framework for evaluating and incoporating new experiences and
+							information.</b>"</p>
+				</section>
+				<section>
+					<h3>Information can be transformed into knowledge by:</h3>
+					<ul>
+						<li><b>Comparision:</b> How does information about this situation compare to other situations we
+							have known?</li>
+						<li><b>Consequences:</b> What implications does the information have for decisions and actions?
+						</li>
+						<li><b>Connections:</b> How does this bit of knowledge relate to others?</li>
+						<li><b>Conversation:</b> What do other people think about this information?</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Data -- Information -- Knowledge</h3>
+					<div>
+						<ul>
+							<li>unstructured</li>
+							<li>isolated</li>
+							<li>context-independent</li>
+							<li>tokens</li>
+							<li>objective</li>
+							<li>no direct impact on behavior</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li>structured</li>
+							<li>networked</li>
+							<li>context-dependent</li>
+							<li>cognitive patterns</li>
+							<li>subjective</li>
+							<li>determines decisions and actions</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>Types of knowledge</h3>
+					<ul>
+						<li><b>Social:</b> competence of acting in a social environment, cooperation, etc.</li>
+						<li><b>Meta-cognitive:</b> knowledge about learning, reasoning, and decision processes and how
+							to guide them.</li>
+						<li><b>Strategic:</b> heuristics and strategies for solving new types of problems</li>
+						<li>
+							<p>Procedural:</p> Knowledge about possible actions (know-how)
+						</li>
+						<li>
+							<p>Declarative:</p> Knowledge about the world that can be expressed in some language.
+						</li>
+						<li>
+							<p>Domain-specific:</p> declarative and procedural knowledge about the notions and events
+							relevant for a certain domain.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Types of knowledge</h3>
+					<div>
+						<ul>
+							<li>Intangible asset</li>
+							<li>Informal and undocumented</li>
+							<li>Subconcious, difficult to articulate</li>
+							<li>Embedded in minds of people, underlying processes or best practices</li>
+							<li>Subject to individual perspective</li>
+							<li>Transfer by social interaction or collaboration</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li>Tangible asset</li>
+							<li>Formalised or codified</li>
+							<li>Can be viewed or heard</li>
+							<li>Stored in databases and knowledge repositories</li>
+							<li>Can be processed and distributed by computers</li>
+							<li>Easy to share and distribute</li>
+						</ul>
+					</div>
+				</section>
+				<section data-background-color="aquamarine">
+					<h3> Exercise </h3>
+					<p>Can you think of examples for these types of knowledge?</p>
+					<img src="figures/exercise_explicit_tacit_knowledge.png" alt="Exercise explicit vs tacit knowledge">
+				</section>
+				<section>
+					<h3>Spiral of knowledge creation</h3>
+					<img src="figures/spiral_of_knowledge_creating.png">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Knowledge in Organisations</h2>
+				</section>
+				<section>
+					<p>Knowledge has become a <b>key economic resource</b> and the dominant - and perhaps even the only
+						source of <b>competitive advantage</b></p>
+				</section>
+				<section>
+					<h3>Knowledge as a competitive advantage</h3>
+					<ul>
+						<li>Knowledge is not equally distributed</li>
+						<li>Competitive advantages originating from superior knowledge, e.g., about
+							<ul>
+								<li>advanced technologies</li>
+								<li>cost-effective production</li>
+								<li>promising markets</li>
+								<li>effective marketing channels</li>
+							</ul>
+						</li>
+						<li>Successful approaches will be copied (plagiarism or industrial espionage)</li>
+						<li>New knowlege has to be acquired constantly</li>
+						<li>There is a tendency to focus on core competencies to reduce the effort connected to constant
+							knowledge update</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Intellectual Capital</h3>
+					<p>Assets determine value and competitiveness of an enterprise</p>
+					<ul>
+						<li><b>Intangible</b> assets: Intellectual capital (collective knowledge)</li>
+						<li><b>Tangible</b> assets: physical and financial, i.e. classical production factors (labor,
+							capital stock, natural resources)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Four types of intellectual capital</h3>
+					<ul>
+						<li>Human capital</li>
+						<li>Structural capital</li>
+						<li>Customer capital</li>
+						<li>Intellectual property</li>
+					</ul>
+				</section>
+				<section data-background-color="aquamarine">
+					<h3> Exercise </h3>
+					<p>Can you think of any examples?</p>
+				</section>
+				<section data-background-color="aquamarine">
+					<h3> Exercise </h3>
+					<ul>
+						<li><b>Human capital:</b> education and experience of employees, management expertise, training,
+							...</li>
+						<li><b>Structural capital:</b> policies, culture, communication channels, information systems,
+							administrative structures</li>
+						<li><b>Customer capital:</b> Marketing, loyality of customers, reputation</li>
+						<li><b>Intellectual property:</b> patents, licenses, trademarks, design, film rights</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Knowledge Resources and Technologies</h2>
+				</section>
+				<section>
+					<h3>Knowledge is 'contained' in...</h3>
+					<ul>
+						<li><b>Documents:</b> organisation manuals, system documentation, project reports, training
+							videos etc.</li>
+						<li><b>Systems:</b> production chains, social networks, organisational structures, etc.</li>
+						<li><b>People:</b> engineers, clerks, lawyers, business economists, managers</li>
+					</ul>
+				</section>
+				<section>
+					<p>While documents naturally contain <b>explicit knowledge</b>, knowledge in people and processes
+						might have to be <b>externalised</b> so that it can be managed more efficiently.</p>
+				</section>
+				<section>
+					<h3>Core knowledge activities</h3>
+					<img src="figures/core_knowledge_activities.png">
+				</section>
+				<section>
+					<h3>Three pillars of knowledge management</h3>
+					<img src="figures/pillars_of_knowledge_management.png">
+				</section>
+				<section data-background-color="aquamarine">
+					<h3> Exercise </h3>
+					<p>Which knowledge activities are supported by these technologies?</p>
+					<img src="figures/core_knowledge_activities_no_text.png" width="400">
+					<ul>
+						<li>Wikis</li>
+						<li>Facebook</li>
+						<li>Data Mining</li>
+						<li>Search Engines</li>
+						<li>Databases</li>
+						<li>Twitter</li>
+						<li>e-learning platforms</li>
+						<li>logical inference</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Knowledge and Artificial Intelligence</h2>
+					<p>Where and how is knowledge management connected to AI?</p>
+				</section>
+				<section data-background-color="aquamarine">
+					<h3>Exercise</h3>
+					<p>Read the following article and identify:</p>
+					<ul>
+						<li>What challenges and application fields have been identified regarding the use of AI in knowledge management?
+						<li>Which are the AI supported technologies have been applied to these challenges?
+						<li>Which AI methods (e. g. text recognition, ANN) are applied in these technologies?</li>
+					</ul>
+					<p>Create a table with the columns:</p>
+						<ul>
+							<li>Application Area</li>
+							<li>Purpose of AI</li>
+							<li>Used AI technology</li>
+						</ul>
+					<p>Time: 20 Minutes</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="../../reveal.js/dist/reveal.js"></script>
+	<script src="../../reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+	<!-- 		<script src="reveal.js-plugins/animate/plugin.js"></script> -->
+	<!-- 		<script src="reveal.js-plugins/animate/svg.min.js"></script>--> -->
+	<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+	<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+	<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+	<script src="../../reveal.js/plugin/math/math.js"></script>
+	<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+	<script>
+		// 			More info about initialization & config:
+		// 			- https://revealjs.com/initialization/
+		// 			- https://revealjs.com/config/
+		Reveal.initialize({
+			hash: false,
+			height: 900,
+			width: 1200,
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			mouseWheel: true,
+			previewLinks: false,
+			slideNumber: true,
+			// 				autoSlide: 5000,
+			// 				animate: {
+			// 					autoplay: false
+			// 				},
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, /*RevealAnimate,*/ RevealMath]
+		});
+	</script>
+</body>
+
+</html>
