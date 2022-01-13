@@ -40,6 +40,15 @@ p.note::before{
     font: League Gothic, Impact, sans-serif;
 }
 
+p.source{
+    text-align: right;
+    color: grey
+}
+
+p.source::before{
+    content: "Source: ";
+}
+
 .button {
     border: 0;
     background: transparent;
