@@ -1,0 +1,43 @@
+digraph fault_classification {
+
+    rankdir = "LR"
+    graph [fontname="helvetica"]
+    label = "Choosing statistical tests";
+    node [shape="plain", colorscheme="orrd7", penwidth=0, fontname="helvetica"];
+    edge [fontname="helvetica", fontcolor="grey"]
+
+    node [fillcolor="1", style="filled"] 
+    iv [label="Independent\nvariable" xlabel="Decision\nnode"]
+    dv1 [label="Dependent\nvariable"]
+    dv2 [label="Dependent\nvariable"]
+    numgrp [label="# groups"]
+    numiv [label="# independent\nvariables"]
+    numdv [label="# dependent\nvariables"]
+
+    node [fillcolor="2", style="filled"] 
+    np_test [label="Non-parametric test", xlabel="Test type\nnode"]
+    t_test [label="T-test"]
+    cmp_means [label="Comparision of \nmeans test"]
+    anova [label="ANOVA"]
+    manova [label="MANOVA"]
+    log_reg [label="Logistic\nregression"]
+    sim_reg [label="Simple\nregression"]
+    mul_reg [label="Multiple\nregression"]
+
+    iv -> dv1 [label="qualitative"]
+    iv -> dv2 [label="quantitive"]
+    
+    dv1 -> np_test [label="qualitative"]
+    dv1 -> cmp_means [label="quantitive"]
+    cmp_means -> numgrp
+    numgrp -> t_test [label="2"]
+    numgrp -> numdv [label=">2"]
+    numdv -> anova [label="1"]
+    numdv -> manova [label=">1"]
+
+    dv2 -> log_reg [label="qualitative"]
+    dv2 -> numiv [label="quantitive"]
+    numiv -> sim_reg [label="1"]
+    numiv -> mul_reg [label=">1"] 
+
+}
