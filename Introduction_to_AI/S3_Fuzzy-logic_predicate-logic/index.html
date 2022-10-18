@@ -107,7 +107,7 @@
 					<li>Halting problem</li>
 					<li>Algorithm
 						<ul>
-							<li>What are the elements of an algorithm</li>
+							<li>What are the elements of an algorithm (as implemented in a computer program?)</li>
 						</ul>
 					</li>
 				</ul>
@@ -165,7 +165,7 @@
 			<li>Relation
 				<ul>
 					<li>"Robot A is to the right of robot B."</li>
-					<li>$(100 * 99)/2 = 4950$ ordered pairs of $x$-values</li>
+					<li>$(100 * 99)/2 = 4950$ ordered pairs of $x$-values.</li>
 				</ul>
 			</li>
 		</ul>>
@@ -182,16 +182,14 @@
 		<p>$\approx 0.495 * 10^8$ alternatives on the right hand side (rhs).</p>
 	</section>
 	<section>
-		<h3>Relations (Predicates) and Functions in FOL</h3>
-		<p><b>Predicate:</b> $if\_further\_right(u,v)$</p>
-		<br>
+		<h3>Relations (Predicates) in FOL</h3>
+		<p><b>Predicate:</b> $is\_further\_right(u,v)$</p>
 		<p><b>Function:</b> $position(number, xPos, yPos)$</p>
-
 	</section>
 	<section>
 		<p>$\forall u \forall v : is\_further\_right(u,v) \iff \\
 			\exists x_u \exists y_u \exists x_v \exists y_v: position(u,x_u,y_u) \land \\ 
-			position(v, x_v, y_v \land \\ 
+			position(v, x_v, y_v) \land \\ 
 			x_u > x_v$</p>
 	</section>
 	<section>
@@ -200,18 +198,18 @@
 		<p>We define the set of <em>terms</em> recursively:</p>
 		<ul>
 			<li>All variables and constants are (atomic) terms</li>
-			<li>if $t_1,...,t_n$ are terms and $f$ and $n$-place function symbol, then $f(t_1,...,t_n) is also a term.</li>
+			<li>if $t_1,...,t_n$ are terms and $f$ and $n$-place function symbol, then $f(t_1,...,t_n)$ is also a term.</li>
 		</ul>
 	</section>
 	<section>
 		<h3>Definition: Predicate logic formulas</h3>
 		Let $P$ be a set of predicate symbols. <em>Predicate logic formulas</em> are built as follows:
 		<ul>
-			<li>If $t_1,...,t_n$ are terms and $p$ and $n$-place predicate symbol, the $p(t_1,...,t_n) is an (atomic) formula</li>
+			<li>If $t_1,...,t_n$ are terms and $p$ and $n$-place predicate symbol, the $p(t_1,...,t_n)$ is an (atomic) formula</li>
 			<li>If $A$ and $B$ are formulas, then
 				<ul><li>$\neg A, (A), A \land B, A \lor B, A \implies B, A \iff B$ are also formulas.</li></ul>
 			</li>
-			<li> If $x$ is a variable and $A$ is a formula, then $\forall x A$ and $\exists x A$ are also formulas. $\forall$ is the universal quantifier and $\exists$ is the existence quantifier.</li>
+			<li> If $x$ is a variable and $A$ is a formula, then $\forall x A$ and $\exists x A$ are also formulas. $\forall$ is the universal quantifier (for all applies) and $\exists$ is the existence quantifier (it exists something).</li>
 			<li>$p(t_1,...,t_n)$ and $\neg p(t_1,...,t_n)$ are called literals.</li>
 			<li>Formulas in which every variable is in the scope of a quantifier are called <em>closed</em>. Variables which are not in the scope of a quantifier are called <em>free</em>.</li>
 		</ul>
@@ -276,7 +274,7 @@
 		<h3>Example: Semantics</h3>
 		<div>
 			<ul>
-				<li>Constants: $c_1,c_2,c_3</li>
+				<li>Constants: $c_1,c_2,c_3$</li>
 				<li>2-place function symbol $plus$</li>
 				<li>2-place predicate symbol $gr$</li>
 			</ul>
@@ -289,10 +287,10 @@
 				<li class="fragment">Thus, formula is mapped to:
 					<ul><li>$1 + 3 > 2 = 4 > 2$ </li></ul>
 				</li>
-				<li class="fragment">With the greater-than relation $G$ on ${1,2,3,4}:
+				<li class="fragment">With the greater-than relation $G$ on ${1,2,3,4}$:
 					<ul>
-						<li>$G = {(4,3),(4,2),(4,1),(3,2),(3,1),(2,1)}</li>
-						<li>$ \implies F$ is $true$ because $(4,2) \in G$ under interpretation $B_1$.</li>
+						<li>$G = {(4,3),(4,2),(4,1),(3,2),(3,1),(2,1)}$</li>
+						<li>$\implies F$ is $true$ because $(4,2) \in G$ under interpretation $B_1$.</li>
 					</ul>
 				</li>
 			</ul>
