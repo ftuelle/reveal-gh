@@ -1,0 +1,610 @@
+ <!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<title>Introduction to AI - Session 4 - Fuzzy-logic</title>
+
+		<!--<link rel="stylesheet" href="dist/reset.css">-->
+		<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		
+        <!-- Custom CSS file		 -->
+        <link rel="stylesheet" href="../../ft.css">
+    
+        <script src="../../jquery-3.6.0.min.js"></script>    
+        <script type="text/javascript" src="../../ft.js"></script>
+		
+	</head>
+	<body>
+<div class="reveal">
+    <div class="slides">
+    
+<section>
+            <h1> Fuzzy logic </h1>
+            <p> Lecture: Introduction to Artificial Intelligence </p>
+            <p> Part 4 </p>
+</section>
+        
+<section>
+            <h2> Learning objectives </h2>
+            <div style="text-align: left;">
+             <p>In this section you will learn...</p>
+             <ul>
+                 <li>The essentials of fuzzy logic</li>
+                 <li>Why fuzzy logic are important for AI</li>
+             </ul>
+            </div>
+</section>
+
+<section>
+	<section>
+		<h2>Review and discussion of last session</h2>
+	</section>
+	<section>
+		<h2>Book Assignment</h2>
+	</section>
+	<section>
+		<h3>Exercise: Use of the Square of opposition</h3>
+		<ul>
+			<li>What is the contradictory of "Some US Presidents are former movie actors"?
+				<ul>
+					<li class="fragment">No US president is former actor</li>
+				</ul>
+			</li>
+			<li>What is the <em>contrary</em> of "All mass cults are kinetic art"?
+				<ul>
+					<li class="fragment">No mass cult is kinetic art</li>
+				</ul>
+			</li>
+			<li> What is the <em>superaltern</em> of "Some CIA employees are defectors"?
+				<ul>
+					<li class="fragment">All CIA employees are defectors</li>
+				</ul>
+			</li>
+			<li> What is the <em>subcontrary</em> of "Some policemen are not honest people"?
+				<ul><li class="fragment">Some policemen are honest people.</li></ul>
+			</li>
+			<li> What is the <em>subaltern</em> of "No logic students are con-artists"?
+				<ul><li class="fragment">Some logic students are not con-artists.</li></ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Algorithms and the halting Problem</h3>
+		<ul>
+			<li>Explain the terms:
+				<ul>
+					<li>Premises</li>
+					<li>First-order logic</li>
+					<li>Decideability</li>
+					<li>Halting problem</li>
+					<li>Algorithm
+						<ul>
+							<li>What are the elements of an algorithm (as implemented in a computer program?)</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<ul>
+			<li>Premises
+				<ul>
+					<li class="fragment">An assumption or prerequisite that is used as a basis for an conclusion.</li>
+				</ul>
+			</li>
+			<li>First-order logic
+				<ul>
+					<li class="fragment">Extension to Propositional logic allowing to state relations and quantification.</li>
+				</ul>
+			</li>
+			<li>Decideability
+				<ul>
+					<li class="fragment">A property of a set is decideable, if there exists a decision-making process (an algorithm) that decides for each element of the set, if it has the property. </li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<ul>
+			<li>Halting problem
+				<ul>
+					<li class="fragment">It is undecideable if a computer programm ends with any given input.</li>
+				</ul>
+			</li>
+			<li>Algorithm
+				<ul>
+					<li class="fragment">Structured approach to solve a given problem (mathematically sound and proven)</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<ul>
+			<li>Elements of algorithms:
+				<ul>
+					<li class="fragment">Input statements</li>
+					<li class="fragment">assignment statements</li>
+					<li class="fragment">output statements</li>
+					<li class="fragment">return statements</li>
+					<li class="fragment">branching statements</li>
+					<li class="fragment">looping statements</li>
+					<li class="fragment">sequences of the statements above</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Elements of the Turing machine</h3>
+		<ul>
+			<li>Explain:
+				<ul>
+					<li>How does a Turing Machine work?</li>
+					<li>What are the elements of a Turing machine?</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Exercise: Quantifiers</h3>
+		<table>
+			<tbody>
+			  <tr>
+				<td>$\exists x \forall y ~ likes (y,x)$</th>
+				<td class="fragment">There is something that everyone likes</th>
+			  </tr>
+			  <tr>
+				<td>$\exists x \forall y ~ likes (x,y)$</td>
+				<td class="fragment">There is someone who likes everything</td>
+			  </tr>
+			  <tr>
+				<td>$\forall x \exists y ~ likes (y,x)$</td>
+				<td class="fragment">Everything is loved by someone</td>
+			  </tr>
+			  <tr>
+				<td>$\forall x \exists y ~ likes (x,y)$</td>
+				<td class="fragment">Everyone likes something</td>
+			  </tr>
+			  <tr>
+				<td>$\forall x ~ customer(x) \implies likes(bob,x)$</td>
+				<td class="fragment">Bob likes every customer</td>
+			  </tr>
+			</tbody>
+			</table>
+	</section>
+	<section>
+		<h3>Exercise: FOL Interpretation</h3>
+		<p>Use the following interpretation $B_2$</p>
+			<ul>
+				<li>$B_2:c_1 \rightarrow 2, c_2 \rightarrow 3, c_3 \rightarrow 1, plus \rightarrow -, gr \rightarrow >$</li>
+			</ul>
+	</section>
+	<section>
+		<p>we obtain:</p>
+		<br>
+		<p>$ 2 - 1 > 3 \implies 1 > 3$</p>
+		<br>
+		<p>$(1,3) \notin G$</p>
+		</p>
+	</section>
+	<section>
+		<h3>Exercise: First-order logic</h3>
+		<p>Expres which approaches lead to a correctly solved exercise:</p>
+		<ul>
+			<li>Some students found the exercise easy.</li>
+			<li>Others were popular with the best attendees of their exercise group.</li> 
+			<li>Finally, there was the case of a student whose best friend was popular with all students and Mr. Smarty finds every exercise easy.</li>
+		</ul>
+	</section>
+	<section>
+		<h4>Approach</h4>
+		<ol>
+			<li>Create an suitable interpretation.</li>
+			<li>Translate the situational description into formulae.</li>
+			<li>Combine the created formulae</li>
+		</ol>
+	</section>
+	<section>
+		<h4>Interpretation</h4>
+		<ul>
+			<li class="fragment">$x$ denotes the considered attendee <em>(variable)</em></li>
+			<li class="fragment">$f_{1}(x)$ denotes his/her best friend <em>(function)</em></li>
+			<li class="fragment">$c_1$ represents Mr. Smarty <em>(constant)</em></li>
+			<li class="fragment">$f_{2}(x)$ returns the best attendee of $x$'s exercise group <em>(function)</em>$</li>
+			<li class="fragment">$p_{1}(x, y)$ means x is popular with $y$ <em>(2-ary predicate)</em></li>
+			<li class="fragment">$p_{2}(x)$ means $x$ finds the exercise easy <em>(unary predicate)</em></li>
+		</ul>
+	</section>
+	<section>
+		<h4>Formulas</h4>
+		<ul>
+			<li>"Some students found the exercise easy
+				<ul>
+					<li class="fragment">$F_1 \equiv p_{2}(x)$</li>
+				</ul>
+			</li>
+			<li>"Others were popular with the best attendees of their exercise group."
+				<ul>
+					<li class="fragment">$F_2 \equiv \forall z ~ p_{1}(x, f_{2}(z))$</li>
+				</ul>
+			</li>
+			<li>Finally, there was the case of a student whose best friend was popular with all students and
+				Mr. Smarty finds every exercise easy.
+				<ul>
+					<li class="fragment">$F_{3} \equiv \exists x ~ \forall y ~ (p_{1}(f(x), y) \land p_{2}(c_1))$</li>
+				</ul>	
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h4>Formulas</h4>
+		<ul>
+			<li>"Each of the three cases leads to a correctly solved exercise."
+				<ul>
+					<li class="fragment">$F = F_{1} \lor F_{2} \lor F_{3}$</li>
+				</ul>
+			</li>
+	</section>
+	<section>
+		<h3>Reading 1:</h3>
+		<p>A very brief introduction to Fuzzy Logic and Fuzzy Systems</p>
+		<ul>
+			<li>What is fuzzy logic?</li>
+			<li>What is a fuzzy inference system?</li>
+			<li>Explain the elements:
+				<ul>
+					<li>Fuzzy set</li>
+					<li>Fuzzyfication</li>
+					<li>Fuzzy rules / rule base</li>
+					<li>Fuzzy Inference</li>
+					<li>Defuzzyfication</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section data-background-color="aquamarine">
+		<h3>Reading 2:</h3>
+		<a href="https://link.springer.com/chapter/10.1007/978-3-030-62628-0_5">How Fuzzy logic is applied in AI</a>
+		
+		<p>Discuss in groups: What are the interrelations between fuzzy logic and AI based on the information in the article?</p>>
+		<p> Time: 15 Minutes. </p>
+	</section>
+</section>
+
+<section>
+	<section>
+		<h2>Fuzzy logic</h2>
+	</section>
+
+	<section>
+		<p>Fuzzy logic is an approach to computing based on "degrees of truth" rather than the usual "true or false" (1 or 0) Boolean logic.</p>
+	</section>
+
+	<section data-background-color="#b3d2d4">
+		<h3>Introductory example</h3>
+		<p>The problem:</p>
+		<p>Change the speed of a heater fan based on the room temperature and humidity.</p>
+		<ul>
+			<li>The temperature control system has four settings:
+				<ul><li>Cold,Cool,Warm, and Hot</li></ul>
+			</li>
+			<li>Humidity can be defined by:
+				<ul><li>Low, Medium, and High</li></ul>
+			</li>
+		</ul>
+	</section>
+	<section data-background-color="#b3d2d4">
+		<img src="figures/heater_example.png" alt="Schematic overview of the heater control." width="600">
+	</section>
+	<section>
+		<h3>Vague and subjective definitions</h3>
+		<ul>
+			<li>Knowledge is often verbally expressed.
+				<ul><li>imprecise and subjective perception</li></ul>
+			</li>
+		</ul>
+		<p><b>Forms of fuzzyness:</b></p>
+		<ul>
+			<li>Stochastically fuzzy
+				<ul><li>Occurrence of an event not predicted with certainty</li></ul>
+			</li>
+			<li>Lexically fuzzy
+				<ul><li>Uncertainty regarding the interpretation of a proposition: What does "cold" means?</li></ul>
+			</li>
+			<li>Informally fuzzy
+				<ul><li>Particluar terms bear subjective definitions, e. g. Trust</li></ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Representation of linguistic variables</h3>
+		<h4>Classical / Boolean</h4>
+		<p>Membership of an element to a particular set is definite</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Temp. value</th>
+					<th>Temp. class</th>
+				</tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td>9</td>
+				<td> Cold </td>
+			  </tr>
+			  <tr>
+				<td>10</td>
+				<td>Cold</td>
+			  </tr>
+			  <tr>
+				<td>11</td>
+				<td>Cool</td>
+			  </tr>
+			</tbody>
+			</table>
+	</section>
+	<section>
+		<h4>Fuzzy logic</h4>
+		<p>Membership is described through the mapping of the linguistic variable by a normalized membership value.</p>
+
+		<img src="figures/src/temp_cool_simple.svg" alt="Schematic overview of the heater control." width="600">
+	</section>
+	<section>
+		<h3>Towards a fuzzy set</h3>
+		<div class='container'>
+			<div class='col'>
+			<ul>
+			<li>Membership value assignment unpractical:
+				<ul><li>7.9 does not at all belong to class "Cool", 8.0 does.</li></ul>
+			</ul>
+			</div>
+			<div class='col'>
+				<img src="figures/src/temp_cool_simple.svg" alt="Schematic overview of the heater control." width="300">
+			</div>
+		</div>
+	</section>
+	<section>
+		<h3>Fuzzy-set (Zadeh)</h3>
+		<p>The membership of an element to a set is not only described with 0 for being not a member and 1 for being a member, but <b>each value in the intervall $[0,1]$ describes the degree of membership</b> described by a <b>membership function $\mu$.</b></p>	
+	</section>
+	<section>
+		<div class='container'>
+			<div class='col'>
+				<img src="figures/src/temp_cool-2.svg" alt="Schematic overview of the heater control." width="600">
+			</div>
+			<div class='col'>
+				\[\begin{aligned}
+				\mu(x) = \left\{ \begin{array}{rcl}
+			   0, & x < 5 \\ 
+			   \frac x{10} - \frac1{2}, & 5 \leq x < 11 \\
+			   1, & 11 \leq x < 13 \\
+			   -\frac x{10}-\frac7{2}, & 13 \leq x < 19 \\
+			   0, & x \geq 19
+			   \end{array}\right.
+				\end{aligned} \]
+			</div>
+		</div>
+	</section>
+	<section>
+		<h3>Operations with Fuzzy sets</h3>
+	</section>
+	<section>
+		<h3>Not</h3>
+		<ul>
+			<li>Current temperature = 9.5 centigrade</li> 
+			<li>membership fuzzy set cold = 0.85</li>
+			<li><b>Not</b> operation: 
+				<ul><li>Subtract from 1 : 1 - 0.85 = 0.15</li></ul>
+				<ul><li>Temp.=9.5 Degrees belongs to 0.15 <em>not</em> to the fuzzy set cold</li></ul>
+			</li>
+		</ul>
+		<br>
+		<p>$\neg \mu(x) = 1 - \mu(x)$</p>
+	</section>
+	<section>
+		<h3>Or</h3>
+		<p>Or is interpreted as the <b>maximum operator</b></p>
+		<p>$\mu(x) = max[F_1(x),F_2(x)]$</p>
+	</section>
+	<section>
+		<h3>And</h3>
+		<p>And is interpreted as the <b>minimum operator</b></p>
+		<p>$\mu(x)=min([F_1(x), F_2(x)]$</p>
+	</section>
+	<section>
+		<h3>Fuzzy Control Operation</h3>
+	</section>
+	<section>
+		<h3>Knowledge as If-then-rules</h3>
+		<p>Knowledge expressed as if-then rules:</p>
+		<p class="example"><b>If</b> humidity low and temperature cool <b>then</b> set fan speed to low</p>
+	</section>
+	<section>
+		<h3>Steps of fuzzy control</h3>
+		<img src="figures/src/steps-fuzzy-control.svg" alt="Schematic overview of the heater control." width="600">
+	</section>
+
+	<section>
+		<h3>Fuzzyfication of input values</h3>
+		<ul>
+			<li>Definition of fuzzy sets
+				<ul><li>Should cover the whole domain</li>
+					<li>Best practice: Odd number of fuzzy sets in the domain (3,5,7)
+						<ul><li>Negative-big (NB),negative-small (NS),zero (Z),positive-small (PS), positive-big (PB)</li>
+						</ul>
+					</li></ul>
+			</li>
+		</ul>
+		<img src="figures/src/fuzzy-set.svg" alt="Schematic overview of the heater control." width="500">
+	</section>
+	<section>
+		<h3>Inference</h3>
+		<ul>
+			<li>If-then-rules need to be defined (expert knowledge)
+				<ul>
+					<li>If: premises (often: AND combinations of input values)</li>
+					<li>Then: conclusion
+					</li>
+					<li>(Often: "Or"-combination of corresponding rules)</li>
+				</ul>
+			</li>
+		</ul>
+		<p class="example"><b>If</b> humidity low <b>and</b> temperature cool <b>then</b> set fan speed to low, <br>  <b>or</b> <b>if</b> humidity medium <b>and</b> temperature cool <b>then</b> set fan speed to low.</p>
+	</section>
+	<section>
+		<h3>Inference: Evaluation of premises</h3>
+		<ul>
+			<li>Combination of the input values according to if-then rules and operators
+				<ul><li>Often: And-combination (minimum operator)</li>
+					<li>Input values:
+						<ul>
+							<li>Temp = 9: $\mu$(Cold) = 0.3, $\mu$(Cool) = 0.8, $\mu$(Warm) = 0;</li>
+							<li>Humidity = 0.1: $\mu$(Low) = 0.4</li>
+						</ul>
+					</li>
+					<li>Inference Rule 1: "If humidty <b>low</b> and temperature <b>cold</b> then fan speed <b>medium</b>."
+					<ul><li>$\implies min(\mu(Low),\mu(Cold)) = min (0.4,0.1) = 0.1$</li></ul></li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Evaluation of premises - graphical</h3>
+		<img src="figures/src/temp_humidity_combined.svg" alt="Schematic overview of the heater control." width="900">
+	</section>
+	<section>
+		<h3>Inference: Evaluation of conclusion (Implication)</h3>
+		<ul>
+			<li>In Fuzzy-logic: Conditions may apply partly!
+				<ul><li>To what extent?</li></ul>
+			</li>
+		</ul>
+		<p>The Minimum procedure</p>
+		<ul>
+			<li>Degree of fulfillment = Minimum of premise and conclusion
+				<ul><li>
+					Conclusion is cut-off at minimum of premise fulfillment
+				</li></ul>
+			</li>
+		</ul>
+
+		<img src="figures/src/fan_control-rule1.svg" alt="School of athens with computers" width="500">
+	</section>
+	<section>
+		<h3>Inference: Summarise the rules (Accumulation)</h3>
+		<ul>
+			<li>Usually multiple rules respond to the input values and are evaluated and concluded!</li>
+			<li>Rules are disjunctive (or) linked</li>
+		</ul>
+		<p class="example"> Rule 1 (see above) and another (not shown) has been evaluated and concluded.</p>
+
+		<img src="figures/src/fan_control-rule_x.svg" alt="School of athens with computers" width="500">
+	</section>
+	<section>
+		<p class="example">The or-combination (maximum) leads to single plane (rule 1 and rule x).</p>
+
+		<img src="figures/src/fan_control-single_plane.svg" alt="School of athens with computers" width="500">
+
+	</section>
+	<section>
+		<h3>Defuzzyfication</h3>
+		<ul>
+			<li>Deduction of a concrete, real-world usable result</li>
+			<li>Often used: Centroid method (Geometric centre of the plane)</li>
+		</ul>
+		<img src="figures/src/fan_control-defuzzy.svg" alt="School of athens with computers" width="600">
+	</section>
+
+</section>
+
+<section>
+            <h2> Credits </h2>
+            <p>Giving Credits to the sources</p>
+</section>
+
+<section data-markdown
+         data-separator="^\n\s*---\n$" 
+         data-separator-vertical="^\n\s*--\n$">
+<textarea data-template>
+
+### Using markdown
+
+* Be aware of starting each line without indention!
+* Can be combined with HTML by just <bf>using tags inline</bf>
+* Will be converted automatically to HTML during parsing.
+
+</textarea>
+</section>
+
+<section>
+            <img src="figures/school-of-athens.jpg" alt="School of athens with computers" width="600">
+            <p class="source">Image Source<p>
+</section>
+
+<section data-background-color="aquamarine">
+	<h3> Exercise </h3>
+	<p>Here the description of the exercise goes. The Task description and so on.</p>
+	<a href="https://www.youtube.com/watch?v=ueKqDlMxueE">Support Vector Machines (SVM) Overview and Demo using R</a>
+	<p>Time: 20 Minutes</p>
+</section>
+	
+<section>
+    <h3> Two-column layout </h3>
+    <div class='container'>
+        <div class='col'>
+        <p>Column 1</p>
+        </div>
+        
+        <div class='col'>
+        <p>Column 2</p>
+        </div>
+    </div>
+</section>
+
+    
+    </div>
+</div>
+		
+		<script src="../../reveal.js/dist/reveal.js"></script>
+		<script src="../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+<!-- 		<script src="reveal.js-plugins/animate/plugin.js"></script> -->
+<!-- 		<script src="reveal.js-plugins/animate/svg.min.js"></script>--> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+        <script src="../../reveal.js/plugin/math/math.js"></script>
+<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+		<script>
+// 			More info about initialization & config:
+// 			- https://revealjs.com/initialization/
+// 			- https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+				slideNumber: true,
+// 				autoSlide: 5000,
+// 				animate: {
+// 					autoplay: false
+// 				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, /*RevealAnimate,*/ RevealMath ]
+			});
+		</script>
+	</body>
+</html>
