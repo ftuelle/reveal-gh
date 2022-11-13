@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="112.94823mm"
+   height="57.776711mm"
+   viewBox="0 0 112.94823 57.776711"
+   version="1.1"
+   id="svg15136"
+   inkscape:version="1.2 (1:1.2+202206011327+fc4e4096c5)"
+   sodipodi:docname="ccp_risk_diagram_cons.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview15138"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="3.7148813"
+     inkscape:cx="178.74057"
+     inkscape:cy="94.754038"
+     inkscape:window-width="2560"
+     inkscape:window-height="1373"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid15257"
+       originx="-3.8437502"
+       originy="-10.623373" />
+  </sodipodi:namedview>
+  <defs
+     id="defs15133" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-3.84375,-10.623373)">
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect15311"
+       width="25.135099"
+       height="11.74121"
+       x="3.96875"
+       y="33.072918" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="16.557638"
+       y="38.458454"
+       id="text15367"><tspan
+         sodipodi:role="line"
+         x="16.557638"
+         y="38.458454"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan15369">Initial event</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect15311-3"
+       width="25.135414"
+       height="11.74121"
+       x="33.072918"
+       y="18.520834" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.89998px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="45.807262"
+       y="24.025999"
+       id="text15367-6"
+       transform="scale(1.0050041,0.99502079)"><tspan
+         sodipodi:role="line"
+         x="45.807262"
+         y="24.025999"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan15944">CF1</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect15311-3-9"
+       width="25.010416"
+       height="11.74121"
+       x="62.177082"
+       y="18.520834" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.89032px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="74.887871"
+       y="23.958706"
+       id="text15367-6-0"
+       transform="scale(1.0025147,0.99749157)"><tspan
+         sodipodi:role="line"
+         x="74.887871"
+         y="23.958706"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan15944-5">CF 1.1</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect15311-3-6"
+       width="25.135416"
+       height="11.74121"
+       x="33.072918"
+       y="33.072918" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.90003px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="45.484947"
+       y="38.65139"
+       id="text15367-6-4"
+       transform="scale(1.0050168,0.99500828)"><tspan
+         sodipodi:role="line"
+         x="45.484947"
+         y="38.65139"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan15944-1">CF2</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect15311-3-0"
+       width="25.542702"
+       height="11.74121"
+       x="91.15657"
+       y="10.748373" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="104.76635"
+       y="16.038692"
+       id="text15367-6-6"><tspan
+         sodipodi:role="line"
+         x="104.76635"
+         y="16.038692"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan15944-8">CF 1.1.1</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect15311-3-6-9"
+       width="25.385738"
+       height="11.74121"
+       x="91.28125"
+       y="26.458334" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="104.04591"
+       y="31.836107"
+       id="text15367-6-4-5"><tspan
+         sodipodi:role="line"
+         x="104.04591"
+         y="31.836107"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan15944-1-1">CF 1.1.2</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.25;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect15311-3-6-5"
+       width="25.135105"
+       height="11.74121"
+       x="33.072918"
+       y="47.625" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:1;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;stroke-width:0.264583"
+       x="45.721958"
+       y="53.010536"
+       id="text15367-6-4-2"><tspan
+         sodipodi:role="line"
+         x="45.721958"
+         y="53.010536"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan15944-1-3">CF3</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 33.072916,24.391438 -3.969067,14.552085 h 3.969068"
+       id="path16347" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 29.103849,38.943523 3.969067,14.552083"
+       id="path16349" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 58.208333,24.391438 h 3.96875"
+       id="path16351" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 91.156569,16.618977 -3.96907,7.772461 4.093751,7.937501"
+       id="path16353" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 27.78125,59.531249 v 3.96875 h 35.718749 v -3.96875 l -1.322916,2.645834 H 29.104166 Z"
+       id="path16355" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 85.989585,59.531249 v 3.96875 h 7.9375 v -3.96875 l -1.322916,2.645834 h -5.291667 l -1.322917,-2.645834"
+       id="path16357" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="39.705322"
+       y="67.46875"
+       id="text16361"><tspan
+         sodipodi:role="line"
+         id="tspan16359"
+         style="stroke-width:0.264583"
+         x="39.705322"
+         y="67.46875">spatial</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="80.934113"
+       y="67.429947"
+       id="text16361-1"><tspan
+         sodipodi:role="line"
+         id="tspan16359-5"
+         style="stroke-width:0.264583"
+         x="80.934113"
+         y="67.429947">functional</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="10.833827"
+       y="43.781136"
+       id="text16710"><tspan
+         sodipodi:role="line"
+         id="tspan16708"
+         style="stroke-width:0.264583"
+         x="10.833827"
+         y="43.781136">[F,E,D]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="39.907104"
+       y="29.229053"
+       id="text16771"><tspan
+         sodipodi:role="line"
+         id="tspan16769"
+         style="stroke-width:0.264583"
+         x="39.907104"
+         y="29.229053">[P,E,D]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="39.907108"
+       y="43.781136"
+       id="text16771-8"><tspan
+         sodipodi:role="line"
+         id="tspan16769-0"
+         style="stroke-width:0.264583"
+         x="39.907108"
+         y="43.781136">[P,E,D]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="39.906952"
+       y="58.333221"
+       id="text16771-8-9"><tspan
+         sodipodi:role="line"
+         id="tspan16769-0-7"
+         style="stroke-width:0.264583"
+         x="39.906952"
+         y="58.333221">[P,E,D]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="98.194405"
+       y="21.291553"
+       id="text16771-8-9-3"><tspan
+         sodipodi:role="line"
+         id="tspan16769-0-7-2"
+         style="stroke-width:0.264583"
+         x="98.194405"
+         y="21.291553">[P,E,D]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="98.240601"
+       y="37.166553"
+       id="text16771-8-9-3-4"><tspan
+         sodipodi:role="line"
+         id="tspan16769-0-7-2-3"
+         style="stroke-width:0.264583"
+         x="98.240601"
+         y="37.166553">[P,E,D]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="73.419167"
+       y="29.229053"
+       id="text16771-8-9-9"><tspan
+         sodipodi:role="line"
+         id="tspan16769-0-7-9"
+         style="stroke-width:0.264583"
+         x="73.419167"
+         y="29.229053">P</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="cons">
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583;fill:#008080"
+       x="91.172653"
+       y="31.569031"
+       id="text18344"><tspan
+         sodipodi:role="line"
+         id="tspan18354"
+         x="91.172653"
+         y="31.569031">C = P⚬E⚬D</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583;fill:#008080"
+       x="90.840279"
+       y="15.235946"
+       id="text18344-0"><tspan
+         sodipodi:role="line"
+         id="tspan18354-8"
+         x="90.840279"
+         y="15.235946">C = P⚬E⚬D</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#008080;stroke-width:0.264583"
+       x="61.244171"
+       y="24.418936"
+       id="text18344-9"><tspan
+         sodipodi:role="line"
+         id="tspan18453"
+         x="61.244171"
+         y="24.418936">C = P⚬ΣC<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#008080"
+   id="tspan18455">i</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#008080;stroke-width:0.264583"
+       x="4.4703336"
+       y="21.548433"
+       id="text18344-9-1"><tspan
+         sodipodi:role="line"
+         id="tspan18453-4"
+         x="4.4703336"
+         y="21.548433">R = F⚬ΣC<tspan
+   style="font-size:65%;baseline-shift:sub;fill:#008080"
+   id="tspan18455-8">i</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#008080;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 90.632803,13.724913 77.527001,22.764161"
+       id="path18514" />
+    <path
+       style="fill:none;stroke:#008080;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 91.172653,31.56903 77.353815,24.476722"
+       id="path18516" />
+  </g>
+</svg>

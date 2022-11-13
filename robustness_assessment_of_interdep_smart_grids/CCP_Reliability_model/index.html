@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<title>Robustness Assessment of interdependent smart grids</title>
+
+	<!--<link rel="stylesheet" href="dist/reset.css">-->
+	<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+	<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+
+	<!-- Custom CSS file		 -->
+	<link rel="stylesheet" href="../../ft.css">
+
+	<script src="../../jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="../../ft.js"></script>
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section>
+				<h2>CCP Reliability Model</h2>
+				<p> Ferdinand von Tüllenburg </p>
+				<p> CCP Consortial Meeting </p>
+				<p> 30.06.2022, Stegersbach, Austria </p>
+			</section>
+			<section>
+				<section>
+					<h2>Reliability and Interdependency</h2>
+				</section>
+				<section>
+					<h2>Reliability</h2>
+					<p>
+						Referring to literature...
+					</p>
+					<p><i>the reliability of a system is described as its <b>probability</b> to deliver the expected
+							service within a <b>certain time period</b>.</i>
+					<p>
+					<p>(Some add to the definition <i>"under given external / environmental conditions".</i></p>
+				</section>
+				<section>
+					<h2>Reliability analysis</h2>
+					<ul>
+						<li>Time-consuming</li>
+						<li>In detail hard for complex systems</li>
+						<li>In particular if not everything is self-developed</li>
+						<li>Standard methods <ul>
+							<li>Failure mode and effect analysis FMEA</li>
+							<li>Fault-tree analysis (FTA)</li>
+							<li>System theoretic process analysis (STPA)</li>
+						</ul></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Reliability vs Risk</h3>
+					<p>Instead focussing on reliability values we evaluate the <b>risk</b> of the system:</p>
+					<br>
+					<p><b>Risk</b>: "An expression for the potential effect of a failure and its frequency of occurrence."</p>
+					\[R = fC\]
+				</section>
+				<section>
+					<p>General idea: Reducing failure risks improves reliability.</p>
+					<br>
+					<p>(Although a relation is not known...)</p>
+				</section>
+				<section>
+					<h2> Interdependent Systems </h2>
+					<div class="imagebox">
+						<img src="figures/interdependent_systems.svg" alt="image interdependent system" width="600">
+					</div>
+				</section>
+
+				<section>
+					<h2> Classes of interdependencies </h2>
+					<div class='container'>
+						<div class='col'>
+							<ul>
+								<li class="fragment" data-fragment-index="1">Physical</li>
+								<li class="fragment" data-fragment-index="3">Geographical</li>
+							</ul>
+							<p class="fragment" data-fragment-index="5" style="color: #EEE8D5;"><b>Spatial</b>
+							<p>
+						</div>
+						<div class='col'>
+							<ul>
+								<li class="fragment" data-fragment-index="2">Cyber</li>
+								<li class="fragment" data-fragment-index="4">Logical</li>
+							</ul>
+							<p class="fragment" data-fragment-index="5" style="color: #EEE8D5;"><b>Functional</b>
+							<p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Two principal approaches for modelling interdependencies</h3>
+					<ul>
+						<li>Predictive: Analysis of potential events <b>(focused)</b></li>
+						<li>Empirical: Investigation of previous events</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Predictive Interdependency Modelling</h3>
+					<ul>
+						<li>Investigation of systems in current design</li>
+						<li>How an initial events propagates (different scopes possible)</li>
+						<li>Tracking functional changes at component/system borders</li>
+					</ul>
+					<div class="imagebox">
+						<img src="figures/event_propagation_sos.svg" alt="Exemplary sketch of how a initial event propagates along components, systems and subsystems" width="500">
+					</div>
+				</section>
+				<section>
+					<h3>Methods of predictive modelling</h3>
+					<ul>
+						<li>Expert modelling</li>
+						<li>Mathematical simulation</li>
+						<li>Agent-based simulation</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Challenges of interdependency modelling</h3>
+					<ul>
+						<li>Large Systems, with many, not completely known components are difficult to describe</li>
+						<li>Dynamic behaviour hard to describe (depending on environmental conditions, wear, etc.)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Reliablity and interdependencies</h2>
+					<p>Interdependencies between infrastructures create paths along which failures distribute throughout the system.</p>
+					<p>Understanding this potential paths is necessary in order to evaluate the probability that a system remains operational in case of failures.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>The CCP Interdependency Model</h2>
+				</section>
+				<section>
+					<h3>Interdependency Overview (System scope)</h3>
+					<div class="imagebox">
+						<img src="figures/ccp_interdependencies.svg" alt="Exemplary sketch of interdependencies that arise between CCP infrastructure elements (system scope, not component scope)" width="500">
+					</div>
+				</section>
+				<section>
+					<h3>Analysing Interdependencies</h3>
+					<p>Goal: Finding out the impacts of interdependencies on reliablity</p>
+					<p>Three steps:</p>
+					<ol>
+						<li>Select and describe initiating events</li>
+						<li>Qualitative interdependency analysis</li>
+						<li>Quantitative interdependency analysis</li>
+					</ol>
+				</section>
+				<section>
+				<h3>Selecting initiating event</h3>
+				<ul>
+					<li>Creating a list of potential hazardous events</li>
+					<li>Methods: 
+						<ul>
+							<li>Preliminary Hazard analysis (expert supported)</li>
+							<li>Risk matrices</li>
+						</ul>
+					</li>
+				</ul>
+				<p class="note">In the project this will be conducted for the demonstrators later.</p>
+				</section>
+				<section>
+					<h3>Describing the initiating events</h3>
+					<p>A detailed description of the events is required. This includes:</p>
+					<ul>
+						<li>Physical location</li>
+						<li>Environmental conditions and constraints</li>
+						<li>Spatial and temporal scales</li>
+						<li>Technical and organisational systems</li>
+						<li>Operating factors</li>
+						<li>Physical objects that are affected immediately</li>
+						<li><b>Immediately affected (critical) system functions</b></li>
+					</ul>
+				</section>
+				<section>
+					<h3>CCP: Use cases are important functions</h3>
+					<p>Example: Technical UCs:</p>
+					<ul>
+						<li>Fast sustainable charging (UCT1)</li>
+						<li>Route planning by EV driver (UCT2)</li>
+						<li>Use of Surplus Energy for Cheap Charging (UCT03)</li>
+						<li>Energy storage and grid balancing (UCT04)</li>
+						<li>Methanation (UCT05)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Technical view on CCP</h3>
+					<img src="figures/CCP_tech_overview.png" alt="Technical diagram of the CCP and its infrastructure">
+				</section>
+				<section>
+					<h3>CCP: Potential hazardous initial events</h3>
+					<ul>
+						<li>Loss of electrical supply for particular subsystems</li>
+						<li>Loss of electrical grid connection for or within the CCP infrastructure</li>
+						<li>Loss of communication connectivity</li>
+						<li>ICT Failure of central control facilities (rEMS)</li>
+						<li>Failure of central storage (central battery)</li>
+						<li>Explosion/Fire in the hydrogen plant (H2 Storage, Electrolyser, Compressors)</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Qualitative interdependency analysis</h2>
+					<p>Functional and spatial interdependencies are addressed</p>
+				</section>
+				<section>
+					<h3>Identification affected system functions</h3>
+					<p>Which system functions are affected by the initial event?</p>
+					<p>Detailed system analysis required (UCs). Which functions are required in the respective infrastructures?</p>
+				</section>
+				<section>
+					<h3>Identification of spatial dependencies</h3>
+					<ul>
+						<li>Is the function directly affected by the initial event due to near physical location?</li>
+						<li>Are there other locations that can be threatened by the event?</li>
+						<li>What consequences are likely?</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Identification of functional dependencies</h3>
+					<p>Which other critical functions are affected by the initial ones?</p>
+					<ul>
+						<li>Which critical functions are directly affected by the spatial interdependencies?</li>
+						<li>Which critical functions are further affected?</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Cascade diagram for visualisation of the qualitative anlysis</h3>
+					<div class="imagebox">
+						<img src="figures/ccp_cascade_diagram.svg" alt="A diagram showing how interdependencies are responsible for cascading failures" width="500">
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Quantitative interdependency evaluation</h2>
+					<p>How strong is the impact of interdependencies on the reliability of the system?</p>
+				</section>
+				<section>
+					<p>A first step to answer this is to answer the questions about the risk of a hazardous initial event.</p>
+				</section>
+				<section>
+					<h3>Risk of the initial event</h2>
+					<p>The risk is described as product of frequency and consequence:</p>
+					\[R = fC\]
+				</section>
+				<section>
+					<h3>Risk computation I: Probabilities</h3>
+					<div class="imagebox">
+						<img src="figures/ccp_risk_diagram_probs.svg" alt="A diagram showing how interdependencies are responsible for cascading failures" width="500">
+					</div>
+				</section>
+				<section>
+					<h3>Risk computation II: Consequences</h3>
+					<div class="imagebox">
+						<img src="figures/ccp_risk_diagram_cons.svg" alt="A diagram showing how interdependencies are responsible for cascading failures" width="500">
+					</div>
+				</section>
+		</div>
+	</div>
+
+	<script src="../../reveal.js/dist/reveal.js"></script>
+	<script src="../../reveal.js/plugin/notes/notes.js"></script>
+	<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="../../reveal.js/plugin/animate/plugin.js"></script>
+	<script src="../../reveal.js/plugin/animate/svg.min.js"></script>
+	<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+	<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+	<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+	<script src="../../reveal.js/plugin/math/math.js"></script>
+	<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+	<script>
+		// 			More info about initialization & config:
+		// 			- https://revealjs.com/initialization/
+		// 			- https://revealjs.com/config/
+		Reveal.initialize({
+			hash: false,
+			height: 900,
+			width: 1200,
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			mouseWheel: true,
+			previewLinks: false,
+			slideNumber: true,
+			// 				autoSlide: 5000,
+			// 				animate: {
+			// 					autoplay: false
+			// 				},
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealAnimate, RevealMath]
+		});
+	</script>
+</body>
+
+</html>

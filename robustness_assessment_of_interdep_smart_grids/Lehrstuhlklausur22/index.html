@@ -1,0 +1,243 @@
+ <!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<title>Robustness Assessment of interdependent smart grids</title>
+
+		<!--<link rel="stylesheet" href="dist/reset.css">-->
+		<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		
+        <!-- Custom CSS file		 -->
+        <link rel="stylesheet" href="../../ft.css">
+    
+        <script src="../../jquery-3.6.0.min.js"></script>    
+        <script type="text/javascript" src="../../ft.js"></script>
+		
+	</head>
+	<body>
+<div class="reveal">
+    <div class="slides">
+    
+<section>
+	<h2>Robustness Assessment of interdependent smart grids</h2>
+	<p> Ferdinand von Tüllenburg </p>
+	<p> Lehrstuhlklausur 2022 </p>
+	<p> 02.03.2022 </p>
+</section>
+<section>
+	<section>
+		<h2>Interdependencies of systems</h2>
+	</section>
+	<section>
+				<h2> Interdependent Systems </h2>
+				<img src="figures/interdependent_systems.svg" alt="image interdependent system" width="600">
+				<!-- <p class="source">Image Source<p> -->
+	</section>
+
+	<section>
+				<h2> Four types of interdependencies </h2>
+				<ul>
+					<li class="fragment">Physical</li>
+					<li class="fragment">Cyber</li>
+					<li class="fragment">Geographical</li>
+					<li class="fragment">Logical</li>
+				</ul>
+
+				<br>
+				<br>
+
+				<span class="fragment">
+				<p style="font-size: 75%;">The interdependencies are usually related to the exchanged services.</p>
+				</span>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>The robustness of (interdependent) systems</h2>
+	</section>
+	<section>
+			<div style="position:relative">
+				<span class="fragment fade-out" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="4">
+				<h2>Robustness of systems</h2>
+				<p class="fragment" data-fragment-index="1">Property to resist perturbations...</p>
+				<p class="fragment" data-fragment-index="2">...without service degradation...</p>
+				<p class="fragment" data-fragment-index="3">...<b>nor repair.</b></p>
+				</span>
+				<span class="fragment" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="4">
+					<h2>Robustness of interdependent systems</h2>
+					<p>Property to resist perturbations...</p>
+					<p>...without service degradation...</p>
+					<p>...<b>nor repair...</b></p>
+					<p>...including services/interdependencies between the subsystems</p>
+					<img src="figures/interdependent_systems.svg" alt="image interdependent system" width="600">
+				</span>
+			</div>
+	</section>
+	<section>
+		<h2>Why is robustness important?</h2>
+		<ul>
+			<li class="fragment">Systems that may <b>never</b> fail</li>
+			<li class="fragment">Minimising risks of unexpected events</li>
+			<li class="fragment">Avoid unwanted emerging behaviour</li>
+		</ul>
+		<span class="fragment">
+			<p style="font-size: 75%;">There are different levels of robustness of a system.</p>
+		</span>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>The overall goal</h2>
+		<p class="fragment">Maintain the <b>most robust state</b> of an interdependent system <b>anytime</b>.</p>
+	</section>
+	<section>
+		<h3>Required capabities</h3>
+		<ul>
+			<li class="fragment"><b>Evaluation</b> of the robustness
+				<ul>
+					<li>Measure, quantify, compare(, and predict)</li>
+				</ul>
+			</li>
+			<li class="fragment"><b>Control</b> of the robustness
+				<ul>
+					<li>System reconfiguration, environment modification</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Interdependencies in smart grids</h2>
+	</section>
+	<section>
+		<h2>Differential protection</h2>
+		<div style="position:relative"> 
+			<span class="fragment fade-out" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="1">
+				<img src="figures/dp_ict.svg" alt="DP Example ICT only" width="1000">
+			</span>
+			<span class="fragment fade-in" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="1">
+				<img src="figures/dp_eps.svg" alt="DP Example EPS only" width="1000">
+			</span>
+			<span class="fragment" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="2">
+				<img src="figures/dp_all.svg" alt="DP Example complete" width="1000">
+			</span>
+		</div>
+	</section>
+
+</section>	
+<section>
+	<section>
+		<h2>Research Challenges</h2>
+	</section>
+	<section>
+		<h3>1. Classifying interdependencies</h2>
+		<img src="figures/dp_ideps.svg" alt="Distributed Protection image with idep examples" width="1000">
+	</section>
+	<section>
+		<h3>2. Identifying relevant components</h2>
+		<img src="figures/dp_ideps.svg" alt="Distributed Protection image with idep examples" width="1000">
+	</section>
+	<section>
+		<h3>3. Learning system state correlations</h2>
+		<img src="figures/dp_state_corr.svg" alt="Distributed Protection image showing state correlation example" width="1000">
+	</section>
+	<section>
+		<h3> Uncertainty and system dynamics</h3>
+		<div class='container'>
+			<div class='col'>
+			<ol>
+				<li class="fragment">Detection of dynamic behaviour
+					<ul>
+						<li>(e.g. trough changed system usage)</li>
+					</ul>
+				</li>
+				<li class="fragment">Potential effects on provided services
+					<ul>
+						<li>(i.e. unnoticed)</li>
+					</ul>
+				</li>
+			</ol>
+			</div>
+			<div class='col'>
+				<img src="figures/dp_no-label.svg" alt="Distributed Protection image without labels" width="500">
+			</div>
+		</div>
+	</section>
+	<section>
+		<ol>
+			<li class="fragment">Robustness rating
+				<ul>
+					<li>Make system states comparable wrt. robustness</li>
+				</ul>
+			</li>
+			<li class="fragment">Speed of rating
+				<ul>
+					<li>potentially real-time requirements</li>
+				</ul>
+			</li>
+		</ol>
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Assessment system model</h2>
+	</section>
+	<section>
+		<img src="figures/OC.svg" alt="Organic computing inspired system model" width="1000">
+	</section>
+</section>
+<section>
+	<section>
+		<h2>Planning</h2>
+	</section>
+	<section>
+		<img src="figures/Gantt_2022.png" alt="Gantt Chart of the Project plan">
+	</section>
+</section>   
+    </div>
+</div>
+		
+		<script src="../../reveal.js/dist/reveal.js"></script>
+		<script src="../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../../reveal.js/plugin/animate/plugin.js"></script>
+		<script src="../../reveal.js/plugin/animate/svg.min.js"></script>
+<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+        <script src="../../reveal.js/plugin/math/math.js"></script>
+<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+		<script>
+// 			More info about initialization & config:
+// 			- https://revealjs.com/initialization/
+// 			- https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+				slideNumber: true,
+// 				autoSlide: 5000,
+// 				animate: {
+// 					autoplay: false
+// 				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealAnimate, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
