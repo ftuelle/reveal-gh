@@ -7,7 +7,7 @@
    viewBox="0 0 262.38965 106.54554"
    version="1.1"
    id="svg27539"
-   inkscape:version="1.2 (1:1.2.1+202207142221+cd75a1ee6d)"
+   inkscape:version="1.2.1 (1:1.2.1+202210291244+9c6d41e410)"
    sodipodi:docname="temp_humidity_combined.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="true"
-     inkscape:zoom="0.914906"
-     inkscape:cx="335.5536"
-     inkscape:cy="218.60169"
+     inkscape:zoom="1.6212051"
+     inkscape:cx="134.46787"
+     inkscape:cy="283.73954"
      inkscape:window-width="2560"
      inkscape:window-height="1373"
      inkscape:window-x="0"
@@ -131,8 +131,8 @@
     <circle
        style="display:inline;fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#aaeeff;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
        id="path6636"
-       cx="53.960979"
-       cy="153.7916"
+       cx="59.252651"
+       cy="169.66638"
        r="2.6458333" />
     <circle
        style="display:inline;fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#ff8080;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -148,7 +148,7 @@
        r="2.6458333" />
     <path
        style="display:inline;fill:none;stroke:#aaeeff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 51.065144,153.7916 H 8.9850103"
+       d="M 56.620833,169.6667 H 8.98501"
        id="path7741" />
     <path
        style="display:inline;fill:#ffe680;fill-opacity:1;stroke:#ffe680;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -180,13 +180,13 @@
        xml:space="preserve"
        style="font-size:3.51338px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
        x="3.6776514"
-       y="154.90173"
+       y="170.77652"
        id="text31448-3-9"><tspan
          sodipodi:role="line"
          id="tspan31446-6-1"
          style="font-size:3.51338px;fill:#ffffff;stroke-width:0.264583"
          x="3.6776514"
-         y="154.90173">0,3</tspan></text>
+         y="170.77652">0,1</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.51338px;line-height:2;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
