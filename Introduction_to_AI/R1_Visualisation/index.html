@@ -1,0 +1,273 @@
+ <!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<title>Introduction to R - Data Visualisation</title>
+
+		<!--<link rel="stylesheet" href="dist/reset.css">-->
+		<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
+		
+        <!-- Custom CSS file		 -->
+        <link rel="stylesheet" href="../../ft.css">
+    
+        <script src="../../jquery-3.6.0.min.js"></script>    
+        <script type="text/javascript" src="../../ft.js"></script>
+		
+	</head>
+	<body>
+<div class="reveal">
+    <div class="slides">
+    
+<section data-background-color="#003366">
+            <h1> Visualisation in R </h1>
+            <p> Lecture: Introduction to R </p>
+            <!-- <p> Part 5 </p> -->
+</section>
+<section data-background-color="aquamarine">
+	<section>
+		<h2>Available data sets for R</h2>
+	</section>
+	<section>
+		<h3>Exercise: Data sets for R</h3>
+		<ol>
+			<li>Check out which data sets are coming with R's standard installation</li>
+			<li>Search the web for free sources of data sets.</li>
+		</ol>
+		<p>Collect your findings on <a href="https://ilearn.th-deg.de/mod/wiki/view.php?id=511874">ilearn</a>. Time: 10 Minutes</p>
+	</section>
+</section>
+<section data-background-color="#003366">
+	<section>
+		<h2>Data visualisation in R: built-in methods</h2>
+	</section>
+	<section>
+		<h2>Data exploration</h2>
+		<p>Getting an overview of the data</p>
+		<code>str(airquality)</code>
+		<pre>
+			<code data-trim data-noescape>
+				'data.frame': 111 obs. of  6 variables:    
+				$ Ozone  : int  41 36 12 18 23 19 8 16 11 14 ...    
+				$ Solar.R: int  190 118 149 313 299 99 19 256 290 274 ...    
+				$ Wind   : num  7.4 8 12.6 11.5 8.6 13.8 20.1 9.7 9.2 10.9 ...    
+				$ Temp   : int  67 72 74 62 65 59 61 69 66 68 ...    
+				$ Month  : int  5 5 5 5 5 5 5 5 5 5 ...    
+				$ Day    : int 1 2 3 4 7 8 9 12 13 14 ... `
+			</code>
+		</pre>
+	</section>
+	<section>
+		<code>head(airquality, n=3)</code>
+		<pre>
+			<code data-trim data-noescape>
+						Ozone Solar.R Wind Temp Month Day
+				1    41     190  7.4   67     5   1
+				2    36     118  8.0   72     5   2
+				3    12     149 12.6   74     5   3
+			</code>
+		</pre>
+	</section>
+	<section>
+		<code>tail(airquality, n=3)</code>
+		<pre>
+			<code data-trim data-noescape>
+					 	Ozone Solar.R Wind Temp Month Day
+				109    14     191 14.3   75     9  28
+				110    18     131  8.0   76     9  29
+				111    20     223 11.5   68     9  30
+			</code>
+		</pre>
+	</section>
+	<section>
+		<code>summary(airquality)</code>
+		<pre>
+			<code data-trim data-noescape>
+				Ozone          Solar.R           Wind            Temp           Month            Day       
+				Min.   :  1.0   Min.   :  7.0   Min.   : 2.30   Min.   :57.00   Min.   :5.000   Min.   : 1.00  
+				1st Qu.: 18.0   1st Qu.:113.5   1st Qu.: 7.40   1st Qu.:71.00   1st Qu.:6.000   1st Qu.: 9.00  
+				Median : 31.0   Median :207.0   Median : 9.70   Median :79.00   Median :7.000   Median :16.00  
+				Mean   : 42.1   Mean   :184.8   Mean   : 9.94   Mean   :77.79   Mean   :7.216   Mean   :15.95  
+				3rd Qu.: 62.0   3rd Qu.:255.5   3rd Qu.:11.50   3rd Qu.:84.50   3rd Qu.:9.000   3rd Qu.:22.50  
+				Max.   :168.0   Max.   :334.0   Max.   :20.70   Max.   :97.00   Max.   :9.000   Max.   :31.00
+			</code>
+		</pre>
+	</section>
+	<section>
+		<h2>Basic plots</h2>
+		<p>Library</p> 
+		<code>library(help="graphics")</code>
+	</section>
+	<section>
+		<code>plot(airquality$0zone)</code>
+		<br>
+		<img src="figures/scatter_airquality.png" alt="Scatter plot of the airquality data set">
+	</section>
+	<section>
+		<code>plot(airquality$0zone, airquality$wind)</code>
+		<img src="figures/scatter_airquality_ozone_wind.png" alt="Scatter plot ozone by wind of the airquality data set">
+	</section>
+	<section>
+		<code>plot(airquality)</code>
+		<br>
+		<img src="figures/full_plot.png" alt="correlation of scatter plots of the airquality">
+	</section>
+	<section>
+		<code> plot(airquality$Ozone, type= "b")</code>
+		<br>
+		<img src="figures/lineplot_airquality.png" alt="correlation of scatter plots of the airquality">
+		<footer>
+			<code>l: lines, p: points</code>
+		</footer>
+	</section>
+	<section>
+		<code> plot(airquality$Ozone, type= "h")</code>
+		<br>
+		<img src="figures/barplot_airquality.png" alt="correlation of scatter plots of the airquality">
+	</section>
+	<section>
+		<h3>configuring plots</h3>
+		<code>?plot()</code>
+		<p>Editing Titles, Labels</p>
+		<pre><code>plot(airquality$Ozone, xlab = 'ozone Concentration', ylab = 'No of Instances', main = 'Ozone levels in NY city', col = 'green')</code></pre>
+	</section>
+	<section>
+		<h3>Other plot functions</h3>
+		<ul>
+			<li>Barplot: <code>barplot()</code>
+				<ul><li>parameter <code>horiz=T</code>:horizontal</li>
+					<li>parameter <code>horiz=F</code>:vertical</li>
+				</ul></li>
+			<li>Histogram: <code>hist()</code></li>
+			<li>Boxplot: <code>boxplot()</code></li>
+		</ul>
+	</section>
+	<section>
+		<h3>Other visualisation libraries</h3>
+		<ul>
+			<li>Lattice (some improvements</li>
+			<li>ggplot2 (publication ready graphs)</li>
+			<li>plotly (interactive web-based graphs)</li>
+			<li>shiny (web-based visualisation apps)</li>
+		</ul>
+	</section>
+</section>
+<section data-background-color="#003366">
+	<section>
+	<h2>GGPLOT2</h2>
+	</section>
+	<section data-background-color="aquamarine">
+		<header>
+		<h3>Exercise: GGplot2 Tutorial</h3>
+		</header>
+		<a href="https://ggplot.library.duke.edu/slides/index.html#1">Visualisation in R with ggplot2</a>
+		<footer>
+			By John Little, Duke University
+		</footer>
+	</section>
+
+</section>
+        
+<!-- <section>
+            <h2> Learning objectives </h2>
+            <div style="text-align: left;">
+             <p>In this section you will learn...</p>
+             <ul>
+                 <li>...</li>
+                 <li>...</li>
+                 <li>...</li>
+                 <li>...</li>
+             </ul>
+            </div>
+</section> -->
+
+<!-- <section>
+            <h2> Credits </h2>
+            <p>Giving Credits to the sources</p>
+</section> -->
+
+<!-- <section data-markdown
+         data-separator="^\n\s*---\n$" 
+         data-separator-vertical="^\n\s*--\n$">
+<textarea data-template>
+
+### Using markdown
+
+* Be aware of starting each line without indention!
+* Can be combined with HTML by just <bf>using tags inline</bf>
+* Will be converted automatically to HTML during parsing.
+
+</textarea>
+</section> -->
+
+<!-- <section>
+            <img src="figures/school-of-athens.jpg" alt="School of athens with computers" width="600">
+            <p class="source">Image Source<p>
+</section> -->
+
+<!-- <section data-background-color="aquamarine">
+		<h3> Exercise </h3>
+		<p>Here the description of the exercise goes. The Task description and so on.</p>
+		<a href="https://www.youtube.com/watch?v=ueKqDlMxueE">Support Vector Machines (SVM) Overview and Demo using R</a>
+		<p>Time: 20 Minutes</p>
+	</section> -->
+	
+<!-- <section>
+    <h3> Two-column layout </h3>
+    <div class='container'>
+        <div class='col'>
+        <p>Column 1</p>
+        </div>
+        
+        <div class='col'>
+        <p>Column 2</p>
+        </div>
+    </div>
+</section> -->
+
+    
+    </div>
+</div>
+		
+		<script src="../../reveal.js/dist/reveal.js"></script>
+		<script src="../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+<!-- 		<script src="reveal.js-plugins/animate/plugin.js"></script> -->
+<!-- 		<script src="reveal.js-plugins/animate/svg.min.js"></script>--> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/plugin.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/RecordRTC.js"></script> -->
+<!--         <script src="reveal.js/plugins/audio-slideshow/recorder.js"></script> -->
+        <script src="../../reveal.js/plugin/math/math.js"></script>
+<!--        <script src="reveal.js/plugins/menu/menu.js"></script>-->
+		<script>
+// 			More info about initialization & config:
+// 			- https://revealjs.com/initialization/
+// 			- https://revealjs.com/config/
+			Reveal.initialize({
+				hash: false,
+				height: 900,
+				width: 1200,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				mouseWheel: true,
+				previewLinks: false,
+				slideNumber: true,
+// 				autoSlide: 5000,
+// 				animate: {
+// 					autoplay: false
+// 				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, /*RevealAnimate,*/ RevealMath ]
+			});
+		</script>
+	</body>
+</html>
