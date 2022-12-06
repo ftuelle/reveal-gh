@@ -56,8 +56,7 @@
                 <h2>What uncertainty is and where it comes from</h2>
             </section>
             <section>
-                <p>Uncertainty describes the fact that cannot entirely trust, if a measured value or perceived state of a system, environment, or the world is the actual value or state. </p>
-
+                <p>Uncertainty describes the fact that we cannot entirely trust, if a measured value or perceived state of a system, environment, or the world is the actual value or state. </p>
                 <p class="note"> Uncertainty subsumes to information that is unknown, imprecise, or ambiguous.</p>
                 <p class="note"> Reasons can be vagueness, conflict in information, missing specificity. </p>
             </section>
@@ -80,7 +79,7 @@
             </section>
             <section>
                 <h4> Uncertainty of occurrence </h4>
-                <p> Im many cases the time or location of occurrence of a particular event cannot be certainly predicted.</p>
+                <p> Im many cases, the time or location of occurrence of a particular event cannot be certainly predicted.</p>
                 <div class="example">
                     <p> In bad weather situations, it is not possible to certainly predict if, when and where a lightning hits some considered infrastructure.</p>
                 </div>
@@ -102,25 +101,26 @@
                 </ul>
             </section>
             <section>
-                <h3> Uncertainty in Perception </h3>
+                <h4> Uncertainty in Perception </h4>
                 <p>Sensors usually provide incomplete information about the world.</p>
                 <p class=example>A GPS sensor gives the global position but says nothing about the local surrounding.</p>
             </section>
             <section>
                 <h3>Summarized: main reasons for uncertainty</h3>
                 <ul>
-                    <li class="fragment">Laziness: It is too much work to capture all possible influence factors for a situation.</li>
-                    <li class="fragment">Theoretical ignorance: No complete knowledge about a domain.</li>
-                    <li class="fragment">Practical ignorance: Not all necessary information can be gathered ("technically")</li>
+                    <li class="fragment"><b>Laziness</b>: It is too much work to capture all possible influence factors for a situation.</li>
+                    <li class="fragment"><b>Theoretical ignorance</b>: No complete knowledge about a domain.</li>
+                    <li class="fragment"><b>Practical ignorance</b>: Not all necessary information can be gathered ("technically")</li>
                 </ul>
             </section>
             <section>
                 <h3>Uncertainty vs. Errors</h3>
                 <ul>
-                    <li>Similar, but not the same</li>
+                    <li>Similar: Difference between measured value and actual value</li>
+                    <li>Errors: Often: Reason can be identified and potentially be fixed
+                        <ul><li>by, e.g., improving sensor accuracy</li></ul>
                     <li>Uncertainty: it cannot be pointed out exactly where deviation comes from</li>
-                    <li>Errors: Can be identified and potentially be solved
-                        <ul><li>improved sensor accuracy</li></ul>
+                        <ul><li>Uncertainty is tried to be described by a margin of accepted values</li></ul>
                 </ul>
             </section>
             <section data-background-color="aquamarine">
@@ -227,13 +227,15 @@
             <section>
                 <h3>Event</h3>
                 <p>Usually, we are not interested in particular possible worlds but about sets of them. These sets are called <b>events</b></p>
-                <p class="example">tow dice add up to 11, doubles are rolled, etc.</p>
+                <p class="example">two dice add up to 11, doubles are rolled, etc.</p>
             </section>
             <section>
                 <h3> Definition </h3>
                 <p> $\Omega$ denotes the finite set of all possible events.</p>
                 <p> $\omega \in \Omega$ denotes one possible event.</p>
                 <p> If $\omega_{i} \in \Omega$ are mutual exclusive but comprehensive they are called elementary events.</p>
+                <p class="example"> Elementary events of tossing a coin twice: ${HH}$,${HT}$,${TH}$,${TT}$ ($T$ = tails, $H$ = heads)
+                </p>
             </section>
             <section>
                 <h3>Probability Model</h3>
