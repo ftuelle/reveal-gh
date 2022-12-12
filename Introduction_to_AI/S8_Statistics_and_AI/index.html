@@ -27,7 +27,7 @@
 <section>
             <h1> Statistics and AI </h1>
             <p> Lecture: Introduction to Artificial Intelligence </p>
-            <p> Part 8 </p>
+            <p> Part 9 </p>
 </section>
         
 <section>
@@ -53,6 +53,18 @@
          data-separator="^\n\s*---\n$" 
          data-separator-vertical="^\n\s*--\n$">
 <textarea data-template>
+
+## Exercise Data collection
+<!-- .slide: data-background=" aquamarine" -->
+
+Some weeks ago we started with a collection of data sources for R. Take 10 minutes to focus on sources on the Web and list these in the iLearn collection
+
+<a href="https://ilearn.th-deg.de/mod/wiki/view.php?id=511874"> Link to ilearn collection </a>
+
+**Quest**: which formats and in which forms are the data available?
+
+--
+
 ## Data
 * Data may have different *forms*
 	* Set, List, Table, etc.
@@ -101,14 +113,60 @@ Generally: do **not** allow duplicates!
 
 --
 
+#### Database table
+<table>
+	<thead>
+	  <tr>
+		<th>Customer_ID</th>
+		<th>First_Name<br></th>
+		<th>Last_Name</th>
+		<th>Contact_Email</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td>...</td>
+		<td>...</td>
+		<td>...</td>
+		<td>...</td>
+	  </tr>
+	  <tr>
+		<td>412<br></td>
+		<td>John</td>
+		<td>Doe</td>
+		<td>john.doe@firstcorp.com</td>
+	  </tr>
+	  <tr>
+		<td>413<br></td>
+		<td>Jenny</td>
+		<td>Mae</td>
+		<td>jenny.mae@secondcorp.com</td>
+	  </tr>
+	  <tr>
+		<td>...</td>
+		<td>...</td>
+		<td>...</td>
+		<td>...</td>
+	  </tr>
+	</tbody>
+	</table>
+
+--
+
+#### Table relations (Entity relations)
+
+![relational_database_er-dia.svg](figures/relational_database_er-dia.svg)
+
+--
+
 <p class="important"> Relational databases are <b>not</b> suitable for statistics </p>
 
 Statistic methods require ordering of values:
-* Tuples in tables are unorderd
-* Colums are unordered
+* Tuples in tables are unordered
+* Columns are unordered
     * Unsuitable for time series statistics
 * Sample may contain duplicates
-    * Not allows in relational databases
+    * Not allowed in relational databases
     
 <p class="note"> Hacks exist </p>
 
@@ -135,13 +193,7 @@ Statistic methods require ordering of values:
 ### MapReduce
 
 <!-- .slide: data-background=" #a3c1ad" -->
-![MapReduce2.svg](figures/MapReduce2.svg)
-
-<div style="text-align: right;">
-
-Soruce: Wikipedia
-
-</div>
+![map_reduce.svg](figures/map_reduce.svg)
 
 --
 
@@ -154,6 +206,12 @@ Soruce: Wikipedia
 	* Statistical metrics exists
         * Diameter, Centrality, Giant
 	* Scalable: efficient for traversals
+
+--
+
+#### Example: Graph database
+
+![graph_database.svg](figures/graph_database.svg)
 
 --
 
@@ -191,7 +249,7 @@ Soruce: Wikipedia
 <!-- .slide: data-background=" aquamarine" -->
 <div class="exercise"> 
 
-Please create a symmetric `$ 10 \times 10 $` matrix in R. Consider the R functions <code>lower.tri()</code> and <code>upper.tri()</code>. Fill the matrix with a sequence of numbers as given in the `$ 3 \times 3 $` matrix below.
+Please create a symmetric `$ 10 \times 10 $` matrix in R. Consider the R functions <code>lower.tri()</code>, <code>upper.tri()</code> and <code>t()</code> for creating the upper and lower triangle and the transpose the matrix. Fill the matrix with a sequence of numbers (`$1 \dots 45$` in each triangle) as given in the `$ 3 \times 3 $` matrix below.
 
 `$$
 \begin{bmatrix}
@@ -201,7 +259,9 @@ Please create a symmetric `$ 10 \times 10 $` matrix in R. Consider the R functio
 \end{bmatrix}
 $$`
 
-Time: 15 Minutes
+Time: 20 Minutes
+
+Hint: For a symmetric matrix `$ A $` it holds: `$ A = A^T $` with `$ A^T $` is the transpose of `$ A $`.
 
 </div>
 
