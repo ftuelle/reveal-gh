@@ -510,6 +510,155 @@ Learn to predict output when given an input vector.
 		<p>Positive behaviour followed by removal of negative consequences</p>
 	</section>
 </section>
+
+<section>
+	<section>
+		<h2>Introduction to Neural Networks</h2>
+	</section>
+
+	<section>
+		<h3>Introductory Example</h3>
+		<p>Say you want to decide whether you are going to attend a music festival this upcoming
+			weekend. There are three variables that go into your decision:</p>
+		<ol>
+			<li>Is the weather good?</li>
+			<li>Does your friends want to go as well?</li>
+			<li>Feel you prepared enough for the maths exam next week?</li>
+		</ol>
+		<p>Let's assume that these questions are the only decision factors.</p>
+	</section>
+
+	<section>
+		<h3>Introductory Example; binary variables</h3>
+		<p>Assign binary variables to the questions (zero meaning "no", one being "yes"</p>
+		<ol>
+			<li>$x_1$: Is the weather good?</li>
+			<li>$x_2$: Does your friends want to go as well?</li>
+			<li>$x_3$: Feel you prepared enough for the maths exam next week?</li>
+		</ol>
+	</section>
+
+	<section>
+		<h3>Introductory Example; weights and threshold</h3>
+		<p>Assign weights $W_i$ as indication of importance of the decision factors.  Rewrite as formula compared to a predefined threshold</p>
+		
+		<p>$x_1 \cdot w_1 + x_2 \cdot w_2 + x_3 \cdot w_3 \geq threshold $</p>
+
+		<p>If the statement is true, we would attend the festival.</p>
+
+	</section>
+
+	<section>
+		<h3>Introductory Example; picking weights</h3>
+		<p>Assume we really hate to go if weather is bad, but care less if friends are going of if we are well-prepared for the maths exam (because there is a re-take exam). We could pick:</p>
+		<ul>
+			<li>$w_1 = 6$</li>
+			<li>$w_2 = 2$</li>
+			<li>$w_3 = 2$</li>
+		</ul>
+		<p class="fragment"> With a threshold of $5$ causes us to go if and only if the weather is good.</p>
+		<p class="fragment"> What happens with threshold of $3$ or $1$?</p>
+	</section>
+
+	<section>
+		<h3>Introductory Example; output variable</h3>
+		<p>If we define a new binary variable y that represents whether we go to the festival, we can write this variable as:</p>
+		\[
+			y = \left\{ \begin{array}{rcl}
+			0 & \mbox{,} & x_1 \cdot w_1 + x_2 \cdot w_2 + x_3 \cdot w_3 < threshold
+			\\ 1 & \mbox{,} & x_1 \cdot w_1 + x_2 \cdot w_2 + x_3 \cdot w_3 \geq threshold
+			\end{array}\right.
+		\]
+	</section>
+
+	<section>
+		<h3>Introductory Example; vectorized</h3>
+		<p>Now, if I rewrite this in terms of a dot product between the vector of all binary inputs($\mathbf{x}$), a vector of weights ($\mathbf{w}$), and change the threshold to the negative bias ($b$), we have:</p>
+		\[
+			y = \left\{ \begin{array}{rcl}
+			0 & \mbox{,} & \mathbf{x} \cdot \mathbf{w} + b < 0
+			\\ 1 & \mbox{,} & \mathbf{x} \cdot \mathbf{w} + b \geq 0
+			\end{array}\right.
+		\]
+	</section>
+
+	<section>
+		<h3>The perceptron</h3>
+		<p>We can graphically represent this decision algorithm as an object that takes 3 binary inputs and produces a single binary output:</p>
+
+		<img src="figures/perceptron.svg" alt="Schematic overview of a preceptron with three inputs." width="500">
+		
+	</section>
+
+	<section>
+		<h3>A network of perceptrons</h3>
+		<p>A perceptron takes a number of binary inputs and emits a binary output. Therefore it is
+			easy to build a network of such perceptrons, where the output from some perceptrons
+			are used in the inputs of other perceptrons:</p>
+
+		<img src="figures/perceptron_net.svg" alt="Schematic overview of a preceptron network with three inputs." width="500">
+
+		<p>Please note: the multiple output arrows of some perceptrons only indicate that the single output signal is distributed to multiple new perceptrons.</p>
+	</section>
+
+	<section>
+		<h3>The layers of a perceptron network</h3>
+		<p>Input and output are typically represented with their own perceptrons in between the neurons are named hidden layers.</p>
+
+		<img src="figures/perceptron_net_layers.svg" alt="Schematic overview of a preceptron network with three inputs with layers shown." width="500">
+	</section>
+
+	<section>
+		<h3>Perceptron with weights and activation function</h3>
+		<img src="figures/perceptron_weights_activation.png" alt="Schematic overview of a preceptron network with three inputs with layers shown." width="500">
+	</section>
+
+	<section>
+		<h3>Sigmoid neuron</h3>
+		<p>An important shortcoming of a perceptron is that a small change in the input values can cause a large change the output because each node (or neuron) only has two possible states: 0 or 1. A better solution would be to output a continuum of values, say any number between 0 and 1.</p>
+	</section>
+
+	<section>
+		<h3>Sigmoid neuron, cont.</h3>
+		<p>As one option, we could simply have the neuron emit the value:</p>
+
+		\[
+		\sigma(\mathbf{x} \cdot \mathbf{w} + b) = \frac1{1+e^{-(\mathbf{x}\cdot\mathbf{w}+b)}}
+		\]
+
+		<p class="fragment"> The Sigmoid function is called the <em>Activation function</em> of a neuron.</p>
+	</section>
+
+	<section>
+		<h3>Learning neural networks</h3>
+		<p>We now have an architecture that describes a neural network, but how do we learn the weights and bias terms in the model given a set of training data?</p>
+	</section>
+
+	<section>
+		<h3>Cost function</h3>
+		<p>The primary set-up for learning neural networks is to define a cost function (also known as a loss function) that measures how well the network predicts outputs on the test set.</p>
+
+		<p>The goal is to then find a set of weights and biases that minimizes the cost.</p>
+
+
+		<div class="fragment">
+		<p>One example of a cost function is the squared error loss:</p>
+		\[
+			C(\mathbf{w},b) = \frac1{2n}\sum_i(y_i - \overline{y}(x_i))^2
+		\]
+		</div>
+	</section>
+
+	<section>
+		<h3>Optimisation problem</h3>
+		<p>How does one actually do the optimization required in fitting neural networks? With very few exceptions, every technique is somehow related to gradient descent. That is, we calculate the gradient function, move a small amount in the opposite direction of the gradient (because we are minimizing), and then recalculate the gradient on the new spot.</p>
+
+		<p class="fragment">The step-size for movements determine how fast/slow we optimise and if we find the minimum.</p>
+	</section>
+
+</section>
+
+<!-- 
 <section>
 	<section>
 		<h2>Machine Learning and Big Data</h2>
@@ -521,8 +670,9 @@ Learn to predict output when given an input vector.
 			<li>Now: Many ML problems involve tons of data. But the domain of ML is still in AI (recognition etc.)</li>
 		</ul>
 	</section>
-</section>
-<section>
+</section> -->
+
+<!-- <section>
 	<section>
 		<h2>Machine Learning and Statistics</h2>
 	</section>
@@ -539,7 +689,8 @@ Learn to predict output when given an input vector.
 			<li>Can view ML as applying computational techniques to statistical problems. But with different aims (speed vs. accuracy)</li>
 		</ul>
 	</section>
-</section>
+</section> -->
+
 <section data-background-color="aquamarine">
 <h3> Exercise </h3>
 <p> Please work through the End-to-End tutorial </p>
